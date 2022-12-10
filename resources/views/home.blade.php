@@ -119,9 +119,11 @@
 @section('script')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {
-            document.getElementById('confirmation').remove();
-        }, 5000);
+        if(document.getElementById('confirmation')) {
+            setTimeout(() => {
+                document.getElementById('confirmation').remove();
+            }, 5000);
+        }
     });
 </script>
 @endsection
