@@ -6,3 +6,37 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link.active::before {
+  content: '';
+  height: 80%;
+  width: 15px;
+  top: 10%;
+  left: -5px;
+  position: absolute;
+  background-color: var(--bs-primary);
+  border-radius: 3px;
+}
+
+.nav-link:not(.active)::before {
+  content: '';
+  height: 50%;
+  width: 10px;
+  top: 25%;
+  left: -2.5px;
+  position: absolute;
+  background: none;
+  border-radius: 3px;
+}
+.nav-link:not(.active):hover::before {
+  background-color: var(--bs-primary);
+}
+
+.nav-item.d-lg-none .nav-link::before,
+.nav-item.d-lg-none .nav-link::before  {
+  display: none;
+}

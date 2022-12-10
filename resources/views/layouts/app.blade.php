@@ -41,7 +41,10 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item d-lg-none d-flex justify-content-around py-3">
+                                @include('navs.nav')
+                            </li>
+                            <li class="nav-item text-center">
                                 <div>
                                     <a class="text-muted" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
