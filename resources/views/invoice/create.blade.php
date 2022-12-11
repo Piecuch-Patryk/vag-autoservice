@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <h1>Formularz Naprawy</h1>
-                    <p>Stwórz formularz w łatwy i przyjemny sposób.</p>
+                    <p>Stwórz formularz naprawy w łatwy i przyjemny sposób.</p>
 
                     @if(session('success'))
                     <p id="confirmation" class="text-success">{{ session('success') }}</p>
@@ -94,7 +94,7 @@
 
                         <h3>Wykonane Czynności</h3>
                         <div class="row">
-                            <div class="col-lg-10 mb-3">
+                            <div class="col-7 px-0 ps-1 px-lg-3 col-lg-10 mb-3">
 								<div class="input-group">
 									<label for="InputJobDesc" class="input-group-text">Opis</label>
 									<input value="{{ old('jobDesc') }}" name="jobDesc" type="text" class="form-control" id="InputPartDesc">
@@ -106,7 +106,7 @@
 								</span>
 								@endif
                             </div>
-							<div class="col-lg-2 mb-3">
+							<div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
 								<div class="input-group">
 									<label for="InputJobPrice" class="input-group-text">Cena</label>
 									<input value="{{ old('jobPrice') }}" name="jobPrice" type="number" class="form-control" id="InputPartDesc">
@@ -121,7 +121,7 @@
                         </div>
                         <h3>Lista Części</h3>
                         <div class="row">
-							<div class="col-lg-10 mb-3">
+							<div class="col-7 px-0 ps-1 px-lg-3 col-lg-10 mb-3">
 								<div class="input-group">
 									<label for="InputPartDesc" class="input-group-text">Opis</label>
 									<input value="{{ old('partDesc') }}" name="partDesc" type="number" class="form-control" id="InputPartDesc">
@@ -134,7 +134,7 @@
 								@endif
 							</div>
 
-							<div class="col-lg-2 mb-3">
+							<div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
 								<div class="input-group">
 									<label for="InputPartPrice" class="input-group-text">Cena</label>
 									<input value="{{ old('PartPrice') }}" name="PartPrice" type="number" class="form-control" id="InputPartPrice">
@@ -148,12 +148,8 @@
 							</div>
                         </div>
                         <h3>Dodatkowe Informacje</h3>
-                        <div class="input-group mb-3">
-                            <label for="InputDescription" class="input-group-text">Dodatkowe Informacje</label>
-                            <textarea name="description" class="form-control" id="InputDescription">
-                              {{ old('description') }}
-                            </textarea>
-                            </div>
+                        <div class="mb-3">
+                            <textarea name="description" class="form-control" id="InputDescription">{{ old('description') }}</textarea>
                         </div>
 						
 						@if ($errors->first('description'))
