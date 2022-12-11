@@ -6,6 +6,8 @@ use App\Http\Requests\CreateInvoiceRequest;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\each;
+
 class InvoiceController extends Controller
 {
     /**
@@ -15,7 +17,13 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //
+        $invoices = Invoice::latest()->get();
+        foreach ($invoices as $key => $invoice) {
+            $invoice->jobs = json_decode($invoice->jobs);
+            $invoice->parts = json_decode($invoice->parts);
+        }
+
+        return view('invoice.index', ['invoices' => $invoices]);
     }
 
     /**
@@ -57,7 +65,8 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
-        //
+        Invoice::findOrFail($id);
+        dd(Invoice::findOrFail($id));
     }
 
     /**

@@ -40,3 +40,11 @@
 .nav-item.d-lg-none .nav-link::before  {
   display: none;
 }
+
+.btn-outilne-primary {
+  color: var(--bs-primary);
+}
+
+.sticky-top {
+  top: 100px;
+}
