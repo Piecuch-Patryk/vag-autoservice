@@ -13,7 +13,7 @@ class CreateInvoiceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class CreateInvoiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'number' => 'required|number',
+            'number' => 'required|numeric',
             'make' => 'required',
             'model' => 'required',
             'registration' => 'required',

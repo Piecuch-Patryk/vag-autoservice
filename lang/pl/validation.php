@@ -42,7 +42,22 @@ return [
         ],
         'number' => [
             'required' => 'Proszę podać numer ulicy',
-            'int' => 'Pole może zawierać tylko cyfry',
+            'numeric' => 'Pole może zawierać tylko cyfry',
+        ],
+        'make' => [
+            'required' => 'Podaj mmarkę samochodu',
+        ],
+        'model' => [
+            'required' => 'Podaj model samochodu',
+        ],
+        'registration' => [
+            'required' => 'Podaj rejestrację samochodu',
+        ],
+        'vin' => [
+            'required' => 'Podaj numer VIN',
+        ],
+        'milage' => [
+            'required' => 'Podaj przebieg samochodu'
         ],
     ],
 ];

@@ -29,7 +29,7 @@ class UpdateCompanyRequest extends FormRequest
             'post_code' => 'required',
             'city' => 'required',
             'street' => 'required',
-            'number' => 'required|int',
+            'number' => 'required|numeric',
         ];
     }
 }

@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function() {
   // Invoice
   Route::controller(InvoiceController::class)->group(function() {
     Route::get('/create-invoice', 'create')->name('invoice.create');
+    Route::post('/create-invoice', 'store')->name('invoice.store');
   });
 
 
