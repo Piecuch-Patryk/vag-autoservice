@@ -92,61 +92,109 @@
 						</div>
 						@endif
 
-                        <h3>Wykonane Czynności</h3>
-                        <div class="row">
-                            <div class="col-7 px-0 ps-1 px-lg-3 col-lg-10 mb-3">
-								<div class="input-group">
-									<label for="InputJobDesc" class="input-group-text">Opis</label>
-									<input value="{{ old('jobDesc') }}" name="jobDesc" type="text" class="form-control" id="InputPartDesc">
+						@if(old('jobs.desc'))
+						<div id="jobsContainer" data-container="jobs">
+							<h3>
+								Wykonane Czynności
+								<button type="button" data-create="jobs" class="btn btn-sm py-0 btn-success ms-3">+</button>
+							</h3>
+							@for ($i = 0; $i < count(old('jobs.desc')); $i++)
+							<div data-input-group="jobs" class="row">
+								<div class="col-7 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+									<div class="input-group">
+										<label for="InputJobDesc" class="input-group-text">Opis</label>
+										<input value="{{ old('jobs.desc.'.$i) }}" name="jobs[desc][]" type="text" class="form-control" id="InputPartDesc">
+									</div>
 								</div>
-								
-								@if ($errors->first('jobDesc'))
-								<span class="text-danger fw-bold">
-									{{ $errors->first('jobDesc') }}
-								</span>
-								@endif
-                            </div>
-							<div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
-								<div class="input-group">
-									<label for="InputJobPrice" class="input-group-text">Cena</label>
-									<input value="{{ old('jobPrice') }}" name="jobPrice" type="number" class="form-control" id="InputPartDesc">
+								<div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+									<div class="input-group">
+										<label for="InputJobPrice" class="input-group-text">Cena</label>
+										<input value="{{ old('jobs.price.'.$i) ? old('jobs.price.'.$i) : '' }}" name="jobs[price][]" type="number" class="form-control" id="InputPartDesc">
+									</div>
 								</div>
-									
-								@if ($errors->first('jobPrice'))
-								<span class="text-danger fw-bold">
-									{{ $errors->first('jobPrice') }}
-								</span>
-								@endif
+								<div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+									<button data-remove type="button" class="btn btn-sm py-0 btn-danger">Usuń</button>
+								</div>
 							</div>
-                        </div>
-                        <h3>Lista Części</h3>
-                        <div class="row">
-							<div class="col-7 px-0 ps-1 px-lg-3 col-lg-10 mb-3">
-								<div class="input-group">
-									<label for="InputPartDesc" class="input-group-text">Opis</label>
-									<input value="{{ old('partDesc') }}" name="partDesc" type="number" class="form-control" id="InputPartDesc">
+							@endfor
+						</div>
+						@else
+						<div id="jobsContainer" data-container="jobs">
+							<h3>
+								Wykonane Czynności
+								<button type="button" data-create="jobs" class="btn btn-sm py-0 btn-success ms-3">+</button>
+							</h3>
+							<div data-input-group="jobs" class="row">
+								<div class="col-7 px-0 ps-1 px-lg-3 col-lg-8 mb-3">
+									<div class="input-group">
+										<label for="InputJobDesc" class="input-group-text">Opis</label>
+										<input value="" name="jobs[desc][]" type="text" class="form-control" id="InputPartDesc">
+									</div>
 								</div>
-								
-								@if ($errors->first('partDesc'))
-								<span class="text-danger fw-bold">
-									{{ $errors->first('partDesc') }}
-								</span>
-								@endif
+								<div class="col-5 px-0 ps-1 px-lg-3 col-lg-3 mb-3">
+									<div class="input-group">
+										<label for="InputJobPrice" class="input-group-text">Cena</label>
+										<input value="" name="jobs[price][]" type="number" class="form-control" id="InputPartDesc">
+									</div>
+								</div>
+								<div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+									<button data-remove type="button" class="btn btn-sm py-0 btn-danger">Usuń</button>
+								</div>
 							</div>
+						</div>
+						@endif
 
-							<div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
-								<div class="input-group">
-									<label for="InputPartPrice" class="input-group-text">Cena</label>
-									<input value="{{ old('PartPrice') }}" name="PartPrice" type="number" class="form-control" id="InputPartPrice">
+						@if(old('parts.desc'))
+						<div id="partsContainer" data-container="parts">
+							<h3>
+								Lista Części
+								<button type="button" data-create="parts" class="btn btn-sm py-0 btn-success ms-3">+</button>
+							</h3>
+							@for ($i = 0; $i < count(old('parts.desc')); $i++)
+							<div data-input-group="parts" class="row">
+								<div class="col-7 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+									<div class="input-group">
+										<label for="InputPartDesc" class="input-group-text">Opis</label>
+										<input value="{{ old('parts.desc.'.$i) }}" name="parts[desc][]" type="text" class="form-control" id="InputPartDesc">
+									</div>
 								</div>
-
-								@if ($errors->first('PartPrice'))
-								<span class="text-danger fw-bold">
-									{{ $errors->first('PartPrice') }}
-								</span>
-								@endif
+								<div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+									<div class="input-group">
+										<label for="InputPartPrice" class="input-group-text">Cena</label>
+										<input value="{{ old('parts.price.'.$i) ? old('parts.price.'.$i) : '' }}" name="parts[price][]" type="number" class="form-control" id="InputPartPrice">
+									</div>
+								</div>
+								<div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+									<button data-remove type="button" class="btn btn-sm py-0 btn-danger">Usuń</button>
+								</div>
 							</div>
-                        </div>
+							@endfor
+						</div>
+						@else
+						<div id="partsContainer" data-container="parts">
+							<h3>
+								Lista Części
+								<button type="button" data-create="parts" class="btn btn-sm py-0 btn-success ms-3">+</button>
+							</h3>
+							<div data-input-group="parts" class="row">
+								<div class="col-7 px-0 ps-1 px-lg-3 col-lg-8 mb-3">
+									<div class="input-group">
+										<label for="InputPartDesc" class="input-group-text">Opis</label>
+										<input value="" name="parts[desc][]" type="text" class="form-control" id="InputPartDesc">
+									</div>
+								</div>
+								<div class="col-5 px-0 ps-1 px-lg-3 col-lg-3 mb-3">
+									<div class="input-group">
+										<label for="InputPartPrice" class="input-group-text">Cena</label>
+										<input value="" name="parts[price][]" type="number" class="form-control" id="InputPartPrice">
+									</div>
+								</div>
+								<div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+									<button data-remove type="button" class="btn btn-sm py-0 btn-danger">Usuń</button>
+								</div>
+							</div>
+						</div>
+						@endif
                         <h3>Dodatkowe Informacje</h3>
                         <div class="mb-3">
                             <textarea name="description" class="form-control" id="InputDescription">{{ old('description') }}</textarea>
@@ -173,7 +221,27 @@
 
 @section('script')
 <script>
+	function addInputGroup() {
+		const current = this.attributes['data-create'].value;
+		const container = this.closest('[data-container]');
+		const newEl = container.querySelector('[data-input-group').cloneNode(true);
+
+		newEl.querySelectorAll('input').forEach(input => input.value = '');
+		newEl.querySelector('[data-remove]').addEventListener('click', removeInputGroup);
+
+		return container.appendChild(newEl);
+	}
+
+	function removeInputGroup() {
+		const elCount = this.closest('[data-container]').querySelectorAll('[data-input-group]').length;
+		if(elCount > 1) return this.closest('[data-input-group]').remove();
+	}
+
     document.addEventListener('DOMContentLoaded', function() {
+
+		document.querySelectorAll('[data-create]').forEach(el => el.addEventListener('click', addInputGroup));
+		document.querySelectorAll('[data-remove]').forEach(el => el.addEventListener('click', removeInputGroup));
+
         if(document.getElementById('confirmation')) {
             setTimeout(() => {
                 document.getElementById('confirmation').remove();

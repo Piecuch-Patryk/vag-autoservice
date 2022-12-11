@@ -30,8 +30,8 @@ class CreateInvoiceRequest extends FormRequest
             'registration' => 'required',
             'vin' => 'required',
             'milage' => 'required',
-            'jobs' => 'required',
-            'parts' => 'required',
+            'jobs' => 'array',
+            'parts' => 'array',
         ];
     }
 }
