@@ -41,8 +41,12 @@ class InvoiceController extends Controller
      */
     public function store(CreateInvoiceRequest $request)
     {
-        dd($request);
+        $formData = $request->all();
+        $formData['jobs'] = json_encode($formData['jobs']);
+        $formData['parts'] = json_encode(($formData['parts']));
+        Invoice::create($formData);
 
+        return redirect()->route('invoice.index');
     }
 
     /**
