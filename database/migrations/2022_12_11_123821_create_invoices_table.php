@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('make');
             $table->string('model');
             $table->string('registration');
-            $table->bigInteger('vin');
+            $table->string('vin');
             $table->bigInteger('milage');
             $table->text('description')->nullable();
             $table->text('jobs')->nullable();
