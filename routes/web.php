@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Auth\UpdateUserController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\Auth\UpdateUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,11 @@ Route::middleware('auth')->group(function() {
   // User
   Route::post('/user/update/{id}', [UpdateUserController::class, 'update'])->name('user.update');
 
-});
+  // Company
+  Route::controller(CompanyController::class)->group(function() {
+    Route::get('/edit', 'edit')->name('company.edit');
+    Route::post('/update/{id}', 'update')->name('company.update');
+  });
 
-// Route::controller(OrderController::class)->group(function () {
-//   Route::get('/orders/{id}', 'show');
-//   Route::post('/orders', 'store');
-// });
+
+});

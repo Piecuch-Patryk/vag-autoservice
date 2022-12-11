@@ -31,5 +31,18 @@ return [
             'required' => 'Proszę podać hasło',
             'between' => 'Hasło musi zawierać 8-20 znaków',
         ],
+        'post_code' => [
+            'required' => 'Proszę podać kod pocztowy',
+        ],
+        'city' => [
+            'required' => 'Proszę podać nazwę miejscowości',
+        ],
+        'street' => [
+            'required' => 'Proszę podać nazwę ulicy',
+        ],
+        'number' => [
+            'required' => 'Proszę podać numer ulicy',
+            'int' => 'Pole może zawierać tylko cyfry',
+        ],
     ],
 ];
