@@ -22,7 +22,7 @@
                         @csrf
                         <div class="input-group mb-3">
                             <label for="InputNumber" class="input-group-text">Numer Dokumentu</label>
-                            <input value="{{ $invoiceNumber++ }}" readonly name="number" type="text" class="form-control" id="InputNumber">
+                            <input value="{{ $invoiceNumber }}" readonly name="number" type="text" class="form-control" id="InputNumber">
                         </div>
                         <div class="input-group mb-3">
                             <label for="InputMake" class="input-group-text">Marka Pojazdu</label>

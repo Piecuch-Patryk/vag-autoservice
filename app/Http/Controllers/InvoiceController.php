@@ -28,7 +28,7 @@ class InvoiceController extends Controller
         $lastOrder = Invoice::orderBy('number', 'desc')->first();
 
         if(!$lastOrder) $invoiceNumber = '10001';
-        else $invoiceNumber = $lastOrder->number;
+        else $invoiceNumber = $lastOrder->number + 1;
 
         return view('invoice.create', ['invoiceNumber' => $invoiceNumber]);
     }
