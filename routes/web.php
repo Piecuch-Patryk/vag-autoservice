@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Auth\UpdateUserController;
+use App\Http\Controllers\InvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::middleware('auth')->group(function() {
   Route::controller(CompanyController::class)->group(function() {
     Route::get('/edit', 'edit')->name('company.edit');
     Route::post('/update/{id}', 'update')->name('company.update');
+  });
+
+  // Invoice
+  Route::controller(InvoiceController::class)->group(function() {
+    Route::get('/create-invoice', 'create')->name('invoice.create');
   });
 
 
