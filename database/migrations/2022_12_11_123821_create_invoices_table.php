@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('registration');
             $table->bigInteger('vin');
             $table->bigInteger('milage');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('jobs');
             $table->text('parts');
             $table->timestamps();
