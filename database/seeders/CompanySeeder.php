@@ -17,6 +17,7 @@ class CompanySeeder extends Seeder
     {
         Company::create([
             'name' => 'VAG Autoserwis',
+            'email' => 'contact@page.com',
             'post_code' => '47-220',
             'city' => 'Przyworów',
             'street' => 'Owocowa',
