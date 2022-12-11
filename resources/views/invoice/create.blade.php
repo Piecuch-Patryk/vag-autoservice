@@ -93,8 +93,8 @@
 						@endif
 
                         <h3>Wykonane Czynności</h3>
-                        <div class="row mb-3">
-                            <div class="col-lg-10">
+                        <div class="row">
+                            <div class="col-lg-10 mb-3">
 								<div class="input-group">
 									<label for="InputJobDesc" class="input-group-text">Opis</label>
 									<input value="{{ old('jobDesc') }}" name="jobDesc" type="text" class="form-control" id="InputPartDesc">
@@ -106,7 +106,7 @@
 								</span>
 								@endif
                             </div>
-							<div class="col-lg-2">
+							<div class="col-lg-2 mb-3">
 								<div class="input-group">
 									<label for="InputJobPrice" class="input-group-text">Cena</label>
 									<input value="{{ old('jobPrice') }}" name="jobPrice" type="number" class="form-control" id="InputPartDesc">
@@ -120,8 +120,8 @@
 							</div>
                         </div>
                         <h3>Lista Części</h3>
-                        <div class="row mb-3">
-							<div class="col-lg-10">
+                        <div class="row">
+							<div class="col-lg-10 mb-3">
 								<div class="input-group">
 									<label for="InputPartDesc" class="input-group-text">Opis</label>
 									<input value="{{ old('partDesc') }}" name="partDesc" type="number" class="form-control" id="InputPartDesc">
@@ -134,7 +134,7 @@
 								@endif
 							</div>
 
-							<div class="col-lg-2">
+							<div class="col-lg-2 mb-3">
 								<div class="input-group">
 									<label for="InputPartPrice" class="input-group-text">Cena</label>
 									<input value="{{ old('PartPrice') }}" name="PartPrice" type="number" class="form-control" id="InputPartPrice">
