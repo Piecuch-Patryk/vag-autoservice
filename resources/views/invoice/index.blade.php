@@ -145,13 +145,19 @@
                                                     <div
                                                         class="border-bottom d-flex justify-content-between mb-3 align-items-center">
                                                         <h2 class="mb-0 fs-5">Suma</h2>
-                                                        <p class="mb-0 fs-5">{{ $invoice->amount / 100 }} PLN</p>
+                                                        <p class="mb-0 fs-5">{{ number_format($invoice->amount / 100, 2) }} PLN</p>
                                                     </div>
-                                                    <div class="d-flex justify-content-center mb-5">
+                                                    <div class="d-flex justify-content-around justify-content-lg-center mb-5">
                                                         <a href="{{ route('invoice.download', ['id' => $invoice->id]) }}"
                                                             class="btn btn-sm py-0 btn-outline-info mx-3">Pobierz PDF</a>
                                                         <a href="{{ route('invoice.edit', ['id' => $invoice->id]) }}"
                                                             class="btn btn-sm py-0 btn-outline-primary mx-3">Edytuj</a>
+                                                        <form method="POST"
+                                                            action="{{ route('invoice.destroy', $invoice->id) }}">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button class="btn btn-sm btn-danger py-0 d-lg-none">Usuń</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                                 <div
@@ -165,7 +171,7 @@
                                                             action="{{ route('invoice.destroy', $invoice->id) }}">
                                                             @csrf
                                                             @method('delete')
-                                                            <button class="btn btn-sm btn-danger">Usuń</button>
+                                                            <button class="btn btn-sm btn-danger py-0">Usuń</button>
                                                         </form>
                                                     </div>
                                                 </div>
