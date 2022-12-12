@@ -53,6 +53,11 @@ class InvoiceController extends Controller
         $formData = $request->all();
         $formData['jobs'] = json_encode($formData['jobs']);
         $formData['parts'] = json_encode(($formData['parts']));
+        $formData['amount'] = 0;
+
+        foreach ($request->get('jobs')['price'] as $key => $value) $formData['amount'] += $value;
+        foreach ($request->get('parts')['price'] as $key => $value) $formData['amount'] += $value;
+
         Invoice::create($formData);
 
         return redirect()->route('invoice.index')->with('success', 'Pomyślnie utworzono nowy rekord');

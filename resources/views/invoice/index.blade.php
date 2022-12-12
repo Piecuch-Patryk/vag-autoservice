@@ -88,7 +88,8 @@
                                                                             {{ $invoice->parts->desc[$i] }}
                                                                         </p>
                                                                     </div>
-                                                                    <p class="mb-0">{{ $invoice->parts->price[$i] / 100 }}
+                                                                    <p class="mb-0">
+                                                                        {{ $invoice->parts->price[$i] / 100 }}
                                                                         PLN</p>
                                                                 </li>
                                                             @endfor
@@ -97,7 +98,7 @@
                                                     <div
                                                         class="border-bottom d-flex justify-content-between mb-3 align-items-center">
                                                         <h2 class="mb-0 fs-5">Suma</h2>
-                                                        <p class="mb-0 fs-5">{{ $invoice->amount/100 }} PLN</p>
+                                                        <p class="mb-0 fs-5">{{ $invoice->amount / 100 }} PLN</p>
                                                     </div>
                                                     <div class="d-flex justify-content-center mb-5">
                                                         <button
