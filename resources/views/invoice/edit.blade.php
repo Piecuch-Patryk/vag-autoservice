@@ -16,6 +16,7 @@
 
                 <form method="POST" action="{{ route('invoice.update', $invoice->id) }}" class="pt-3">
                     @csrf
+                    @method('PUT')
                     <div class="input-group input-group-sm mb-3">
                         <label for="InputNumber" class="input-group-text">Numer Dokumentu</label>
                         <input value="{{ $invoice->number }}" readonly name="number" type="text" class="form-control"
@@ -82,7 +83,7 @@
                                     <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                            <input value="{{ old('jobs.price.' . $i) ? old('jobs.price.' . $i) : '' }}"
+                                            <input value="{{ old('jobs.price.' . $i) ? old('jobs.price.' . $i)/100 : '' }}"
                                                 name="jobs[price][]" type="number" class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
@@ -104,7 +105,7 @@
                                     <div class="col-5 px-0 ps-1 px-lg-3 col-lg-3 mb-3">
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                            <input value="{{ $invoice->jobs['price'][$i] }}" name="jobs[price][]"
+                                            <input value="{{ $invoice->jobs['price'][$i]/100 }}" name="jobs[price][]"
                                                 type="number" class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
@@ -135,7 +136,7 @@
                                     <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                            <input value="{{ old('parts.price.' . $i) ? old('parts.price.' . $i) : '' }}"
+                                            <input value="{{ old('parts.price.' . $i)/100 ? old('parts.price.' . $i) : '' }}"
                                                 name="parts[price][]" type="number" class="form-control"
                                                 id="InputPartDesc">
                                         </div>
@@ -159,7 +160,7 @@
                                     <div class="col-5 px-0 ps-1 px-lg-3 col-lg-3 mb-3">
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                            <input value="{{ $invoice->parts['price'][$i] }}" name="parts[price][]"
+                                            <input value="{{ $invoice->parts['price'][$i]/100 }}" name="parts[price][]"
                                                 type="number" class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
