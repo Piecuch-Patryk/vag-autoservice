@@ -10,7 +10,7 @@
             </div>
             <div class="col-12 col-lg-9">
                 <h1>Formularz Naprawy</h1>
-                <p>Stwórz formularz naprawy w łatwy i przyjemny sposób.</p>
+                <p>Edytuj formularz naprawy w łatwy i przyjemny sposób.</p>
 
                 @include('shared.success')
 

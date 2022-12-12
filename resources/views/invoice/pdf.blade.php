@@ -204,7 +204,7 @@
         <div class="container">
             <h2>Uwagi Dotyczące Serwisu</h2>
             <div class="lg">
-                <p>{{ $data->descirption ? $data->descirption : 'Brak dodatkowych informacji.' }}</p>
+                <p>{{ $data->description ? $data->description : 'Brak dodatkowych informacji.' }}</p>
             </div>
         </div>
     </main>
