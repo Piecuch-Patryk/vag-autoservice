@@ -30,6 +30,7 @@ class UpdateCompanyRequest extends FormRequest
             'city' => 'required',
             'street' => 'required',
             'number' => 'required|numeric',
+            'phone' => 'required',
         ];
     }
 }

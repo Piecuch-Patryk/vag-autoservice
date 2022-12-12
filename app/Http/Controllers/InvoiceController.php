@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Invoice;
 use PDF;
+use App\Models\Company;
+use App\Models\Invoice;
 use App\Http\Requests\CreateInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
 
@@ -126,10 +127,11 @@ class InvoiceController extends Controller
      */
     public function download($id)
     {
+        $company = Company::first();
         $data = Invoice::find($id);
         $data['jobs'] = json_decode($data['jobs'], true);
         $data['parts'] = json_decode($data['parts'], true);
-        $pdf = PDF::loadView('invoice.pdf', ['data' => $data]);
+        $pdf = PDF::loadView('invoice.pdf', ['data' => $data, 'company' => $company]);
         
         return $pdf->download('VAG_Autoserwis_'. $data->registration . '_'. $data->created_at->format('Y-m-d') .'.pdf');
     }
