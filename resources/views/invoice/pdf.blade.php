@@ -162,7 +162,7 @@
 
 					@foreach ($data->jobs['desc'] as $job)
 					<tr>
-						<td>{{ $data->jobs['desc'][$loop->index] }}</td>
+						<td>{{ $loop->index+1 }}. {{ $data->jobs['desc'][$loop->index] }}</td>
 						<td class="text-center width">{{ $data->jobs['price'][$loop->index] / 100 }} zł</td>
 					</tr>
 					@endforeach
@@ -183,7 +183,7 @@
 
 					@foreach ($data->parts['desc'] as $job)
 					<tr>
-						<td>{{ $data->parts['desc'][$loop->index] }}</td>
+						<td>{{ $loop->index+1 }}. {{ $data->parts['desc'][$loop->index] }}</td>
 						<td class="text-center width">{{ $data->parts['price'][$loop->index] / 100 }} zł</td>
 					</tr>
 					@endforeach
