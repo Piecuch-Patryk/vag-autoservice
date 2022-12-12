@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
-use Illuminate\Http\Request;
-use function GuzzleHttp\Promise\each;
-
+use PDF;
 use App\Http\Requests\CreateInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
 
@@ -92,6 +90,22 @@ class InvoiceController extends Controller
         $invoice->update($request->all());
 
         return view('invoice.edit', ['invoice' => $invoice])->with('success', 'Dane zostały zaktualizowane pomyślnie');
+    }
+
+    /**
+     * Download specified resource
+     * 
+     * @param int $id
+     * @return PDF $file
+     */
+    public function download($id)
+    {
+        $data = Invoice::find($id);
+        $data['jobs'] = json_decode($data['jobs'], true);
+        $data['parts'] = json_decode($data['parts'], true);
+        $pdf = PDF::loadView('invoice.pdf', ['data' => $data]);
+        
+        return $pdf->stream('userlist.pdf');
     }
 
     /**

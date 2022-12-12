@@ -103,8 +103,8 @@
                                                     <div class="d-flex justify-content-center mb-5">
                                                         <button
                                                             class="btn btn-sm py-0 btn-outline-info mx-3">Drukuj</button>
-                                                        <button
-                                                            class="btn btn-sm py-0 btn-outline-info mx-3">Pobierz</button>
+                                                        <a href="{{ route('invoice.download', ['id' => $invoice->id]) }}"
+                                                            class="btn sm py-0 btn-outline-info mx-3">Pobierz PDF</a>
                                                         <a href="{{ route('invoice.edit', ['id' => $invoice->id]) }}"
                                                             class="btn sm py-0 btn-outline-primary mx-3">Edytuj</a>
                                                     </div>
