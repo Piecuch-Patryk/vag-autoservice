@@ -39,7 +39,7 @@
                                         <label for="InputEmail" class="form-label mb-0">Email</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ old('email') ? old('email') : auth()->user()->email }}" name="email" type="email"
+                                        <input value="{{ old('email') ? old('email') : $company->email }}" name="email" type="email"
                                             class="form-control form-control-sm" id="InputEmail" aria-describedby="emailHelp">
                                     </div>
 

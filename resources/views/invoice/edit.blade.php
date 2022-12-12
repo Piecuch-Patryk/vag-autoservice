@@ -105,7 +105,7 @@
                                     <div class="col-5 px-0 ps-1 px-lg-3 col-lg-3 mb-3">
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                            <input value="{{ $invoice->jobs['price'][$i]/100 }}" name="jobs[price][]"
+                                            <input value="{{ number_format($invoice->jobs['price'][$i]/100, 2) }}" name="jobs[price][]"
                                                 type="text" class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
@@ -160,7 +160,7 @@
                                     <div class="col-5 px-0 ps-1 px-lg-3 col-lg-3 mb-3">
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                            <input value="{{ $invoice->parts['price'][$i]/100 }}" name="parts[price][]"
+                                            <input value="{{ number_format($invoice->parts['price'][$i]/100, 2) }}" name="parts[price][]"
                                                 type="text" class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>

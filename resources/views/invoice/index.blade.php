@@ -72,7 +72,7 @@
                                                                         </span>
                                                                         {{ $invoice->jobs->desc[$i] }}
                                                                     </p>
-                                                                    <p class="mb-0">{{ $invoice->jobs->price[$i] / 100 }}
+                                                                    <p class="mb-0">{{ number_format($invoice->jobs->price[$i] / 100, 2) }}
                                                                         PLN</p>
                                                                 </li>
                                                             @endfor
@@ -93,7 +93,7 @@
                                                                         </p>
                                                                     </div>
                                                                     <p class="mb-0">
-                                                                        {{ $invoice->parts->price[$i] / 100 }}
+                                                                        {{ number_format($invoice->parts->price[$i] / 100, 2) }}
                                                                         PLN</p>
                                                                 </li>
                                                             @endfor
