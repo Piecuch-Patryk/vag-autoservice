@@ -83,8 +83,8 @@
                                     <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                            <input value="{{ old('jobs.price.' . $i) ? old('jobs.price.' . $i)/100 : '' }}"
-                                                name="jobs[price][]" type="number" class="form-control" id="InputPartDesc">
+                                            <input value="{{ old('jobs.price.' . $i) ? old('jobs.price.' . $i) : '' }}"
+                                                name="jobs[price][]" type="text" class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
                                     <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
@@ -106,7 +106,7 @@
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
                                             <input value="{{ $invoice->jobs['price'][$i]/100 }}" name="jobs[price][]"
-                                                type="number" class="form-control" id="InputPartDesc">
+                                                type="text" class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
                                     <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
@@ -136,8 +136,8 @@
                                     <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                            <input value="{{ old('parts.price.' . $i)/100 ? old('parts.price.' . $i) : '' }}"
-                                                name="parts[price][]" type="number" class="form-control"
+                                            <input value="{{ old('parts.price.' . $i) ? old('parts.price.' . $i) : '' }}"
+                                                name="parts[price][]" type="text" class="form-control"
                                                 id="InputPartDesc">
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@
                                         <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
                                             <input value="{{ $invoice->parts['price'][$i]/100 }}" name="parts[price][]"
-                                                type="number" class="form-control" id="InputPartDesc">
+                                                type="text" class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
                                     <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">

@@ -50,11 +50,11 @@ class InvoiceController extends Controller
     {
         $formData = $request->all();
         $formData['jobs'] = json_encode($formData['jobs']);
-        $formData['parts'] = json_encode(($formData['parts']));
+        $formData['parts'] = json_encode($formData['parts']);
         $formData['amount'] = 0;
 
-        foreach ($request->get('jobs')['price'] as $key => $value) $formData['amount'] += $value;
-        foreach ($request->get('parts')['price'] as $key => $value) $formData['amount'] += $value;
+        foreach ($request->get('jobs')['price'] as $key => $value) $formData['amount'] += $value * 100;
+        foreach ($request->get('parts')['price'] as $key => $value) $formData['amount'] += $value * 100;
 
         Invoice::create($formData);
 
@@ -87,9 +87,14 @@ class InvoiceController extends Controller
     {
 
         $invoice = Invoice::find($id)->first();
-        $invoice->update($request->all());
+        $request = $request->all();
+        
+        foreach ($request['jobs']['price'] as $key => $value) $request['jobs']['price'][$key] = $value * 100;
+        foreach ($request['parts']['price'] as $key => $value) $request['parts']['price'][$key] = $value * 100;
 
-        return view('invoice.edit', ['invoice' => $invoice])->with('success', 'Dane zostały zaktualizowane pomyślnie');
+        $invoice->update($request);
+
+        return redirect()->route('invoice.edit', ['id' => $id, 'invoice' => $invoice])->with('success', 'Dane zostały zaktualizowane pomyślnie');
     }
 
     /**

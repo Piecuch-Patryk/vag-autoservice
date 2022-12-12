@@ -73,29 +73,86 @@
                                 </div>
                             </div>
                             <div class="mb-5" id="jobsContainer" data-container="jobs">
-                            @if (old('jobs.desc'))
-                                <h3>
-                                    Wykonane Czynności
-                                    <button type="button" data-create="jobs"
-                                        class="btn btn-sm py-0 btn-success ms-3">+</button>
-                                </h3>
+                            <h3>
+                                Wykonane Czynności
+                                <button type="button" data-create="jobs"
+                                    class="btn btn-sm py-0 btn-success ms-3">+</button>
+                            </h3>
+                                @if (old('jobs.desc'))
 
-                                @for ($i = 0; $i < count(old('jobs.desc')); $i++)
+                                    @for ($i = 0; $i < count(old('jobs.desc')); $i++)
+                                        <div data-input-group="jobs" class="row">
+                                            <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+                                                <div class="input-group input-group-sm">
+                                                    <label for="InputJobDesc" class="input-group-text">Opis</label>
+                                                    <input value="{{ old('jobs.desc.' . $i) }}" name="jobs[desc][]"
+                                                        type="text" class="form-control" id="InputPartDesc">
+                                                </div>
+                                            </div>
+                                            <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                                <div class="input-group input-group-sm">
+                                                    <label for="InputJobPrice" class="input-group-text">Cena</label>
+                                                    <input
+                                                        value="{{ old('jobs.price.' . $i) ? old('jobs.price.' . $i) : '' }}"
+                                                        name="jobs[price][]" type="number" class="form-control"
+                                                        id="InputPartDesc">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+                                                <button data-remove type="button"
+                                                    class="btn btn-sm py-0 btn-danger">Usuń</button>
+                                            </div>
+                                        </div>
+                                    @endfor
+
+                                @else
                                     <div data-input-group="jobs" class="row">
                                         <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputJobDesc" class="input-group-text">Opis</label>
-                                                <input value="{{ old('jobs.desc.' . $i) }}" name="jobs[desc][]"
-                                                    type="text" class="form-control" id="InputPartDesc">
+                                                <input value="" name="jobs[desc][]" type="text"
+                                                    class="form-control" id="InputPartDesc">
                                             </div>
                                         </div>
                                         <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputJobPrice" class="input-group-text">Cena</label>
+                                                <input value="" name="jobs[price][]" type="number"
+                                                    class="form-control" id="InputPartDesc">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+                                            <button data-remove type="button"
+                                                class="btn btn-sm py-0 btn-danger">Usuń</button>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="mb-5" id="partsContainer" data-container="parts">
+                                <h3>
+                                    Lista Części
+                                    <button type="button" data-create="parts"
+                                        class="btn btn-sm py-0 btn-success ms-3">+</button>
+                                </h3>
+                                @if (old('parts.desc'))
+
+                                @for ($i = 0; $i < count(old('parts.desc')); $i++)
+                                    <div data-input-group="parts" class="row">
+                                        <div class="col-7 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+                                            <div class="input-group input-group-sm">
+                                                <label for="InputPartDesc" class="input-group-text">Opis</label>
+                                                <input value="{{ old('parts.desc.' . $i) }}" name="parts[desc][]"
+                                                    type="text" class="form-control" id="InputPartDesc">
+                                            </div>
+                                        </div>
+                                        <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                            <div class="input-group input-group-sm">
+                                                <label for="InputPartPrice" class="input-group-text">Cena</label>
                                                 <input
-                                                    value="{{ old('jobs.price.' . $i) ? old('jobs.price.' . $i) : '' }}"
-                                                    name="jobs[price][]" type="number" class="form-control"
-                                                    id="InputPartDesc">
+                                                    value="{{ old('parts.price.' . $i) ? old('parts.price.' . $i) : '' }}"
+                                                    name="parts[price][]" type="number" class="form-control"
+                                                    id="InputPartPrice">
                                             </div>
                                         </div>
                                         <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
@@ -105,96 +162,29 @@
                                     </div>
                                 @endfor
 
-                            @else
-                                <h3>
-                                    Wykonane Czynności
-                                    <button type="button" data-create="jobs"
-                                        class="btn btn-sm py-0 btn-success ms-3">+</button>
-                                </h3>
-                                <div data-input-group="jobs" class="row">
-                                    <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
-                                        <div class="input-group input-group-sm">
-                                            <label for="InputJobDesc" class="input-group-text">Opis</label>
-                                            <input value="" name="jobs[desc][]" type="text"
-                                                class="form-control" id="InputPartDesc">
+                                @else
+                                    <div data-input-group="parts" class="row">
+                                        <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+                                            <div class="input-group input-group-sm">
+                                                <label for="InputPartDesc" class="input-group-text">Opis</label>
+                                                <input value="" name="parts[desc][]" type="text"
+                                                    class="form-control" id="InputPartDesc">
+                                            </div>
+                                        </div>
+                                        <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                            <div class="input-group input-group-sm">
+                                                <label for="InputPartPrice" class="input-group-text">Cena</label>
+                                                <input value="" name="parts[price][]" type="number"
+                                                    class="form-control" id="InputPartPrice">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+                                            <button data-remove type="button"
+                                                class="btn btn-sm py-0 btn-danger">Usuń</button>
                                         </div>
                                     </div>
-                                    <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
-                                        <div class="input-group input-group-sm">
-                                            <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                            <input value="" name="jobs[price][]" type="number"
-                                                class="form-control" id="InputPartDesc">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
-                                        <button data-remove type="button"
-                                            class="btn btn-sm py-0 btn-danger">Usuń</button>
-                                    </div>
-                                </div>
-                            @endif
-                            </div>
 
-                            <div class="mb-5" id="partsContainer" data-container="parts">
-                            @if (old('parts.desc'))
-                            <h3>
-                                Lista Części
-                                <button type="button" data-create="parts"
-                                    class="btn btn-sm py-0 btn-success ms-3">+</button>
-                            </h3>
-
-                            @for ($i = 0; $i < count(old('parts.desc')); $i++)
-                                <div data-input-group="parts" class="row">
-                                    <div class="col-7 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
-                                        <div class="input-group input-group-sm">
-                                            <label for="InputPartDesc" class="input-group-text">Opis</label>
-                                            <input value="{{ old('parts.desc.' . $i) }}" name="parts[desc][]"
-                                                type="text" class="form-control" id="InputPartDesc">
-                                        </div>
-                                    </div>
-                                    <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
-                                        <div class="input-group input-group-sm">
-                                            <label for="InputPartPrice" class="input-group-text">Cena</label>
-                                            <input
-                                                value="{{ old('parts.price.' . $i) ? old('parts.price.' . $i) : '' }}"
-                                                name="parts[price][]" type="number" class="form-control"
-                                                id="InputPartPrice">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
-                                        <button data-remove type="button"
-                                            class="btn btn-sm py-0 btn-danger">Usuń</button>
-                                    </div>
-                                </div>
-                            @endfor
-
-                            @else
-                                <h3>
-                                    Lista Części
-                                    <button type="button" data-create="parts"
-                                        class="btn btn-sm py-0 btn-success ms-3">+</button>
-                                </h3>
-                                <div data-input-group="parts" class="row">
-                                    <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
-                                        <div class="input-group input-group-sm">
-                                            <label for="InputPartDesc" class="input-group-text">Opis</label>
-                                            <input value="" name="parts[desc][]" type="text"
-                                                class="form-control" id="InputPartDesc">
-                                        </div>
-                                    </div>
-                                    <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
-                                        <div class="input-group input-group-sm">
-                                            <label for="InputPartPrice" class="input-group-text">Cena</label>
-                                            <input value="" name="parts[price][]" type="number"
-                                                class="form-control" id="InputPartPrice">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
-                                        <button data-remove type="button"
-                                            class="btn btn-sm py-0 btn-danger">Usuń</button>
-                                    </div>
-                                </div>
-
-                            @endif
+                                @endif
                             </div>
                             <h3>Dodatkowe Informacje</h3>
                             <div class="mb-3">
