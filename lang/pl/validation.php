@@ -62,5 +62,8 @@ return [
         'phone' => [
             'required' => 'Proszę podać numer telefonu'
         ],
+        'search' => [
+            'required' => 'Pole wyszukiwania nie może być puste'
+        ],
     ],
 ];

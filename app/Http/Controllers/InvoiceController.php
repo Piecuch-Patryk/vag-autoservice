@@ -6,6 +6,7 @@ use PDF;
 use App\Models\Company;
 use App\Models\Invoice;
 use App\Http\Requests\CreateInvoiceRequest;
+use App\Http\Requests\SearchInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
 
 class InvoiceController extends Controller
@@ -134,6 +135,30 @@ class InvoiceController extends Controller
         $pdf = PDF::loadView('invoice.pdf', ['data' => $data, 'company' => $company]);
         
         return $pdf->download('VAG_Autoserwis_'. $data->registration . '_'. $data->created_at->format('Y-m-d') .'.pdf');
+    }
+
+    /**
+     * Search specified resource
+     * 
+     * @param SearchInvoiceRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(SearchInvoiceRequest $request)
+    {
+        $data = $request->get('search');
+        $invoices = Invoice::where('vin', 'LIKE', '%'.$data.'%')
+            ->orWhere('number','like','%'.$data.'%')
+            ->orWhere('registration','like','%'.$data.'%')
+            ->get();
+
+        if(!$invoices) return redirect()->back()->with(['failure' => 'Brak wyników wyszukiwania dla:', 'old_search' => $data]);
+
+        foreach ($invoices as $key => $invoice) {
+            $invoice->jobs = json_decode($invoice->jobs);
+            $invoice->parts = json_decode($invoice->parts);
+        }
+        
+        return view('invoice.index')->with(['invoices' => $invoices, 'search' => $data]);
     }
 
     /**

@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function() {
   Route::controller(InvoiceController::class)->group(function() {
     Route::get('/create-invoice', 'create')->name('invoice.create');
     Route::post('/create-invoice', 'store')->name('invoice.store');
+    Route::post('/search-invoice', 'search')->name('invoice.search');
     Route::get('/invoices', 'index')->name('invoice.index');
     Route::get('/invoice/edit/{id}', 'edit')->name('invoice.edit');
     Route::get('/invoice-download/{id}', 'download')->name('invoice.download');

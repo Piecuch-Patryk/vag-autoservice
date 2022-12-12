@@ -10,9 +10,51 @@
             </div>
             <div class="col-12 col-lg-10">
                 <div class="container-fluid">
-                    <div class="row">
-                        <h1>Przeglądaj Zlecenia</h1>
-                        <p>Domyślne sortowanie według numeru zlecenia.</p>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-7 mb-3">
+                            <h1>Przeglądaj Zlecenia</h1>
+
+                            @if(isset($search))
+                            <p class="mb-0">
+                                Wyniki wyszukiwania dla:
+                                <span class="fw-bold me-3">
+                                    {{ $search }}
+                                </span>
+                            </p>
+                            <a class="text-info" href="{{ route('invoice.index') }}">Wróć</a>
+                            @else
+                            <p>Domyślne sortowanie według numeru zlecenia.</p>
+                            @endif
+
+                        </div>
+                        
+                        @if (!isset($search))
+                        <div class="col-12 col-md-5 mb-5 m-md-0">
+                            <form method="POST" action="{{ route('invoice.search') }}">
+                                @csrf
+                                <div class="input-group input-group-sm">
+                                    <input value="{{ session('old_search') ? session('old_search') : '' }}" placeholder="VIN | Numer Rejestracyjny | Numer Zlecenia" name="search" type="text" class="form-control"
+                                        id="Inputsearch">
+                                    <button class="btn btn-sm btn-outline-primary py-0">Szukaj</button>
+                                </div>
+                            </form>
+
+                            @if (session('failure'))
+                                <div>
+                                    <span class="text-danger">
+                                        {{ session('failure') }}
+                                    </span>
+                                    <span class="text-danger fw-bold ms-1">
+                                        {{ session('old_search') }}
+                                    </span>
+                                </div>
+                            @endif
+
+                            @include('shared.error', ['name' => 'search'])
+
+                        </div>
+                        @endif
+
                     </div>
 
                     @include('shared.success')
@@ -21,7 +63,7 @@
                         <div class="col-12">
 
                             @if($invoices->isEmpty())
-                            <p class="text-muted mt-5 pt-5">Brak rekordów bazie danych. <a href="{{ route('invoice.create') }}" class="btn btn-sm btn-outline-success py-0">Utwórz Nowy</a></p>
+                            <p class="text-muted mt-3">Brak rekordów bazie danych. <a href="{{ route('invoice.create') }}" class="btn btn-sm btn-outline-success py-0">Utwórz Nowy</a></p>
                             @else                                
 
                             @foreach ($invoices as $invoice)
