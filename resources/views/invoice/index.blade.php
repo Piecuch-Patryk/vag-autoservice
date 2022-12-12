@@ -35,28 +35,28 @@
                                             <p class="mb-0 p-0 lh-1">
                                                 {{ $invoice->created_at->format('Y/m/d') }}
                                             </p>
-                                            <span class="dropdown-toggle">Więcej</span>
+                                            <span class="dropdown-toggle d-none d-md-inline">Więcej</span>
                                         </div>
                                     </button>
                                     <div class="collapse" id="collapse{{ $invoice->id }}">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-12 col-lg-8">
-                                                    <div class="d-flex justify-content-between mb-5">
+                                                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                                                         <div>
-                                                            <p class="text-center fw-bold">Marka</p>
+                                                            <p class="text-center fw-bold mb-0 mb-md-1">Marka</p>
                                                             <p class="text-center">{{ $invoice->make }}</p>
                                                         </div>
                                                         <div>
-                                                            <p class="text-center fw-bold">Model</p>
+                                                            <p class="text-center fw-bold mb-0 mb-md-1">Model</p>
                                                             <p class="text-center">{{ $invoice->model }}</p>
                                                         </div>
                                                         <div>
-                                                            <p class="text-center fw-bold">Przebieg</p>
+                                                            <p class="text-center fw-bold mb-0 mb-md-1">Przebieg</p>
                                                             <p class="text-center">{{ $invoice->milage }}</p>
                                                         </div>
                                                         <div>
-                                                            <p class="text-center fw-bold">Numer VIN</p>
+                                                            <p class="text-center fw-bold mb-0 mb-md-1">Numer VIN</p>
                                                             <p class="text-center">{{ $invoice->vin }}</p>
                                                         </div>
                                                     </div>
@@ -106,9 +106,9 @@
                                                     </div>
                                                     <div class="d-flex justify-content-center mb-5">
                                                         <a href="{{ route('invoice.download', ['id' => $invoice->id]) }}"
-                                                            class="btn sm py-0 btn-outline-info mx-3">Pobierz PDF</a>
+                                                            class="btn btn-sm py-0 btn-outline-info mx-3">Pobierz PDF</a>
                                                         <a href="{{ route('invoice.edit', ['id' => $invoice->id]) }}"
-                                                            class="btn sm py-0 btn-outline-primary mx-3">Edytuj</a>
+                                                            class="btn btn-sm py-0 btn-outline-primary mx-3">Edytuj</a>
                                                     </div>
                                                 </div>
                                                 <div
