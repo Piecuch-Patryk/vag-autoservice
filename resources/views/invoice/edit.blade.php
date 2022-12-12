@@ -189,7 +189,7 @@
     </div>
 @endsection
 
-@section('script')
+@section('script-invoice')
     <script>
         function addInputGroup() {
             const current = this.attributes['data-create'].value;
