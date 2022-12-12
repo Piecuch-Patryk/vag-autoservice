@@ -94,7 +94,7 @@
                                                     <label for="InputJobPrice" class="input-group-text">Cena</label>
                                                     <input
                                                         value="{{ old('jobs.price.' . $i) ? old('jobs.price.' . $i) : '' }}"
-                                                        name="jobs[price][]" type="number" class="form-control"
+                                                        name="jobs[price][]" type="text" class="form-control"
                                                         id="InputPartDesc">
                                                 </div>
                                             </div>
@@ -117,7 +117,7 @@
                                         <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                                <input value="" name="jobs[price][]" type="number"
+                                                <input value="" name="jobs[price][]" type="text"
                                                     class="form-control" id="InputPartDesc">
                                             </div>
                                         </div>
@@ -151,7 +151,7 @@
                                                 <label for="InputPartPrice" class="input-group-text">Cena</label>
                                                 <input
                                                     value="{{ old('parts.price.' . $i) ? old('parts.price.' . $i) : '' }}"
-                                                    name="parts[price][]" type="number" class="form-control"
+                                                    name="parts[price][]" type="text" class="form-control"
                                                     id="InputPartPrice">
                                             </div>
                                         </div>
@@ -174,7 +174,7 @@
                                         <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputPartPrice" class="input-group-text">Cena</label>
-                                                <input value="" name="parts[price][]" type="number"
+                                                <input value="" name="parts[price][]" type="text"
                                                     class="form-control" id="InputPartPrice">
                                             </div>
                                         </div>

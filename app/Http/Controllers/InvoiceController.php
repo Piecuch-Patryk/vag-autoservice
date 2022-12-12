@@ -49,12 +49,22 @@ class InvoiceController extends Controller
     public function store(CreateInvoiceRequest $request)
     {
         $formData = $request->all();
-        $formData['jobs'] = json_encode($formData['jobs']);
-        $formData['parts'] = json_encode($formData['parts']);
         $formData['amount'] = 0;
 
-        foreach ($request->get('jobs')['price'] as $key => $value) $formData['amount'] += $value * 100;
-        foreach ($request->get('parts')['price'] as $key => $value) $formData['amount'] += $value * 100;
+        foreach ($formData['jobs']['price'] as $key => $value) {
+            $price = (int)floatval($value * 100);
+            $formData['jobs']['price'][$key] = $price;
+            $formData['amount'] += $price;
+        }
+
+        foreach ($formData['parts']['price'] as $key => $value) {
+            $price = (int)floatval($value * 100);
+            $formData['parts']['price'][$key] = $price;
+            $formData['amount'] += $price;
+        }
+
+        $formData['jobs'] = json_encode($formData['jobs']);
+        $formData['parts'] = json_encode($formData['parts']);
 
         Invoice::create($formData);
 
@@ -87,12 +97,23 @@ class InvoiceController extends Controller
     {
 
         $invoice = Invoice::find($id)->first();
-        $request = $request->all();
-        
-        foreach ($request['jobs']['price'] as $key => $value) $request['jobs']['price'][$key] = $value * 100;
-        foreach ($request['parts']['price'] as $key => $value) $request['parts']['price'][$key] = $value * 100;
 
-        $invoice->update($request);
+        $formData = $request->all();
+        $formData['amount'] = 0;
+
+        foreach ($formData['jobs']['price'] as $key => $value) {
+            $price = (int)floatval($value * 100);
+            $formData['jobs']['price'][$key] = $price;
+            $formData['amount'] += $price;
+        }
+
+        foreach ($formData['parts']['price'] as $key => $value) {
+            $price = (int)floatval($value * 100);
+            $formData['parts']['price'][$key] = $price;
+            $formData['amount'] += $price;
+        }
+
+        $invoice->update($formData);
 
         return redirect()->route('invoice.edit', ['id' => $id, 'invoice' => $invoice])->with('success', 'Dane zostały zaktualizowane pomyślnie');
     }
