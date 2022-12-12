@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateInvoiceRequest;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
-
 use function GuzzleHttp\Promise\each;
+
+use App\Http\Requests\CreateInvoiceRequest;
+use App\Http\Requests\UpdateInvoiceRequest;
 
 class InvoiceController extends Controller
 {
@@ -54,19 +55,7 @@ class InvoiceController extends Controller
         $formData['parts'] = json_encode(($formData['parts']));
         Invoice::create($formData);
 
-        return redirect()->route('invoice.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        Invoice::findOrFail($id);
-        dd(Invoice::findOrFail($id));
+        return redirect()->route('invoice.index')->with('success', 'Pomyślnie utworzono nowy rekord');
     }
 
     /**
@@ -77,7 +66,11 @@ class InvoiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $formData = Invoice::find($id);
+        $formData['jobs'] = json_decode($formData['jobs'], true);
+        $formData['parts'] = json_decode($formData['parts'], true);
+
+        return view('invoice.edit', ['invoice' => $formData]);
     }
 
     /**
@@ -87,9 +80,13 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateInvoiceRequest $request, $id)
     {
-        //
+
+        $invoice = Invoice::find($id)->first();
+        $invoice->update($request->all());
+
+        return view('invoice.edit', ['invoice' => $invoice])->with('success', 'Dane zostały zaktualizowane pomyślnie');
     }
 
     /**

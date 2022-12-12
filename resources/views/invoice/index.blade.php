@@ -14,6 +14,9 @@
                     <h1>Przeglądaj Zlecenia</h1>
                     <p>Domyślne sortowanie według numeru zlecenia.</p>
                 </div>
+
+				@include('shared.success')
+
                 <div class="row">
 					<div class="col-12">
 
@@ -23,7 +26,9 @@
 								<div class="d-flex align-items-center justify-content-around">
 									<p class="mb-0">#{{ $invoice->number }}</p>
 									<p class="mb-0">{{ $invoice->registration }}</p>
-									<p class="mb-0">{{ $invoice->created_at }}</p>
+									<p class="mb-0 p-0 lh-1">
+										{{ $invoice->created_at->format('Y/m/d') }}
+									</p>
 									<span class="dropdown-toggle">Więcej</span>
 								</div>
 							</button>
@@ -48,56 +53,49 @@
 													<p class="text-center fw-bold">Numer VIN</p>
 													<p class="text-center">{{ $invoice->vin }}</p>
 												</div>
-												<div>
-													<p class="text-center fw-bold">Suma</p>
-													<p class="text-center">?? PLN</p>
-												</div>
 											</div>
 											<div class="mb-5">
 												<h2 class="fs-5">Lista czynności serwisowych</h2>
 												<ul>
-													<li class="w-100 d-flex justify-content-between border-bottom">
-													
 													@for ($i = 0; $i < count($invoice->jobs->desc); $i++)
+													<li class="w-100 d-flex justify-content-between border-bottom">
 														<p class="mb-0">
 															<span class="me-3">
 																{{ $i + 1 }}.
 															</span>
 															{{ $invoice->jobs->desc[$i] }}
 														</p>
-													@endfor
-
-													@foreach ($invoice->jobs->price as $price)
-														<p class="mb-0">{{ $price/100 }} PLN</p>
-													@endforeach
-
+														<p class="mb-0">{{ $invoice->jobs->price[$i]/100 }} PLN</p>
 													</li>
+													@endfor
 												</ul>
 											</div>
 											<div class="mb-5">
 												<h2 class="fs-5">Lista części serwisowych</h2>
 												<ul>
-													<li class="w-100 d-flex justify-content-between border-bottom">
-													
 													@for ($i = 0; $i < count($invoice->parts->desc); $i++)
-														<p class="mb-0">
-															<span class="me-3">
-																{{ $i + 1 }}.
-															</span>
-															{{ $invoice->parts->desc[$i] }}
-														</p>
-													@endfor
-
-													@foreach ($invoice->parts->price as $price)
-														<p class="mb-0">{{ $price/100 }} PLN</p>
-													@endforeach
-
+													<li class="w-100 d-flex justify-content-between border-bottom">
+														<div>
+															<p class="mb-0">
+																<span class="me-3">
+																	{{ $i + 1 }}.
+																</span>
+																{{ $invoice->parts->desc[$i] }}
+															</p>
+														</div>
+														<p class="mb-0">{{ $invoice->parts->price[$i]/100 }} PLN</p>
 													</li>
+													@endfor
 												</ul>
 											</div>
+											<div class="border-bottom d-flex justify-content-between mb-3 align-items-center">
+												<h2 class="mb-0 fs-5">Suma</h2>
+												<p class="mb-0 fs-5">?? PLN</p>
+											</div>
 											<div class="d-flex justify-content-center mb-5">
-												<button class="btn btn-sm py-0 btn-outline-dark mx-3">Drukuj</button>
-												<button class="btn btn-sm py-0 btn-outline-dark mx-3">Pobierz</button>
+												<button class="btn btn-sm py-0 btn-outline-info mx-3">Drukuj</button>
+												<button class="btn btn-sm py-0 btn-outline-info mx-3">Pobierz</button>
+												<a href="{{ route('invoice.edit', ['id' => $invoice->id]) }}" class="btn sm py-0 btn-outline-primary mx-3">Edytuj</a>
 											</div>
 										</div>
 										<div class="col-0 col-lg-4 d-none d-lg-flex justify-content-center align-items-center">

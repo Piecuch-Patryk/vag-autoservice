@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="./storage/logo/black.png" alt="">
+                    <img src="{{ Storage::url('logo/black.png')}}" alt="">
                 </a>
                 <p class="mb-0 fw-bold">
                     Autoserwis
