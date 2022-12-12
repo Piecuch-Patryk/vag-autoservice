@@ -97,6 +97,8 @@ class InvoiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Invoice::destroy($id);
+
+        return redirect()->route('invoice.index')->with('success', 'Wybrany dokument został usunięty');
     }
 }

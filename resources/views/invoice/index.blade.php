@@ -98,8 +98,17 @@
 												<a href="{{ route('invoice.edit', ['id' => $invoice->id]) }}" class="btn sm py-0 btn-outline-primary mx-3">Edytuj</a>
 											</div>
 										</div>
-										<div class="col-0 col-lg-4 d-none d-lg-flex justify-content-center align-items-center">
-											<img class="w-100" src="./storage/admin/invoice/main.png" alt="">
+										<div class="col-0 col-lg-4 d-none d-lg-flex flex-column justify-content-between align-items-center mb-5">
+											<div class="mt-5">
+												<img class="" src="./storage/admin/invoice/main.png" alt="">
+											</div>
+											<div class="text-center">
+												<form method="POST" action="{{ route('invoice.destroy', $invoice->id) }}">
+													@csrf
+													@method('delete')
+													<button class="btn btn-sm btn-danger">Usuń</button>
+												</form>
+											</div>
 										</div>
 									</div>
 								</div>
