@@ -193,7 +193,7 @@
 							<h3>Suma</h3>
 						</td>
 						<td>
-							<h3 class="text-center">{{ $data->amount }} zł</h3>
+							<h3 class="text-center">{{ $data->amount / 100 }} zł</h3>
 						</td>
 					</tr>
 				</tbody>
