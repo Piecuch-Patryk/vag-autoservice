@@ -169,7 +169,8 @@
 				@include('shared.error', ['name' => 'description'])
 				
 				<div class="text-center text-lg-start mt-5">
-					<button type="submit" class="btn btn-outline-primary">Zapisz</button>
+					<button type="submit" class="btn btn-info btn-sm py-0">Zapisz</button>
+					<a class="btn btn-warning btn-sm py-0 ms-5" href="{{ route('invoice.index') }}">Anuluj</a>
 				</div>
 			</form>
         </div>
