@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function() {
   // Company
   Route::controller(CompanyController::class)->group(function() {
     Route::get('/edit', 'edit')->name('company.edit');
-    Route::post('/update/{id}', 'update')->name('company.update');
+    Route::put('/update/{id}', 'update')->name('company.update');
   });
 
   // Invoice

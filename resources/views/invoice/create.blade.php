@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <div class="row">
-            <div class="col-0 col-lg-3">
+            <div class="col-0 col-lg-2">
                 <nav class="nav d-none d-lg-flex flex-column">
                     @include('navs.nav')
                 </nav>
             </div>
-            <div class="col-12 col-lg-9">
+            <div class="col-12 col-lg-10">
                 <div class="container-fluid">
                     <div class="row">
                         <h1>Formularz Naprawy</h1>
@@ -18,54 +18,59 @@
 
                         <form method="POST" action="{{ route('invoice.store') }}" class="pt-5">
                             @csrf
-                            <div class="mb-5">
-                                <div class="input-group mb-3">
-                                    <label for="InputNumber" class="input-group-text">Numer Dokumentu</label>
-                                    <input value="{{ $invoiceNumber }}" readonly name="number" type="text"
+                            <div class="mb-5 row">
+                                <div class="col-12 col-md-7 col-lg-5 mx-auto">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <label for="InputNumber" class="input-group-text">Numer Dokumentu</label>
+                                        <input value="{{ $invoiceNumber }}" readonly name="number" type="text"
                                         class="form-control" id="InputNumber">
+                                    </div>
                                 </div>
-                                <div class="input-group mb-3">
-                                    <label for="InputMake" class="input-group-text">Marka Pojazdu</label>
-                                    <input value="{{ old('make') }}" name="make" type="text" class="form-control"
+                                <div class="col-12 col-md-7 col-lg-5 mx-auto">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <label for="InputMake" class="input-group-text">Marka Pojazdu</label>
+                                        <input value="{{ old('make') }}" name="make" type="text" class="form-control"
                                         id="InputMake">
-    
-                                </div>
-    
-                                @include('shared.error', ['name' => 'make'])
-    
-                                <div class="input-group mb-3">
-                                    <label for="InputModel" class="input-group-text">Model Pojazdu</label>
-                                    <input value="{{ old('model') }}" name="model" type="text" class="form-control"
-                                        id="InputModel">
-                                </div>
-    
-                                @include('shared.error', ['name' => 'model'])
-    
-                                <div class="input-group mb-3">
-                                    <label for="InputRegistration" class="input-group-text">Numer Rejestracyjny</label>
-                                    <input value="{{ old('registration') }}" name="registration" type="text"
-                                        class="form-control" id="InputRegistration">
-                                </div>
-    
-                                @include('shared.error', ['name' => 'registration'])
-    
-                                <div class="input-group mb-3">
-                                    <label for="InputVin" class="input-group-text">Numer VIN</label>
-                                    <input value="{{ old('vin') }}" name="vin" type="text" class="form-control"
-                                        id="InputVin">
-                                </div>
-    
-    
-                                @include('shared.error', ['name' => 'vin'])
-    
-                                <div class="input-group mb-3">
-                                    <label for="InputMilage" class="input-group-text">Przebieg</label>
-                                    <input value="{{ old('milage') }}" name="milage" type="number" class="form-control"
-                                        id="InputMilage">
-                                </div>
-    
-                                @include('shared.error', ['name' => 'milage'])
+                                    </div>
 
+                                    @include('shared.error', ['name' => 'make'])
+                                </div>
+                                <div class="col-12 col-md-7 col-lg-5 mx-auto">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <label for="InputModel" class="input-group-text">Model Pojazdu</label>
+                                        <input value="{{ old('model') }}" name="model" type="text" class="form-control"
+                                            id="InputModel">
+                                    </div>
+
+                                    @include('shared.error', ['name' => 'model'])
+                                </div>
+                                <div class="col-12 col-md-7 col-lg-5 mx-auto">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <label for="InputRegistration" class="input-group-text">Numer Rejestracyjny</label>
+                                        <input value="{{ old('registration') }}" name="registration" type="text"
+                                            class="form-control" id="InputRegistration">
+                                    </div>
+        
+                                    @include('shared.error', ['name' => 'registration'])
+                                </div>
+                                <div class="col-12 col-md-7 col-lg-5 mx-auto">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <label for="InputVin" class="input-group-text">Numer VIN</label>
+                                        <input value="{{ old('vin') }}" name="vin" type="text" class="form-control"
+                                            id="InputVin">
+                                    </div>
+        
+                                    @include('shared.error', ['name' => 'vin'])
+                                </div>
+                                <div class="col-12 col-md-7 col-lg-5 mx-auto">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <label for="InputMilage" class="input-group-text">Przebieg</label>
+                                        <input value="{{ old('milage') }}" name="milage" type="number" class="form-control"
+                                            id="InputMilage">
+                                    </div>
+        
+                                    @include('shared.error', ['name' => 'milage'])
+                                </div>
                             </div>
                             <div class="mb-5" id="jobsContainer" data-container="jobs">
                             @if (old('jobs.desc'))
@@ -77,15 +82,15 @@
 
                                 @for ($i = 0; $i < count(old('jobs.desc')); $i++)
                                     <div data-input-group="jobs" class="row">
-                                        <div class="col-7 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
-                                            <div class="input-group">
+                                        <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+                                            <div class="input-group input-group-sm">
                                                 <label for="InputJobDesc" class="input-group-text">Opis</label>
                                                 <input value="{{ old('jobs.desc.' . $i) }}" name="jobs[desc][]"
                                                     type="text" class="form-control" id="InputPartDesc">
                                             </div>
                                         </div>
-                                        <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
-                                            <div class="input-group">
+                                        <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                            <div class="input-group input-group-sm">
                                                 <label for="InputJobPrice" class="input-group-text">Cena</label>
                                                 <input
                                                     value="{{ old('jobs.price.' . $i) ? old('jobs.price.' . $i) : '' }}"
@@ -107,15 +112,15 @@
                                         class="btn btn-sm py-0 btn-success ms-3">+</button>
                                 </h3>
                                 <div data-input-group="jobs" class="row">
-                                    <div class="col-7 px-0 ps-1 px-lg-3 col-lg-8 mb-3">
-                                        <div class="input-group">
+                                    <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+                                        <div class="input-group input-group-sm">
                                             <label for="InputJobDesc" class="input-group-text">Opis</label>
                                             <input value="" name="jobs[desc][]" type="text"
                                                 class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
-                                    <div class="col-5 px-0 ps-1 px-lg-3 col-lg-3 mb-3">
-                                        <div class="input-group">
+                                    <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                        <div class="input-group input-group-sm">
                                             <label for="InputJobPrice" class="input-group-text">Cena</label>
                                             <input value="" name="jobs[price][]" type="number"
                                                 class="form-control" id="InputPartDesc">
@@ -140,14 +145,14 @@
                             @for ($i = 0; $i < count(old('parts.desc')); $i++)
                                 <div data-input-group="parts" class="row">
                                     <div class="col-7 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
-                                        <div class="input-group">
+                                        <div class="input-group input-group-sm">
                                             <label for="InputPartDesc" class="input-group-text">Opis</label>
                                             <input value="{{ old('parts.desc.' . $i) }}" name="parts[desc][]"
                                                 type="text" class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
                                     <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
-                                        <div class="input-group">
+                                        <div class="input-group input-group-sm">
                                             <label for="InputPartPrice" class="input-group-text">Cena</label>
                                             <input
                                                 value="{{ old('parts.price.' . $i) ? old('parts.price.' . $i) : '' }}"
@@ -169,15 +174,15 @@
                                         class="btn btn-sm py-0 btn-success ms-3">+</button>
                                 </h3>
                                 <div data-input-group="parts" class="row">
-                                    <div class="col-7 px-0 ps-1 px-lg-3 col-lg-8 mb-3">
-                                        <div class="input-group">
+                                    <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+                                        <div class="input-group input-group-sm">
                                             <label for="InputPartDesc" class="input-group-text">Opis</label>
                                             <input value="" name="parts[desc][]" type="text"
                                                 class="form-control" id="InputPartDesc">
                                         </div>
                                     </div>
-                                    <div class="col-5 px-0 ps-1 px-lg-3 col-lg-3 mb-3">
-                                        <div class="input-group">
+                                    <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                        <div class="input-group input-group-sm">
                                             <label for="InputPartPrice" class="input-group-text">Cena</label>
                                             <input value="" name="parts[price][]" type="number"
                                                 class="form-control" id="InputPartPrice">

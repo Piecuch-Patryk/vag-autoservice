@@ -21,100 +21,78 @@
 
                             <form method="POST" action="{{ route('company.update', $company->id) }}" class="pt-5">
                                 @csrf
+                                @method('PUT')
                                 <div class="row g-3 align-items-center mb-3">
                                     <div class="col-12 col-md-3">
                                         <label for="InputName" class="form-label mb-0">Nazwa</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ $company->name }}" name="name" type="name"
+                                        <input value="{{ old('name') ? old('name') : $company->name }}" name="name" type="name"
                                             class="form-control form-control-sm" id="InputName" aria-describedby="nameHelp">
                                     </div>
 
-
-                                    @if ($errors->first('name'))
-                                        <span class="text-danger fw-bold">
-                                            {{ $errors->first('name') }}
-                                        </span>
-                                    @endif
+                                    @include('shared.error', ['name' => 'name'])
+                                    
                                 </div>
                                 <div class="row g-3 align-items-center mb-3">
                                     <div class="col-12 col-md-3">
                                         <label for="InputEmail" class="form-label mb-0">Email</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ auth()->user()->email }}" name="email" type="email"
+                                        <input value="{{ old('email') ? old('email') : auth()->user()->email }}" name="email" type="email"
                                             class="form-control form-control-sm" id="InputEmail" aria-describedby="emailHelp">
                                     </div>
 
+                                    @include('shared.error', ['name' => 'email'])
 
-                                    @if ($errors->first('email'))
-                                        <span class="text-danger fw-bold">
-                                            {{ $errors->first('email') }}
-                                        </span>
-                                    @endif
                                 </div>
                                 <div class="row g-3 align-items-center mb-3">
                                     <div class="col-12 col-md-3">
                                         <label for="InputPostCode" class="form-label mb-0">Kod Pocztowy</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ $company->post_code }}" name="post_code" type="name"
+                                        <input value="{{ old('post_code') ? old('post_code') : $company->post_code }}" name="post_code" type="name"
                                             class="form-control form-control-sm" id="InputPostCode" aria-describedby="nameHelp">
                                     </div>
 
-                                    @if ($errors->first('post_code'))
-                                        <span class="text-danger fw-bold">
-                                            {{ $errors->first('post_code') }}
-                                        </span>
-                                    @endif
+                                    @include('shared.error', ['name' => 'post_code'])
+
                                 </div>
                                 <div class="row g-3 align-items-center mb-3">
                                     <div class="col-12 col-md-3">
                                         <label for="InputCity" class="form-label mb-0">Miasto</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ $company->city }}" name="city" type="name"
+                                        <input value="{{ old('city') ? old('city') : $company->city }}" name="city" type="name"
                                             class="form-control form-control-sm" id="InputCity" aria-describedby="nameHelp">
                                     </div>
 
+                                    @include('shared.error', ['name' => 'city'])
 
-                                    @if ($errors->first('city'))
-                                        <span class="text-danger fw-bold">
-                                            {{ $errors->first('city') }}
-                                        </span>
-                                    @endif
                                 </div>
                                 <div class="row g-3 align-items-center mb-3">
                                     <div class="col-12 col-md-3">
                                         <label for="InputStreet" class="form-label mb-0">Ulica</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ $company->street }}" name="street" type="name"
+                                        <input value="{{ old('street') ? old('street') : $company->street }}" name="street" type="name"
                                             class="form-control form-control-sm" id="InputStreet" aria-describedby="nameHelp">
                                     </div>
 
+                                    @include('shared.error', ['name' => 'street'])
 
-                                    @if ($errors->first('street'))
-                                        <span class="text-danger fw-bold">
-                                            {{ $errors->first('street') }}
-                                        </span>
-                                    @endif
                                 </div>
                                 <div class="row g-3 align-items-center mb-3">
                                     <div class="col-12 col-md-3">
                                         <label for="InputNumber" class="form-label mb-0">Numer</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ $company->number }}" name="number" type="name"
+                                        <input value="{{ old('number') ? old('number') : $company->number }}" name="number" type="name"
                                             class="form-control form-control-sm" id="InputNumber" aria-describedby="nameHelp">
                                     </div>
 
+                                    @include('shared.error', ['name' => 'number'])
 
-                                    @if ($errors->first('number'))
-                                        <span class="text-danger fw-bold">
-                                            {{ $errors->first('number') }}
-                                        </span>
-                                    @endif
                                 </div>
                                 <div class="text-center text-lg-start mt-5">
                                     <button type="submit" class="btn btn-outline-info">Zapisz</button>

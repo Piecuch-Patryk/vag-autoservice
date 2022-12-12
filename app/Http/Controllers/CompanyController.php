@@ -29,6 +29,6 @@ class CompanyController extends Controller
         $company = Company::find($id)->first();
         $company->update($request->all());
 
-        return view('company.edit', ['company' => $company])->with('success', 'Dane zostały zaktualizowane pomyślnie');
+        return redirect()->route('company.edit')->with('success', 'Dane zostały zaktualizowane pomyślnie');
     }
 }
