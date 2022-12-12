@@ -68,7 +68,7 @@
 
                             @foreach ($invoices as $invoice)
                                 <div class="">
-                                    <button class="btn btn-outline-dark mb-3 w-100" type="button" data-bs-toggle="collapse"
+                                    <button class="btn btn-outline-dark mb-3 w-100 border-info" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapse{{ $invoice->id }}" aria-expanded="false"
                                         aria-controls="collapse{{ $invoice->id }}">
                                         <div class="d-flex align-items-center justify-content-around">
