@@ -27,7 +27,7 @@
                                         <label for="InputName" class="form-label mb-0">Nazwa</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ old('name') ? old('name') : $company->name }}" name="name" type="name"
+                                        <input value="{{ old('name') ? old('name') : $company->name }}" name="name" type="text"
                                             class="form-control form-control-sm" id="InputName" aria-describedby="nameHelp">
                                     </div>
 
@@ -51,7 +51,7 @@
                                         <label for="InputPostCode" class="form-label mb-0">Kod Pocztowy</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ old('post_code') ? old('post_code') : $company->post_code }}" name="post_code" type="name"
+                                        <input value="{{ old('post_code') ? old('post_code') : $company->post_code }}" name="post_code" type="text"
                                             class="form-control form-control-sm" id="InputPostCode" aria-describedby="nameHelp">
                                     </div>
 
@@ -63,7 +63,7 @@
                                         <label for="InputCity" class="form-label mb-0">Miasto</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ old('city') ? old('city') : $company->city }}" name="city" type="name"
+                                        <input value="{{ old('city') ? old('city') : $company->city }}" name="city" type="text"
                                             class="form-control form-control-sm" id="InputCity" aria-describedby="nameHelp">
                                     </div>
 
@@ -75,7 +75,7 @@
                                         <label for="InputStreet" class="form-label mb-0">Ulica</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ old('street') ? old('street') : $company->street }}" name="street" type="name"
+                                        <input value="{{ old('street') ? old('street') : $company->street }}" name="street" type="text"
                                             class="form-control form-control-sm" id="InputStreet" aria-describedby="nameHelp">
                                     </div>
 
@@ -87,11 +87,23 @@
                                         <label for="InputNumber" class="form-label mb-0">Numer</label>
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input value="{{ old('number') ? old('number') : $company->number }}" name="number" type="name"
+                                        <input value="{{ old('number') ? old('number') : $company->number }}" name="number" type="text"
                                             class="form-control form-control-sm" id="InputNumber" aria-describedby="nameHelp">
                                     </div>
 
                                     @include('shared.error', ['name' => 'number'])
+
+                                </div>
+                                <div class="row g-3 align-items-center mb-3">
+                                    <div class="col-12 col-md-3">
+                                        <label for="InputPhone" class="form-label mb-0">Numer Telefonu</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input value="{{ old('phone') ? old('phone') : $company->phone }}" name="phone" type="text"
+                                            class="form-control form-control-sm" id="InputPhone" aria-describedby="nameHelp">
+                                    </div>
+
+                                    @include('shared.error', ['name' => 'phone'])
 
                                 </div>
                                 <div class="text-center text-lg-start mt-5">
@@ -100,7 +112,7 @@
                             </form>
                         </div>
                         <div class="col-0 col-lg-4 d-none d-lg-flex align-items-center">
-                            <img class="w-75 mx-auto" src="{{ Storage::url('admin/home/main.png') }}" alt="">
+                            <img class="w-75 mx-auto" src="{{ Storage::url('admin/home/main.png') }}">
                         </div>
                     </div>
                 </div>

@@ -59,5 +59,8 @@ return [
         'milage' => [
             'required' => 'Podaj przebieg samochodu'
         ],
+        'phone' => [
+            'required' => 'Proszę podać numer telefonu'
+        ],
     ],
 ];

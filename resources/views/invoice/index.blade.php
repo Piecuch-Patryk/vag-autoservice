@@ -20,6 +20,10 @@
                     <div class="row">
                         <div class="col-12">
 
+                            @if($invoices->isEmpty())
+                            <p class="text-muted mt-5 pt-5">Brak rekordów bazie danych. <a href="{{ route('invoice.create') }}" class="btn btn-sm btn-outline-success py-0">Utwórz Nowy</a></p>
+                            @else                                
+
                             @foreach ($invoices as $invoice)
                                 <div class="">
                                     <button class="btn btn-outline-dark mb-3 w-100" type="button" data-bs-toggle="collapse"
@@ -127,6 +131,7 @@
                                     </div>
                                 </div>
                             @endforeach
+                            @endif
 
                         </div>
                     </div>

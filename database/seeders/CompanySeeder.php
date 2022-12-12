@@ -22,6 +22,7 @@ class CompanySeeder extends Seeder
             'city' => 'Przyworów',
             'street' => 'Owocowa',
             'number' => '3',
+            'phone' => '+48 344 987 324',
         ]);
     }
 }

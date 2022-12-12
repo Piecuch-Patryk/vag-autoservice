@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('street');
             $table->integer('number');
+            $table->string('phone');
             $table->timestamps();
         });
     }
