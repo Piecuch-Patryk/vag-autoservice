@@ -46,7 +46,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item d-lg-none d-flex justify-content-around py-3">
+                            <li class="nav-item d-lg-none text-center py-5">
                                 @include('navs.nav')
                             </li>
                             <li class="nav-item text-center">
