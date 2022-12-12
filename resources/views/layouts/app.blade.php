@@ -75,5 +75,6 @@
 </body>
 
 @yield('script')
+@yield('script-input-group', '')
 
 </html>

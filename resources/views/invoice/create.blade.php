@@ -212,7 +212,7 @@
     </div>
 @endsection
 
-@section('script')
+@section('script-input-group')
     <script>
         function addInputGroup() {
             const current = this.attributes['data-create'].value;
