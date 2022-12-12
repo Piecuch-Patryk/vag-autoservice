@@ -105,7 +105,7 @@ class InvoiceController extends Controller
         $data['parts'] = json_decode($data['parts'], true);
         $pdf = PDF::loadView('invoice.pdf', ['data' => $data]);
         
-        return $pdf->stream('userlist.pdf');
+        return $pdf->download('userlist.pdf');
     }
 
     /**
