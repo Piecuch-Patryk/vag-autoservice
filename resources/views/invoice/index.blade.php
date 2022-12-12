@@ -36,6 +36,7 @@
                                                 {{ $invoice->created_at->format('Y/m/d') }}
                                             </p>
                                             <span class="dropdown-toggle d-none d-md-inline">Więcej</span>
+                                            <span class="dropdown-toggle d-md-none"></span>
                                         </div>
                                     </button>
                                     <div class="collapse" id="collapse{{ $invoice->id }}">
