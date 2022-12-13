@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CompanySeeder;
 
@@ -20,8 +22,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@page.com',
         ]);
 
-        $this->call([
-            CompanySeeder::class,
-        ]);
+        Category::factory()
+                ->has(Product::factory()->count(10))
+                ->count(10)
+                ->create();
     }
 }

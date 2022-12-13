@@ -65,5 +65,17 @@ return [
         'search' => [
             'required' => 'Pole wyszukiwania nie może być puste'
         ],
+        'catName' => [
+            'required' => 'Wpisz nazwę kategorii'
+        ],
+        'proName' => [
+            'required' => 'Wpisz nazwę usługi'
+        ],
+        'price' => [
+            'required' => 'Wpisz cenę usługi'
+        ],
+        'category_id' => [
+            'required' => 'Wybierz kategorię dla tego produktu'
+        ],
     ],
 ];

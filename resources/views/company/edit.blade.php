@@ -15,9 +15,7 @@
                             <h1>{{ $company->name }}</h1>
                             <p>Tutaj możesz edytować dane swojej firmy.</p>
 
-                            @if (session('success'))
-                                <p id="confirmation" class="text-success">{{ session('success') }}</p>
-                            @endif
+                            @include('shared.success')
 
                             <form method="POST" action="{{ route('company.update', $company->id) }}" class="pt-5">
                                 @csrf
@@ -119,16 +117,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('script')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (document.getElementById('confirmation')) {
-                setTimeout(() => {
-                    document.getElementById('confirmation').remove();
-                }, 5000);
-            }
-        });
-    </script>
 @endsection
