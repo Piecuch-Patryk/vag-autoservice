@@ -20,16 +20,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\CreateCategoryRequest  $request
@@ -40,17 +30,6 @@ class CategoryController extends Controller
         Category::create($request->all());
 
         return redirect()->route('category.index')->with('success', 'Dodano nową kategorię');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

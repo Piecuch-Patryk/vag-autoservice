@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
@@ -26,5 +25,9 @@ class DatabaseSeeder extends Seeder
                 ->has(Product::factory()->count(10))
                 ->count(10)
                 ->create();
+        
+        $this->call([
+            CompanySeeder::class,
+        ]);
     }
 }
