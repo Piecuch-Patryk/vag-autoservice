@@ -10,11 +10,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: sans-serif;
         }
 
         body {
             padding: 50px;
+            font-family: DejaVu Sans;
         }
 
         h2 {
@@ -37,29 +37,32 @@
         }
 
         header .half-desc {
-            margin-left: 150px;
+            margin-left: 100px;
         }
 
         header .half-desc p {
             text-align: center;
         }
 
+        header .half-desc .font-sm {
+            margin-bottom: 15px;
+        }
+
         header img {
-            width: 300px;
+            width: 270px;
         }
 
         .half-desc h1 {
-            margin-bottom: 20px;
-            font-size: 40px;
+            margin-bottom: 5px;
+            font-size: 35px;
         }
 
         .half-desc p {
-            font-size: 20px;
-			margin-bottom: 8px;
+            font-size: 15px;
         }
 
         .container-sm {
-            margin-top: 50px;
+            margin-top: 15px;
             text-align: center;
         }
 
@@ -96,12 +99,24 @@
             text-align: left;
         }
 
-        .container table .text-center {
+        .container table .text-left {
+            text-align: left;
+        }
+
+        .text-center {
             text-align: center;
         }
 
         .container table .width {
             width: 100px;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+        
+        .dont-break {
+            page-break-inside: avoid;
         }
 
         footer {
@@ -130,24 +145,24 @@
             <h2>Dane Samochodu</h2>
             <table border="1">
                 <tr>
-                    <td>Numer Dokumentu</td>
-                    <td>{{ $data->number }}</td>
+                    <td class="text-center">Numer Dokumentu</td>
+                    <td class="text-center">{{ $data->number }}</td>
                 </tr>
                 <tr>
-                    <td>Marka/Model</td>
-                    <td>{{ $data->make }} {{ $data->model }}</td>
+                    <td class="text-center">Marka/Model</td>
+                    <td class="text-center">{{ $data->make }} {{ $data->model }}</td>
                 </tr>
                 <tr>
-                    <td>Numer Rejestracyjny</td>
-                    <td>{{ $data->registration }}</td>
+                    <td class="text-center">Numer Rejestracyjny</td>
+                    <td class="text-center">{{ $data->registration }}</td>
                 </tr>
                 <tr>
-                    <td>Numer VIN</td>
-                    <td>{{ $data->vin }}</td>
+                    <td class="text-center">Numer VIN</td>
+                    <td class="text-center">{{ $data->vin }}</td>
                 </tr>
                 <tr>
-                    <td>Przebieg</td>
-                    <td>{{ $data->milage }} km</td>
+                    <td class="text-center">Przebieg</td>
+                    <td class="text-center">{{ $data->milage }} km</td>
                 </tr>
             </table>
         </div>
@@ -156,7 +171,7 @@
             <table border="1">
                 <thead>
                     <tr>
-                        <th>Opis</th>
+                        <th class="text-left">Opis</th>
                         <th class="text-center width">Cena</th>
                     </tr>
                 </thead>
@@ -167,6 +182,13 @@
                             <td>{{ $loop->index + 1 }}. {{ $data->jobs['desc'][$loop->index] }}</td>
                             <td class="text-center width">{{ $data->jobs['price'][$loop->index] / 100 }} zł</td>
                         </tr>
+
+                        @if ($loop->index == 8)
+                        <tr class="page-break">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        @endif
                     @endforeach
 
                 </tbody>
@@ -177,7 +199,7 @@
             <table border="1">
                 <thead>
                     <tr>
-                        <th>Opis</th>
+                        <th class="text-left">Opis</th>
                         <th class="text-center width">Cena</th>
                     </tr>
                 </thead>
@@ -201,7 +223,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="container">
+        <div class="container dont-break">
             <h2>Uwagi Dotyczące Serwisu</h2>
             <div class="lg">
                 <p>{{ $data->description ? $data->description : 'Brak dodatkowych informacji.' }}</p>
@@ -221,6 +243,24 @@
             </div>
         </div>
     </footer>
+    <script type="text/php"> 
+        
+        if (isset($pdf)) { 
+        //Shows number center-bottom of A4 page with $x,$y values
+            $x = 290;  //X-axis i.e. vertical position 
+            $y = 790; //Y-axis horizontal position
+            $text = "{PAGE_NUM}/{PAGE_COUNT}";  //format of display message
+            $font =  $fontMetrics->get_font("DejaVu");
+            $size = 10;
+            $color = array(0,0,0);
+            $word_space = 0.0;  //  default
+            $char_space = 0.0;  //  default
+            $angle = 0.0;   //  default
+            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+        }
+    
+    </script> 
+
 </body>
 
 </html>
