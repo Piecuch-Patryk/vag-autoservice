@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\UpdateUserController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,8 @@ Route::middleware('auth')->group(function() {
     Route::post('/product', 'store')->name('product.store');
     Route::delete('/product/{id}', 'destroy')->name('product.destroy');
   });
-
-
 });
+
+Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+
+Route::get('/category/show/{id}', [CategoryController::class, 'show'])->name('category.show');

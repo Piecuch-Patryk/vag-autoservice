@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
+use App\Models\Category;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use App\Models\Category;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -30,6 +30,21 @@ class CategoryController extends Controller
         Category::create($request->all());
 
         return redirect()->route('category.index')->with('success', 'Dodano nową kategorię');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $category = Category::find($id);
+        $categories = Category::get();
+        $company = Company::first();
+        
+        return view('category.show', compact('category', 'categories', 'company'));
     }
 
     /**
