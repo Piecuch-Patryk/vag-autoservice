@@ -27,4 +27,19 @@
 			</div>
 		</div>
 	</section>
+
+	<article class="container py-5 custom-article-bg">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h3 class="fw-bold custom-text-shadow m-0">Dlaczego MY?</h3>
+				<ul class="list-group list-group-flush rounded-2 py-3">
+					<li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">Doświadczeni mechanicy</li>
+					<li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">Profesjonalne narzędzia</li>
+					<li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">Specjalizacja w grupie VAG</li>
+					<li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">Setki zadowolonych klientów</li>
+				</ul>
+				<a href="tel:{{ $company->phone }}" class="btn btn-sm btn-outline-primary py-0 shadow">Umów Wizytę</a>
+			</div>
+		</div>
+	</article>
 @endsection

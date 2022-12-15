@@ -61,6 +61,7 @@ $custom-dark-color: #000000;
 }
 
 #front {
+  background-color: $custom-light-color;
 
   .bg-custom-dark {
     background-color: #000;
@@ -172,6 +173,17 @@ $custom-dark-color: #000000;
       li {
         background: none;
       }
+    }
+  }
+
+  .custom-article-bg {
+    background-image: url('../../storage/app/public/shared/article-sm.png');
+    background-position: 50% 50%;
+    background-size: 180%;
+    background-repeat: no-repeat;
+
+    li {
+      background: none;
     }
   }
 
