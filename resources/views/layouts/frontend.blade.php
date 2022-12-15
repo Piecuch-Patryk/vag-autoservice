@@ -25,7 +25,7 @@
 
 	@yield('main')
 
-    
+    @include('frontend.shared.footer')
 </body>
 
 </html>
