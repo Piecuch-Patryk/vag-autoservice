@@ -160,4 +160,19 @@ $custom-dark-color: #000000;
     background-repeat: no-repeat;
   }
 
+  .custom-section-image {
+    background-image: url('../../storage/app/public/shared/section-sm.png');
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .list-group {
+      background-color: rgba(255,255,255,.9);
+
+      li {
+        background: none;
+      }
+    }
+  }
+
 }
