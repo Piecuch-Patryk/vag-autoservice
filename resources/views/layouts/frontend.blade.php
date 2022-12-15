@@ -24,6 +24,8 @@
     @include('frontend.shared.header')
 
 	@yield('main')
+
+    
 </body>
 
 </html>

@@ -151,4 +151,13 @@ $custom-dark-color: #000000;
     color: $custom-dark-color !important;
   }
 
+  .custom-section {
+    width: calc(100% - 2rem);
+    margin: -40% auto 0;
+    background-image: url('../../storage/app/public/shared/custom-section-sm.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
 }
