@@ -33,67 +33,33 @@
         </div>
     </section>
 
-    <section class="container pt-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h3 class="custom-text-shadow">Opinie Naszych Klientów</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <button type="button" class="btn btn-sm btn-outline-primary py-0 shadow" data-bs-toggle="modal"
-                    data-bs-target="#reviewFormModal">
-                    Dodaj Opinię
-                </button>
-            </div>
-        </div>
-        <div class="modal fade" id="reviewFormModal" tabindex="-1" aria-labelledby="reviewFormModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header border-0">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h5 class="modal-title text-center mb-3 lh-1" id="reviewFormModalLabel">Twoja opinia ma dla nas znaczenie!</h5>
-                        <form methog="POST" action="">
-                            <input type="email" placeholder="email">
-                            <input type="text" placeholder="imię">
-                            <textarea name="" id="" cols="30" rows="10">Twoja opinia...</textarea>
-                            <div class="text-center">
-                                <button class="btn btn-sm btn-outline-success py-0">Wyślij</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <article class="container py-5 custom-article-bg">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center fw-bold">
                 <h3 class="fw-bold custom-text-shadow m-0">Dlaczego MY?</h3>
                 <ul class="list-group list-group-flush rounded-2 py-3">
                     <li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">
-						<span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
-						Doświadczeni mechanicy
-					</li>
+                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        Doświadczeni mechanicy
+                    </li>
                     <li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">
-						<span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
-						Profesjonalne narzędzia
-					</li>
+                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        Profesjonalne narzędzia
+                    </li>
                     <li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">
-						<span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
-						Specjalizacja w grupie VAG
-					</li>
+                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        Specjalizacja w grupie VAG
+                    </li>
                     <li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">
-						<span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
-						Setki zadowolonych klientów
-					</li>
+                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        Setki zadowolonych klientów
+                    </li>
                 </ul>
                 <a href="tel:{{ $company->phone }}" class="btn btn-sm btn-outline-primary py-0 shadow">Umów Wizytę</a>
             </div>
         </div>
     </article>
+
+    @include('frontend.partials.reviews')
+    
 @endsection

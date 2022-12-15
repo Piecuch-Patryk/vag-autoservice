@@ -9,6 +9,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\UpdateUserController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,5 @@ Route::middleware('auth')->group(function() {
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
 Route::get('/category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
+
+Route::post('/review', [ReviewController::class, 'store'])->name('review.store');

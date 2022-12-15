@@ -7,6 +7,8 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+@import url('../css/app.css');
+
 $custom-primary-color: #E30613;
 $custom-light-color: #ffffff;
 $custom-dark-color: #000000;
@@ -189,6 +191,21 @@ $custom-dark-color: #000000;
 
   .custom-fs-8 {
     font-size: .8rem;
+  }
+
+  .form-floating label {
+    top: -6px;
+  }
+
+  #alert {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: .5s ease-in-out;
+  }
+
+  #alert.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
 }

@@ -6,8 +6,9 @@ use App\Models\Review;
 use App\Models\Company;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateReviewRequest;
 
-class FrontendController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +17,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
-        $company = Company::first();
-        $reviews = Review::latest()->get();
-
-        return view('frontend.index', compact('categories', 'company', 'reviews'));
+        //
     }
 
     /**
@@ -39,9 +36,11 @@ class FrontendController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateReviewRequest $request)
     {
-        //
+        Review::create($request->validated());
+
+        return redirect()->back()->with('success_form_sent', 'Review sent');
     }
 
     /**
