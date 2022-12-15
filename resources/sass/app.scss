@@ -7,6 +7,10 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+$custom-primary-color: #E30613;
+$custom-light-color: #ffffff;
+$custom-dark-color: #000000;
+
 #app {
   .btn-outline-primary {
     color: #333;
@@ -59,11 +63,11 @@
 #front {
 
   .bg-custom-dark {
-    background-color: var(--bs-body-color);
+    background-color: #000;
   }
 
   .text-custom-secondary {
-    color: #E30613;
+    color: var(custom-primary-color);
   }
 
   .btn-outline-primary {
@@ -87,7 +91,7 @@
         display: block;
         width: 100%;
         height: 3px;
-        background-color: #fff;
+        background-color: var(custom-light-color);
         margin: 8px 0;
       }
     }
@@ -130,8 +134,21 @@
         opacity: 1;
       }
     }
-
   }
 
+  .custom-header-bg {
+    background-image: url('../../storage/app/public/shared/header-sm.png');
+    background-position: 0 70%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #000;
+    height: 80vh;
+  }
+
+  .custom-btn-outline-primary {
+    border-color: $custom-primary-color;
+    background-color: $custom-light-color;
+    color: $custom-dark-color !important;
+  }
 
 }

@@ -1,7 +1,9 @@
-<nav class="bg-custom-dark py-3">
-    <div class="d-flex justify-content-between align-items-center p-3">
+<nav class="bg-custom-dark p-3">
+    <div class="d-flex justify-content-between align-items-center">
         <div>
-            <img src="{{ Storage::url('logo/white.png') }}" alt="">
+            <a href="/">
+                <img src="{{ Storage::url('logo/white.png') }}" alt="">
+            </a>
         </div>
         <div class="d-flex flex-column align-items-center text-center">
             <a href="tel:{{ $company->phone }}"
@@ -16,7 +18,7 @@
             <span></span>
         </button>
     </div>
-    <div class="bg-white p-2 my-5 rounded-1 mx-3">
+    <div class="bg-white p-2 my-5 rounded-1">
         <form method="POST" action="" class="d-flex justify-content-between">
             @csrf
             <input type="text" placeholder="Wpisz numer VIN" class="flex-fill border-0">

@@ -21,6 +21,8 @@
 <body id="front">
 	@include('frontend.navigation.main')
 
+    @include('frontend.shared.header')
+
 	@yield('main')
 </body>
 
