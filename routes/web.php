@@ -9,6 +9,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\UpdateUserController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PartController;
 use App\Http\Controllers\ReviewController;
 
 /*
@@ -69,9 +70,20 @@ Route::middleware('auth')->group(function() {
     Route::delete('/product/{id}', 'destroy')->name('product.destroy');
   });
 
+  // Review
   Route::controller(ReviewController::class)->group(function() {
     Route::get('/reviews', 'index')->name('review.index');
     Route::delete('/review/{id}', 'destroy')->name('review.delete');
+  });
+
+  // Part
+  Route::controller(PartController::class)->group(function() {
+    Route::get('/parts', 'index')->name('part.index');
+    Route::get('/create-part', 'create')->name('part.create');
+    Route::get('/edit-part/{id}', 'edit')->name('part.edit');
+    Route::post('/create-part', 'store')->name('part.store');
+    Route::put('/part/{id}', 'update')->name('part.update');
+    Route::delete('/part/{id}', 'destroy')->name('part.delete');
   });
 });
 

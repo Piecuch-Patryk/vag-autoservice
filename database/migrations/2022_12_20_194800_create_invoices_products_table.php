@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('invoices_products', function (Blueprint $table) {
             $table->id();
-            $table->foreign('invoice_id')
-              ->references('id')
-              ->on('invoices')
-              ->onDelete('cascade');
-            $table->foreign('product_id')
-              ->references('id')
-              ->on('products')
-              ->onDelete('cascade');
+            $table->string('invoice_id')
+                ->foreign('invoice_id')
+                ->references('id')
+                ->on('invoices')->onDelete('cascade');
+            $table->string('product_id')
+                ->foreign('product_id')
+                ->references('id')
+                ->on('products')->onDelete('cascade');
             $table->integer('qnty')->nullable();
             $table->timestamps();
         });

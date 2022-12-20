@@ -11,3 +11,5 @@
 <a class="nav-link border-bottom {{ Route::currentRouteName() == 'product.index' ? 'active' : '' }}"
     href="{{ route('product.index') }}">Usługi</a>
 <a class="nav-link border-bottom {{ Route::currentRouteName() == 'review.index' ? 'active' : '' }}" href="{{ route('review.index') }}">Opinie Klientów</a>
+<a class="nav-link border-bottom {{ Route::currentRouteName() == 'part.index' ? 'active' : '' }}" href="{{ route('part.index') }}">Części Zamienne</a>
+<a class="nav-link border-bottom {{ Route::currentRouteName() == 'part.create' ? 'active' : '' }}" href="{{ route('part.create') }}">Dodaj Części Zamienne</a>
