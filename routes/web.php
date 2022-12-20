@@ -24,6 +24,8 @@ use App\Http\Controllers\ReviewController;
 
 Auth::routes();
 
+Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function() {
@@ -67,8 +69,6 @@ Route::middleware('auth')->group(function() {
     Route::delete('/product/{id}', 'destroy')->name('product.destroy');
   });
 });
-
-Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
 Route::get('/category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
 
