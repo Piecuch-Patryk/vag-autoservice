@@ -21,4 +21,14 @@ class Invoice extends Model
         'jobs',
         'parts',
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany(
+            Product::class,
+            'invoices_products',
+            'invoice_id',
+            'product_id',
+        );
+    }
 }

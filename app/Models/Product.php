@@ -19,4 +19,14 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function invoice()
+    {
+        return $this->belongsToMany(
+            Invoice::class,
+            'invoices_products',
+            'product_id',
+            'invoice_id',
+        );
+    }
 }
