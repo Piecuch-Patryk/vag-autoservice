@@ -10,4 +10,4 @@
     href="{{ route('category.index') }}">Kategorie</a>
 <a class="nav-link border-bottom {{ Route::currentRouteName() == 'product.index' ? 'active' : '' }}"
     href="{{ route('product.index') }}">Usługi</a>
-<a class="nav-link border-bottom" href="#">Opinie Klientów</a>
+<a class="nav-link border-bottom {{ Route::currentRouteName() == 'review.index' ? 'active' : '' }}" href="{{ route('review.index') }}">Opinie Klientów</a>

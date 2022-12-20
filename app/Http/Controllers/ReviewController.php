@@ -17,7 +17,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        return view('review.index', ['reviews' => Review::latest()->get()]);
     }
 
     /**
@@ -85,6 +85,8 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Review::destroy($id);
+
+        return back()->with('success', 'Usunięto wybrany komentarz');
     }
 }

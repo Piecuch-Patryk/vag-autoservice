@@ -68,6 +68,11 @@ Route::middleware('auth')->group(function() {
     Route::post('/product', 'store')->name('product.store');
     Route::delete('/product/{id}', 'destroy')->name('product.destroy');
   });
+
+  Route::controller(ReviewController::class)->group(function() {
+    Route::get('/reviews', 'index')->name('review.index');
+    Route::delete('/review/{id}', 'destroy')->name('review.delete');
+  });
 });
 
 Route::get('/category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
