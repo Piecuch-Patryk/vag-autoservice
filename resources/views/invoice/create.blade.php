@@ -131,7 +131,7 @@
                                         <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputSelectPrice" class="input-group-text">Cena</label>
-                                                <input value="" name="select[product][price][]" type="text"
+                                                <input readonly value="" name="select[product][price][]" type="text"
                                                     class="form-control" id="InputSelectPrice" data-input-select-price>
                                             </div>
                                         </div>
@@ -202,7 +202,7 @@
                                         <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputSelectPrice" class="input-group-text">Cena</label>
-                                                <input value="" name="select[part][price][]" type="text"
+                                                <input readonly value="" name="select[part][price][]" type="text"
                                                     class="form-control" id="InputSelectPrice" data-input-select-price>
                                             </div>
                                         </div>

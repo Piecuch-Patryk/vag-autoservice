@@ -122,7 +122,7 @@
                                                             <p class="flex-fill ps-3 mb-0">
                                                                 {{ $product->proName }}
                                                                 <span class="ms-3">
-                                                                    x{{ $product->pivot->qnty }}
+                                                                    {{ $product->pivot->qnty != 1 ? 'x'.$product->pivot->qnty : '' }}
                                                                 </span>
                                                             </p>
                                                             <p class="mb-0 text-nowrap">{{ number_format($product->price / 100 * $product->pivot->qnty, 2) }} PLN</p>
@@ -151,7 +151,7 @@
                                                             <p class="flex-fill ps-3 mb-0">
                                                                 {{ $part->name }}
                                                                 <span class="ms-3">
-                                                                    x{{ $part->pivot->qnty }}
+                                                                    {{ $part->pivot->qnty != 1 ? 'x'.$part->pivot->qnty : '' }}
                                                                 </span>
                                                             </p>
                                                             <p class="mb-0 text-nowrap">{{ number_format($part->price / 100 * $part->pivot->qnty, 2) }} PLN</p>

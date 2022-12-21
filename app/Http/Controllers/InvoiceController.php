@@ -202,9 +202,11 @@ class InvoiceController extends Controller
     {
         $company = Company::first();
         $data = Invoice::find($id);
-        $data['jobs'] = json_decode($data['jobs'], true);
+
+        $data['products'] = json_decode($data['products'], true);
         $data['parts'] = json_decode($data['parts'], true);
-        $pdf = PDF::loadView('invoice.pdf', ['data' => $data, 'company' => $company]);
+
+        $pdf = PDF::loadView('invoice.pdf', compact('company', 'data'));
         
         return $pdf->download('VAG_Autoserwis_'. $data->registration . '_'. $data->created_at->format('Y-m-d') .'.pdf');
     }

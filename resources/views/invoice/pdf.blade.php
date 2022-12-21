@@ -19,7 +19,11 @@
 
         h2 {
             margin-bottom: 10px;
+            font-size: 20px;
             text-align: center;
+        }
+        h3 {
+            font-size: 18px;
         }
 
         table {
@@ -28,7 +32,7 @@
 
         table th,
         table td {
-            padding: 8px;
+            padding: 4px;
         }
 
         header div {
@@ -37,24 +41,16 @@
         }
 
         header .half-desc {
-            margin-left: 100px;
+            margin-left: 250px;
+            margin-bottom: 20px;
         }
 
         header .half-desc p {
             text-align: center;
         }
 
-        header .half-desc .font-sm {
-            margin-bottom: 15px;
-        }
-
         header img {
-            width: 270px;
-        }
-
-        .half-desc h1 {
-            margin-bottom: 5px;
-            font-size: 35px;
+            width: 180px;
         }
 
         .half-desc p {
@@ -67,7 +63,7 @@
         }
 
         .container-sm table {
-            width: 70%;
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -91,7 +87,7 @@
 
         .container .lg {
             border: 1px solid black;
-            padding: 10px;
+            padding: 4px;
         }
 
         .container table {
@@ -108,7 +104,7 @@
         }
 
         .container table .width {
-            width: 100px;
+            width: 120px;
         }
 
         .page-break {
@@ -133,7 +129,6 @@
                 src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/storage/logo/black-lg.png'))) }}">
         </div>
         <div class="half-desc">
-            <h1>{{ $company->name }}</h1>
             <p>{{ $company->phone }}</p>
 			<p>{{ $company->email }}</p>
             <p class="font-sm">{{ $company->post_code }} {{ $company->city }}, {{ $company->street }} {{ $company->number }} </p>
@@ -176,14 +171,33 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{ $index = 0 }}
 
-                    @foreach ($data->jobs['desc'] as $job)
+                    @foreach ($data->products as $product)
                         <tr>
-                            <td>{{ $loop->index + 1 }}. {{ $data->jobs['desc'][$loop->index] }}</td>
-                            <td class="text-center width">{{ $data->jobs['price'][$loop->index] / 100 }} zł</td>
+                            <td>{{ $index + 1 }}. {{ $product['desc'] }}</td>
+                            <td class="text-center width">{{ number_format($product['price'] / 100, 2) }} zł</td>
                         </tr>
 
-                        @if ($loop->index == 8)
+                        {{ $index++ }}
+
+                        @if ($index == 8)
+                        <tr class="page-break">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        @endif
+                    @endforeach
+
+                    @foreach ($data->selectProducts as $product)
+                        <tr>
+                            <td>{{ $index + 1 }}. {{ $product->proName }}   {{ $product->pivot->qnty != 1 ? 'x'.$product->pivot->qnty : '' }}</td>
+                            <td class="text-center width">{{ number_format($product->price / 100 * $product->pivot->qnty, 2) }} zł</td>
+                        </tr>
+
+                        {{ $index++ }}
+
+                        @if ($index == 8)
                         <tr class="page-break">
                             <td></td>
                             <td></td>
@@ -205,11 +219,24 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($data->parts['desc'] as $job)
+                    {{ $index = 0 }}
+
+                    @foreach ($data->parts as $part)
                         <tr>
-                            <td>{{ $loop->index + 1 }}. {{ $data->parts['desc'][$loop->index] }}</td>
-                            <td class="text-center width">{{ $data->parts['price'][$loop->index] / 100 }} zł</td>
+                            <td>{{ $index + 1 }}. {{ $part['desc'] }}</td>
+                            <td class="text-center width">{{ number_format($part['price'] / 100, 2) }} zł</td>
                         </tr>
+
+                        {{ $index++ }}
+                    @endforeach
+
+                    @foreach ($data->selectParts as $part)
+                        <tr>
+                            <td>{{ $index + 1 }}. {{ $part->name }}   {{ $part->pivot->qnty != 1 ? 'x'.$part->pivot->qnty : '' }}</td>
+                            <td class="text-center width">{{ number_format($part->price / 100 * $part->pivot->qnty, 2) }} zł</td>
+                        </tr>
+
+                        {{ $index++ }}
                     @endforeach
 
                     <tr>
@@ -217,7 +244,7 @@
                             <h3>Suma</h3>
                         </td>
                         <td>
-                            <h3 class="text-center">{{ $data->amount / 100 }} zł</h3>
+                            <h3 class="text-center">{{ number_format($data->amount / 100, 2) }} zł</h3>
                         </td>
                     </tr>
                 </tbody>
