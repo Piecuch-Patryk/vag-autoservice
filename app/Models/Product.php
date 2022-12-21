@@ -20,13 +20,13 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function invoice()
+    public function invoices()
     {
         return $this->belongsToMany(
             Invoice::class,
             'invoices_products',
-            'product_id',
             'invoice_id',
+            'product_id',
         );
     }
 }

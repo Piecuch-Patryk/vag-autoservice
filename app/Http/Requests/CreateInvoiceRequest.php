@@ -29,8 +29,8 @@ class CreateInvoiceRequest extends FormRequest
             'model' => 'required',
             'registration' => 'required',
             'vin' => 'required',
-            'milage' => 'required',
-            'jobs' => 'array',
+            'mileage' => 'required',
+            'products' => 'array',
             'parts' => 'array',
         ];
     }

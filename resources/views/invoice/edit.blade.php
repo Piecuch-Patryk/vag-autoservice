@@ -57,12 +57,12 @@
                     @include('shared.error', ['name' => 'vin'])
 
                     <div class="input-group input-group-sm mb-3">
-                        <label for="InputMilage" class="input-group-text">Przebieg</label>
-                        <input value="{{ old('milage') ? old('milage') : $invoice->milage }}" name="milage" type="number"
-                            class="form-control" id="InputMilage">
+                        <label for="InputMileage" class="input-group-text">Przebieg</label>
+                        <input value="{{ old('mileage') ? old('mileage') : $invoice->mileage }}" name="mileage" type="number"
+                            class="form-control" id="InputMileage">
                     </div>
 
-                    @include('shared.error', ['name' => 'milage'])
+                    @include('shared.error', ['name' => 'mileage'])
 
                     <div id="jobsContainer" data-container="jobs" class="pt-3 mb-3">
                         <h3>

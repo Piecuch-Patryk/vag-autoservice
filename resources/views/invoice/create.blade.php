@@ -64,61 +64,36 @@
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-5 mx-auto">
                                     <div class="input-group input-group-sm mb-3">
-                                        <label for="InputMilage" class="input-group-text">Przebieg</label>
-                                        <input value="{{ old('milage') }}" name="milage" type="number" class="form-control"
-                                            id="InputMilage">
+                                        <label for="InputMileage" class="input-group-text">Przebieg</label>
+                                        <input value="{{ old('mileage') }}" name="mileage" type="number" class="form-control"
+                                            id="InputMileage">
                                     </div>
         
-                                    @include('shared.error', ['name' => 'milage'])
+                                    @include('shared.error', ['name' => 'mileage'])
                                 </div>
                             </div>
-                            <div class="mb-5" id="jobsContainer" data-container="jobs">
+                            <div class="mb-5" id="jobsContainer" data-container="products">
                                 <h3>
                                     Wykonane Czynności
-                                    <button type="button" data-create="jobs" class="btn btn-sm py-0 btn-success ms-3">Nowy Opis</button>
-                                    <button type="button" data-create="list" class="btn btn-sm py-0 btn-success ms-3">Nowa Lista</button>
+                                    <button type="button" data-create="custom" class="btn btn-sm py-0 btn-success ms-3">Nowy Opis</button>
+                                    <button type="button" data-create="select" class="btn btn-sm py-0 btn-success ms-3">Nowa Lista</button>
                                 </h3>
-                                @if (old('jobs.desc'))
 
-                                    @for ($i = 0; $i < count(old('jobs.desc')); $i++)
-                                        <div data-input-group="desc" class="row">
-                                            <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
-                                                <div class="input-group input-group-sm">
-                                                    <label for="InputJobDesc" class="input-group-text">Opis</label>
-                                                    <input value="{{ old('jobs.desc.' . $i) }}" name="jobs[desc][]"
-                                                        type="text" class="form-control" id="InputPartDesc">
-                                                </div>
-                                            </div>
-                                            <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
-                                                <div class="input-group input-group-sm">
-                                                    <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                                    <input
-                                                        value="{{ old('jobs.price.' . $i) ? old('jobs.price.' . $i) : '' }}"
-                                                        name="jobs[price][]" type="text" class="form-control"
-                                                        id="InputPartDesc">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
-                                                <button data-remove type="button"
-                                                    class="btn btn-sm py-0 btn-danger">Usuń</button>
-                                            </div>
-                                        </div>
-                                    @endfor
-
-                                @else
-                                    <div data-input-group="desc" class="row">
+								{{-- Custom --}}
+								<div data-input-group="custom">
+									<div class="row" data-row-wrap>
                                         <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputJobDesc" class="input-group-text">Opis</label>
-                                                <input value="" name="jobs[desc][]" type="text"
-                                                    class="form-control" id="InputPartDesc">
+                                                <label for="InputCustomDesc" class="input-group-text">Opis</label>
+                                                <input value="" name="custom[product][desc][]" type="text"
+                                                    class="form-control" id="InputCustomDesc">
                                             </div>
                                         </div>
                                         <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                                <input value="" name="jobs[price][]" type="text"
-                                                    class="form-control" id="InputPartDesc">
+                                                <label for="InputCustomPrice" class="input-group-text">Cena</label>
+                                                <input value="" name="custom[product][price][]" type="text"
+                                                    class="form-control" id="InputCustomPrice">
                                             </div>
                                         </div>
                                         <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
@@ -126,34 +101,38 @@
                                                 class="btn btn-sm py-0 btn-danger">Usuń</button>
                                         </div>
                                     </div>
-                                    <div data-input-group="list" class="row">
+								</div>
+
+								{{-- Select --}}
+								<div data-input-group="select">
+									<div class="row" data-row-wrap>
                                         <div class="col-5 px-0 ps-1 px-lg-3 col-lg-7 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputJobDesc" class="input-group-text">Lista Usług</label>
-                                                <select name="jobsList[desc][]" id="InputPartList" class="flex-fill">
-                                                    <option value="0">Wybierz usługę z listy</option>
+                                                <label for="InputSelectDesc" class="input-group-text">Lista Usług</label>
+                                                <select name="select[product][desc][]" id="InputSelectDesc" class="flex-fill" data-select>
+                                                    <option value="0">Wybierz z listy</option>
 
-                                                    @foreach ($products as $product)
-                                                    <option value="{{ $product->proName }}" data-price="{{ $product->price }}">
-                                                        Kategoria: {{ $product->category->catName }} | {{ $product->proName }} - {{ $product->price }} zł
-                                                    </option>
-                                                    @endforeach
+													@foreach ($products as $product)
+													<option value="{{ $product->id }}" data-price="{{ number_format($product->price / 100, 2) }}">
+														{{ $product->proName }} - {{ number_format($product->price / 100, 2) }} zł
+													</option>
+													@endforeach
 
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-3 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputJobQnty" class="input-group-text">Ilość</label>
-                                                <input value="" name="jobsList[qnty][]" type="number"
-                                                    class="form-control" id="InputPartQnty" data-input-price="list">
+                                                <label for="InputSelectQnty" class="input-group-text">Ilość</label>
+                                                <input value="" min="0" name="select[product][qnty][]" type="number"
+                                                    class="form-control" id="InputSelectQnty" data-input-select-qnty>
                                             </div>
                                         </div>
                                         <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputJobPrice" class="input-group-text">Cena</label>
-                                                <input value="" name="jobsList[price][]" type="text"
-                                                    class="form-control" id="InputJobPrice">
+                                                <label for="InputSelectPrice" class="input-group-text">Cena</label>
+                                                <input value="" name="select[product][price][]" type="text"
+                                                    class="form-control" id="InputSelectPrice" data-input-select-price>
                                             </div>
                                         </div>
                                         <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
@@ -161,56 +140,31 @@
                                                 class="btn btn-sm py-0 btn-danger">Usuń</button>
                                         </div>
                                     </div>
-                                @endif
+								</div>
                             </div>
 
                             <div class="mb-5" id="partsContainer" data-container="parts">
                                 <h3>
                                     Lista Części
-                                    <button type="button" data-create="parts" class="btn btn-sm py-0 btn-success ms-3">Nowy Opis</button>
-                                    <button type="button" data-create="list" class="btn btn-sm py-0 btn-success ms-3">Nowa Lista</button>
+                                    <button type="button" data-create="custom" class="btn btn-sm py-0 btn-success ms-3">Nowy Opis</button>
+                                    <button type="button" data-create="select" class="btn btn-sm py-0 btn-success ms-3">Nowa Lista</button>
                                 </h3>
-                                @if (old('parts.desc'))
 
-                                @for ($i = 0; $i < count(old('parts.desc')); $i++)
-                                    <div data-input-group="desc" class="row">
-                                        <div class="col-7 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
-                                            <div class="input-group input-group-sm">
-                                                <label for="InputPartDesc" class="input-group-text">Opis</label>
-                                                <input value="{{ old('parts.desc.' . $i) }}" name="parts[desc][]"
-                                                    type="text" class="form-control" id="InputPartDesc">
-                                            </div>
-                                        </div>
-                                        <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
-                                            <div class="input-group input-group-sm">
-                                                <label for="InputPartPrice" class="input-group-text">Cena</label>
-                                                <input
-                                                    value="{{ old('parts.price.' . $i) ? old('parts.price.' . $i) : '' }}"
-                                                    name="parts[price][]" type="text" class="form-control"
-                                                    id="InputPartPrice">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
-                                            <button data-remove type="button"
-                                                class="btn btn-sm py-0 btn-danger">Usuń</button>
-                                        </div>
-                                    </div>
-                                @endfor
-
-                                @else
-                                    <div data-input-group="desc" class="row">
+								{{-- Custom --}}
+								<div data-input-group="custom">
+									<div class="row" data-row-wrap>
                                         <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputPartDesc" class="input-group-text">Opis</label>
-                                                <input value="" name="parts[desc][]" type="text"
-                                                    class="form-control" id="InputPartDesc">
+                                                <label for="InputCustomDesc" class="input-group-text">Opis</label>
+                                                <input value="" name="custom[part][desc][]" type="text"
+                                                    class="form-control" id="InputCustomDesc">
                                             </div>
                                         </div>
                                         <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputPartPrice" class="input-group-text">Cena</label>
-                                                <input value="" name="parts[price][]" type="text"
-                                                    class="form-control" id="InputPartPrice">
+                                                <label for="InputCustomPrice" class="input-group-text">Cena</label>
+                                                <input value="" name="custom[part][price][]" type="text"
+                                                    class="form-control" id="InputCustomPrice">
                                             </div>
                                         </div>
                                         <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
@@ -218,34 +172,38 @@
                                                 class="btn btn-sm py-0 btn-danger">Usuń</button>
                                         </div>
                                     </div>
-                                    <div data-input-group="list" class="row">
+								</div>
+
+								{{-- Select --}}
+								<div data-input-group="select">
+									<div class="row" data-row-wrap>
                                         <div class="col-5 px-0 ps-1 px-lg-3 col-lg-7 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputPartDesc" class="input-group-text">Lista Usług</label>
-                                                <select name="partsList[desc][]" id="InputPartList" class="flex-fill">
-                                                    <option value="0">Wybierz części z listy</option>
+                                                <label for="InputSelectDesc" class="input-group-text">Lista Części</label>
+                                                <select name="select[part][desc][]" id="InputSelectDesc" class="flex-fill" data-select>
+                                                    <option value="0">Wybierz z listy</option>
 
-                                                    {{-- @foreach ($products as $product)
-                                                    <option value="{{ $product->proName }}" data-price="{{ $product->price }}">
-                                                        Kategoria: {{ $product->category->catName }} | {{ $product->proName }} - {{ $product->price }} zł
-                                                    </option>
-                                                    @endforeach --}}
+														@foreach ($parts as $part)
+														<option value="{{ $part->id }}" data-price="{{ number_format($part->price / 100, 2) }}">
+															{{ $part->name }} - {{ number_format($part->price / 100, 2) }} zł
+														</option>
+														@endforeach
 
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-3 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputPartQnty" class="input-group-text">Ilość</label>
-                                                <input value="" name="partsList[qnty][]" type="number"
-                                                    class="form-control" id="InputPartQnty" data-input-price="list">
+                                                <label for="InputSelectQnty" class="input-group-text">Ilość</label>
+                                                <input value="" min="0" name="select[part][qnty][]" type="number"
+                                                    class="form-control" id="InputSelectQnty" data-input-select-qnty>
                                             </div>
                                         </div>
                                         <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
-                                                <label for="InputPartPrice" class="input-group-text">Cena</label>
-                                                <input value="" name="partsList[price][]" type="text"
-                                                    class="form-control" id="InputPartsPrice">
+                                                <label for="InputSelectPrice" class="input-group-text">Cena</label>
+                                                <input value="" name="select[part][price][]" type="text"
+                                                    class="form-control" id="InputSelectPrice" data-input-select-price>
                                             </div>
                                         </div>
                                         <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
@@ -253,8 +211,9 @@
                                                 class="btn btn-sm py-0 btn-danger">Usuń</button>
                                         </div>
                                     </div>
-                                @endif
+								</div>
                             </div>
+
                             <h3>Dodatkowe Informacje</h3>
                             <div class="mb-3">
                                 <textarea name="description" class="form-control" id="InputDescription">{{ old('description') }}</textarea>
@@ -276,49 +235,60 @@
 @section('script-invoice')
     <script>
         function updatePrice() {
-            const selectedOption = this.closest('[data-input-group="list"]').querySelector('select').options[this.closest('[data-input-group="list"]').querySelector('select').options.selectedIndex];
+            const selectedOption = this.closest('[data-row-wrap]').querySelector('select').options[this.closest('[data-row-wrap]').querySelector('select').options.selectedIndex];
 
             if(selectedOption.value != 0) {
-                const qnty = this.closest('[data-input-group="list"]').querySelector('#InputPartQnty').value;
+				const priceBox = this.closest('[data-row-wrap]').querySelector('[data-input-select-price]');
                 const price = selectedOption.attributes['data-price'].value;
-                const priceBox = this.closest('[data-input-group="list"]').querySelector('#InputJobPrice');
+                const qntyBox = this.closest('[data-row-wrap]').querySelector('[data-input-select-qnty');
+				let qnty = qntyBox.value;
 
-                priceBox.value = qnty * price;
+				if(qnty == 0) {
+					qnty = 1;
+					qntyBox.value = qnty;
+				}
+
+                priceBox.value = (Math.round(qnty * price * 100) / 100).toFixed(2);
             }else {
-                this.value = '';
-            }
+				this.value = 0;
+			}
 
         }
 
         function addInputGroup() {
-            const current = this.attributes['data-create'].value;
+            const currentSectionName = this.attributes['data-create'].value;
             const container = this.closest('[data-container]');
-            let newEl;
+			const currentRow = container.querySelector(`[data-input-group="${currentSectionName}"]`)
+            const clonedEl = currentRow.firstElementChild.cloneNode(true);
 
-            if(current == 'list') {
-                newEl = container.querySelector('[data-input-group="list"]').cloneNode(true);
-                newEl.querySelector('[data-input-price="list"]').addEventListener('keyup', updatePrice);
-            }else {
-                newEl = container.querySelector('[data-input-group="desc"]').cloneNode(true);
-            }
+            clonedEl.querySelectorAll('input').forEach(input => input.value = '');
+            clonedEl.querySelector('[data-remove]').addEventListener('click', removeInputGroup);
 
-            newEl.querySelectorAll('input').forEach(input => input.value = '');
-            newEl.querySelector('[data-remove]').addEventListener('click', removeInputGroup);
+			if(clonedEl.querySelector('[data-input-select-qnty]')) {
+				clonedEl.querySelector('[data-input-select-qnty]').addEventListener('change', updatePrice);
+				clonedEl.querySelector('[data-input-select-qnty]').addEventListener('keydown', updatePrice);
+				clonedEl.querySelector('[data-select]').addEventListener('change', updatePrice);
+			}
 
-            return container.appendChild(newEl);
+            return currentRow.appendChild(clonedEl);
         }
 
         function removeInputGroup() {
-            const elCount = this.closest('[data-container]').querySelectorAll('[data-input-group]').length;
-            
-            if (elCount > 2) return this.closest('[data-input-group]').remove();
+            const rowsLeft = this.closest('[data-input-group]').children.length;
+
+            if (rowsLeft > 1) return this.closest('[ data-row-wrap]').remove();
+			else {
+				this.closest('[data-row-wrap]').querySelectorAll('input').forEach(el => el.value = '');
+				this.closest('[data-row-wrap]').querySelectorAll('select').forEach(el => el.value = 0);
+			}
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('[data-create]').forEach(el => el.addEventListener('click', addInputGroup));
-            document.querySelectorAll('[data-remove]').forEach(el => el.addEventListener('click',
-                removeInputGroup));
-            document.querySelectorAll('[data-input-price="list"]').forEach(el => el.addEventListener('keyup', updatePrice))
+            document.querySelectorAll('[data-remove]').forEach(el => el.addEventListener('click', removeInputGroup));
+            document.querySelectorAll('[data-input-select-qnty]').forEach(el => el.addEventListener('change', updatePrice));
+            document.querySelectorAll('[data-input-select-qnty]').forEach(el => el.addEventListener('keydown', updatePrice));
+			document.querySelectorAll('[data-select]').forEach(el => el.addEventListener('change', updatePrice));
         });
     </script>
 @endsection

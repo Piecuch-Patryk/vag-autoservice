@@ -162,7 +162,7 @@
                 </tr>
                 <tr>
                     <td class="text-center">Przebieg</td>
-                    <td class="text-center">{{ $data->milage }} km</td>
+                    <td class="text-center">{{ $data->mileage }} km</td>
                 </tr>
             </table>
         </div>

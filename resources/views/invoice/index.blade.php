@@ -95,7 +95,7 @@
                                                     </div>
                                                     <div>
                                                         <p class="text-center fw-bold mb-0 mb-md-1">Przebieg</p>
-                                                        <p class="text-center">{{ $invoice->milage }}</p>
+                                                        <p class="text-center">{{ $invoice->mileage }}</p>
                                                     </div>
                                                     <div>
                                                         <p class="text-center fw-bold mb-0 mb-md-1">Numer VIN</p>

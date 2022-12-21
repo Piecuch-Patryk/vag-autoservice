@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('invoices_products', function (Blueprint $table) {
+        Schema::create('invoices_parts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('invoice_id')
                 ->constrained('invoices')
                 ->onDelete('cascade');
-            $table->foreignId('product_id')
-                ->constrained('products')
+            $table->foreignId('part_id')
+                ->constrained('parts')
                 ->onDelete('cascade');
             $table->integer('qnty')->nullable();
             $table->timestamps();
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invoices_products');
+        Schema::dropIfExists('invoices_parts');
     }
 };

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use PDF;
+use App\Models\Part;
 use App\Models\Company;
 use App\Models\Invoice;
 use App\Models\Product;
@@ -21,7 +22,7 @@ class InvoiceController extends Controller
     {
         $invoices = Invoice::latest()->get();
         foreach ($invoices as $key => $invoice) {
-            $invoice->jobs = json_decode($invoice->jobs);
+            $invoice->products = json_decode($invoice->products);
             $invoice->parts = json_decode($invoice->parts);
         }
 
@@ -37,11 +38,70 @@ class InvoiceController extends Controller
     {
         $lastOrder = Invoice::orderBy('number', 'desc')->first();
         $products = Product::latest()->get();
+        $parts = Part::latest()->get();
 
         if(!$lastOrder) $invoiceNumber = '10001';
         else $invoiceNumber = $lastOrder->number + 1;
 
-        return view('invoice.create', compact('invoiceNumber', 'products'));
+        return view('invoice.create', compact('invoiceNumber', 'products', 'parts'));
+    }
+
+    private function prepareFormData($formData)
+    {
+        $formData['amount'] = 0;
+        $formData['products'] = [];
+        $formData['parts'] = [];
+
+        foreach ($formData['custom']['product']['desc'] as $key => $value) {
+            if($value != 0) {
+                $formData['products'][$key]['desc'] = $value;
+                $formData['products'][$key]['price'] = number_format($formData['custom']['product']['price'][$key] * 100, 0, '', '');
+                $formData['amount'] += number_format($formData['custom']['product']['price'][$key] * 100, 0, '', '');
+            }
+        }
+
+        foreach ($formData['custom']['part']['desc'] as $key => $value) {
+            if($value != 0) {
+                $formData['parts'][$key]['desc'] = $value;
+                $formData['parts'][$key]['price'] = number_format($formData['custom']['part']['price'][$key] * 100, 0, '', '');
+                $formData['amount'] += number_format($formData['custom']['part']['price'][$key] * 100, 0, '', '');
+            }
+        }
+
+        unset($formData['custom']);
+        unset($formData['select']);
+
+        $formData['products'] = json_encode($formData['products']);
+        $formData['parts'] = json_encode($formData['parts']);
+
+        return $formData;
+    }
+
+    private function prepareOtherData($formData, $invoiceId)
+    {
+        $selectProducts = [];
+        $selectParts = [];
+
+        foreach ($formData['select']['product']['desc'] as $key => $value) {
+            if($value != 0) {
+                $selectProducts[$key]['product_id'] = $value;
+                $selectProducts[$key]['invoice_id'] = $invoiceId;
+                $selectProducts[$key]['qnty'] = $formData['select']['product']['qnty'][$key];
+            }
+        }
+
+        foreach ($formData['select']['part']['desc'] as $key => $value) {
+            if($value != 0) {
+                $selectParts[$key]['part_id'] = $value;
+                $selectParts[$key]['invoice_id'] = $invoiceId;
+                $selectParts[$key]['qnty'] = $formData['select']['part']['qnty'][$key];
+            }
+        }
+
+        return [
+            'products' => $selectProducts,
+            'parts' => $selectParts,
+        ];
     }
 
     /**
@@ -52,72 +112,13 @@ class InvoiceController extends Controller
      */
     public function store(CreateInvoiceRequest $request)
     {
+        $formData = $this->prepareFormData($request->all());
+        $invoice = Invoice::create($formData);
 
-dd($request);
+        $otherData = $this->prepareOtherData($request->all(), $invoice->id);
 
-        // $formData = collect(request()->all())->filter()->toArray();
-
-        // $formData['amount'] = 0;
-
-        // // jobs
-        // foreach ($formData['jobs']['price'] as $key => $value) {
-        //     $price = (int)floatval($value * 100);
-        //     $formData['jobs']['price'][$key] = $price;
-        //     $formData['amount'] += $price;
-
-        //     if($value == null) {
-        //         unset($formData['jobs']['desc'][$key]);
-        //         unset($formData['jobs']['price'][$key]);
-        //     }
-        // }
-
-        // foreach ($formData['jobsList']['price'] as $key => $value) {
-        //     $price = (int)floatval($value * 100);
-        //     $qnty = (int)$formData['jobsList']['qnty'][$key];
-        //     $formData['jobs']['price'][] = $price * $qnty;
-        //     $formData['amount'] += $price * $qnty;
-        //     $formData['jobs']['desc'][] = $formData['jobsList']['desc'][$key] . ' x' . $qnty;
-            
-        //     if($formData['jobsList']['desc'][$key] == null) {
-        //         unset($formData['jobs']['desc'][$key]);
-        //         unset($formData['jobs']['price'][$key]);
-        //     }
-
-        //     unset($formData['jobsList']);
-        // }
-        
-        // // parts
-        // foreach ($formData['parts']['price'] as $key => $value) {
-        //     $price = (int)floatval($value * 100);
-        //     $formData['parts']['price'][$key] = $price;
-        //     $formData['amount'] += $price;
-
-        //     if($value == null) {
-        //         unset($formData['parts']['desc'][$key]);
-        //         unset($formData['parts']['price'][$key]);
-        //     }
-        // }
-
-        // foreach ($formData['partsList']['price'] as $key => $value) {
-        //     $price = (int)floatval($value * 100);
-        //     $qnty = (int)$formData['partsList']['qnty'][$key];
-        //     $formData['parts']['price'][] = $price * $qnty;
-        //     $formData['amount'] += $price * $qnty;
-        //     $formData['parts']['desc'][] = $formData['partsList']['desc'][$key] . ' x' . $qnty;
-            
-        //     if($formData['partsList']['desc'][$key] == 0) {
-        //         unset($formData['parts']['desc'][$key]);
-        //         unset($formData['parts']['price'][$key]);
-        //     }
-
-            
-        //     unset($formData['partsList']);
-        // }
-
-        // $formData['jobs'] = json_encode($formData['jobs']);
-        // $formData['parts'] = json_encode($formData['parts']);
-
-        // Invoice::create($formData);
+        $invoice->products()->attach($otherData['products']);
+        $invoice->parts()->attach($otherData['parts']);
 
         return redirect()->route('invoice.index')->with('success', 'Pomyślnie utworzono nowy rekord');
     }

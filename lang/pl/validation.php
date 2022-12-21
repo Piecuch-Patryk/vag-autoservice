@@ -56,7 +56,7 @@ return [
         'vin' => [
             'required' => 'Podaj numer VIN',
         ],
-        'milage' => [
+        'mileage' => [
             'required' => 'Podaj przebieg samochodu'
         ],
         'phone' => [

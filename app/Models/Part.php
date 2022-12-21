@@ -13,4 +13,14 @@ class Part extends Model
         'name',
         'price',
     ];
+
+    public function invoices()
+    {
+        return $this->belongsToMany(
+            Invoice::class,
+            'invoices_parts',
+            'part_id',
+            'invoice_id',
+        );
+    }
 }

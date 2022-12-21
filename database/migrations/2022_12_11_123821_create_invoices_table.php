@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('model');
             $table->string('registration');
             $table->string('vin');
+            $table->json('products');
+            $table->json('parts');
             $table->bigInteger('mileage');
             $table->text('description')->nullable();
             $table->timestamps();

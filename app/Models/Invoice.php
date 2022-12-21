@@ -16,19 +16,29 @@ class Invoice extends Model
         'model',
         'registration',
         'vin',
-        'milage',
+        'mileage',
         'description',
-        'jobs',
+        'products',
         'parts',
     ];
 
-    public function products()
+    public function selectProducts()
     {
         return $this->belongsToMany(
             Product::class,
             'invoices_products',
             'invoice_id',
             'product_id',
+        );
+    }
+
+    public function selectParts()
+    {
+        return $this->belongsToMany(
+            Invoice::class,
+            'invoices_parts',
+            'invoice_id',
+            'part_id',
         );
     }
 }
