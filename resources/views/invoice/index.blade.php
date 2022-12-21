@@ -4,7 +4,7 @@
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-0 col-lg-2">
-                <nav class="nav d-none d-lg-flex flex-column sticky-top top-25">
+                <nav class="d-none d-lg-flex flex-column sticky-top top-25">
                     @include('navs.nav')
                 </nav>
             </div>
