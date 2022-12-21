@@ -1,5 +1,5 @@
 <nav class="bg-custom-dark p-3">
-    <div class="d-flex justify-content-between align-items-center p-lg-5 mx-lg-5">
+    <div class="d-flex justify-content-between align-items-center p-xl-5 mx-xl-5">
         <div>
             <a href="/">
                 <img class="d-lg-none" src="{{ Storage::url('logo/white.png') }}" alt="">
@@ -38,7 +38,7 @@
             </div>
             <nav>
                 <ul class="nav justify-content-around mt-3">
-                    <li class="nav-item mx-5 dropdown">
+                    <li class="nav-item mx-lg-1 mx-xxl-5 dropdown">
                         <a class="nav-link dropdown-toggle text-light fs-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Serwis</a>
                         <ul class="dropdown-menu">
 
@@ -47,13 +47,13 @@
                             @endforeach
                         </ul>
                       </li>
-                    <li class="nav-item mx-5">
+                    <li class="nav-item mx-lg-1 mx-xxl-5">
                         <a class="nav-link text-light fs-5" href="#">O Nas</a>
                     </li>
-                    <li class="nav-item mx-5">
+                    <li class="nav-item mx-lg-1 mx-xxl-5">
                         <a class="nav-link text-light fs-5" href="#reviews">Opinie</a>
                     </li>
-                    <li class="nav-item ms-5 me-3">
+                    <li class="nav-item ms-lg-1 ms-xxl-5 me-3">
                         <a class="nav-link text-light fs-5" href="#" tabindex="-1"
                             aria-disabled="true" data-bs-toggle="modal" data-bs-target="#contactModal">Kontakt</a>
                     </li>
