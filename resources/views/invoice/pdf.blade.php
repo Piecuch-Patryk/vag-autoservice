@@ -125,8 +125,7 @@
 <body>
     <header>
         <div>
-            <img
-                src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/storage/logo/black-lg.png'))) }}">
+            <img src="{{ public_path('storage/logo/black-lg.jpg') }}" alt="" />
         </div>
         <div class="half-desc">
             <p>{{ $company->phone }}</p>
