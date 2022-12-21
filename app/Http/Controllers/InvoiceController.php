@@ -68,6 +68,18 @@ class InvoiceController extends Controller
             }
         }
 
+        foreach ($formData['select']['product']['desc'] as $key => $value) {
+            if($value != 0) {
+                $formData['amount'] += number_format($formData['select']['product']['price'][$key] * 100, 0, '', '');
+            }
+        }
+
+        foreach ($formData['select']['part']['desc'] as $key => $value) {
+            if($value != 0) {
+                $formData['amount'] += number_format($formData['select']['part']['price'][$key] * 100, 0, '', '');
+            }
+        }
+
         unset($formData['custom']);
         unset($formData['select']);
 
@@ -117,8 +129,8 @@ class InvoiceController extends Controller
 
         $otherData = $this->prepareOtherData($request->all(), $invoice->id);
 
-        $invoice->products()->attach($otherData['products']);
-        $invoice->parts()->attach($otherData['parts']);
+        $invoice->selectProducts()->attach($otherData['products']);
+        $invoice->selectParts()->attach($otherData['parts']);
 
         return redirect()->route('invoice.index')->with('success', 'Pomyślnie utworzono nowy rekord');
     }

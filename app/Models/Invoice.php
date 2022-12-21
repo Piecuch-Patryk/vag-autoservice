@@ -29,16 +29,16 @@ class Invoice extends Model
             'invoices_products',
             'invoice_id',
             'product_id',
-        );
+        )->withPivot('qnty');
     }
 
     public function selectParts()
     {
         return $this->belongsToMany(
-            Invoice::class,
+            Part::class,
             'invoices_parts',
             'invoice_id',
             'part_id',
-        );
+        )->withPivot('qnty');
     }
 }

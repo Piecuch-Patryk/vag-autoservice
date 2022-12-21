@@ -105,47 +105,60 @@
                                                 <div class="mb-5">
                                                     <h2 class="fs-5">
                                                         Lista czynności serwisowych
-                                                        {{ !$invoice->jobs->desc ? ': brak' : ''}}
                                                     </h2>
-                                                    <ul>
-                                                        @for ($i = 0; $i < count($invoice->jobs->desc); $i++)
-                                                            <li
-                                                                class="w-100 d-flex flex-column flex-lg-row justify-content-between border-bottom">
-                                                                <p class="mb-0">
-                                                                    <span class="me-3">
-                                                                        {{ $i + 1 }}.
-                                                                    </span>
-                                                                    {{ $invoice->jobs->desc[$i] }}
-                                                                </p>
-                                                                <p class="mb-0 text-nowrap">{{ number_format($invoice->jobs->price[$i] / 100, 2) }}
-                                                                    PLN</p>
-                                                            </li>
-                                                        @endfor
-                                                    </ul>
+                                                    <ol class="list-group list-group-numbered">
+
+                                                        @foreach ($invoice->products as $product)
+                                                        <li class="list-group-item d-flex flex-column flex-lg-row justify-content-between">
+                                                            <p class="flex-fill ps-3 mb-0">
+                                                                {{ $product->desc }}
+                                                            </p>
+                                                            <p class="mb-0 text-nowrap">{{ number_format($product->price / 100, 2) }} PLN</p>
+                                                        </li>
+                                                        @endforeach
+
+                                                        @foreach ($invoice->selectProducts as $product)
+                                                        <li class="list-group-item d-flex flex-column flex-lg-row justify-content-between">
+                                                            <p class="flex-fill ps-3 mb-0">
+                                                                {{ $product->proName }}
+                                                                <span class="ms-3">
+                                                                    x{{ $product->pivot->qnty }}
+                                                                </span>
+                                                            </p>
+                                                            <p class="mb-0 text-nowrap">{{ number_format($product->price / 100 * $product->pivot->qnty, 2) }} PLN</p>
+                                                        </li>
+                                                        @endforeach
+
+                                                    </ol>
                                                 </div>
                                                 <div class="mb-5">
                                                     <h2 class="fs-5">
                                                         Lista części serwisowych
-                                                        {{ !$invoice->parts->desc ? ': brak' : ''}}
                                                     </h2>
-                                                    <ul>
-                                                        @for ($i = 0; $i < count($invoice->parts->desc); $i++)
-                                                            <li
-                                                                class="w-100 d-flex justify-content-between border-bottom">
-                                                                <div>
-                                                                    <p class="mb-0">
-                                                                        <span class="me-3">
-                                                                            {{ $i + 1 }}.
-                                                                        </span>
-                                                                        {{ $invoice->parts->desc[$i] }}
-                                                                    </p>
-                                                                </div>
-                                                                <p class="mb-0 text-nowrap">
-                                                                    {{ number_format($invoice->parts->price[$i] / 100, 2) }}
-                                                                    PLN</p>
-                                                            </li>
-                                                        @endfor
-                                                    </ul>
+                                                    <ol class="list-group list-group-numbered">
+
+                                                        @foreach ($invoice->parts as $part)
+                                                        <li class="list-group-item d-flex flex-column flex-lg-row justify-content-between">
+                                                            <p class="flex-fill ps-3 mb-0">
+                                                                {{ $part->desc }}
+                                                            </p>
+                                                            <p class="mb-0 text-nowrap">{{ number_format($part->price / 100, 2) }} PLN</p>
+                                                        </li>
+                                                        @endforeach
+
+                                                        @foreach ($invoice->selectParts as $part)
+                                                        <li class="list-group-item d-flex flex-column flex-lg-row justify-content-between">
+                                                            <p class="flex-fill ps-3 mb-0">
+                                                                {{ $part->name }}
+                                                                <span class="ms-3">
+                                                                    x{{ $part->pivot->qnty }}
+                                                                </span>
+                                                            </p>
+                                                            <p class="mb-0 text-nowrap">{{ number_format($part->price / 100 * $part->pivot->qnty, 2) }} PLN</p>
+                                                        </li>
+                                                        @endforeach
+
+                                                    </ol>
                                                 </div>
 
                                                 @if ($invoice->amount > 0)
@@ -166,8 +179,7 @@
                                                 <div class="d-flex justify-content-around justify-content-lg-center mb-5">
                                                     <a href="{{ route('invoice.download', ['id' => $invoice->id]) }}"
                                                         class="btn py-0 btn-outline-info mx-3">Pobierz PDF</a>
-                                                    <a href="{{ route('invoice.edit', ['id' => $invoice->id]) }}"
-                                                        class="btn py-0 btn-outline-warning mx-3">Edytuj</a>
+                                                    {{-- <a href="{{ route('invoice.edit', ['id' => $invoice->id]) }}" class="btn py-0 btn-outline-warning mx-3">Edytuj</a> --}}
                                                     <form class="d-flex align-items-center" method="POST"
                                                         action="{{ route('invoice.destroy', $invoice->id) }}">
                                                         @csrf
