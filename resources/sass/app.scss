@@ -208,4 +208,29 @@ $custom-dark-color: #000000;
     transform: translateY(0);
   }
 
+  @media screen and (min-width: 768px) {
+    .custom-header-bg {
+      background-image: url('../../storage/app/public/shared/header-lg.png');
+      background-position: 40% 70%;
+      background-size: cover;
+    }
+
+    .custom-section {
+      margin: auto;
+      background-image: url('../../storage/app/public/shared/custom-section-lg.png');
+    }
+
+    .custom-article-bg {
+      background-position: 50% 25%;
+    }
+
+  }
+
+  @media screen and (min-width: 992px) {
+    .custom-header-bg {
+      background-size: 80%;
+      background-position: 100% 80%;
+    }
+  }
+
 }

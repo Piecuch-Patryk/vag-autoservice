@@ -1,9 +1,9 @@
 @extends('layouts.frontend')
 
 @section('main')
-    <main class="container px-2">
-        <div class="row mb-5 py-5 rounded-2 shadow bg-white custom-section">
-            <div class="col-12 text-center">
+    <main class="container-fluid px-2">
+        <div class="row mb-5 py-5 rounded-2 shadow bg-white custom-section mt-md-5">
+            <div class="col-12 col-lg-8 mx-lg-auto text-center">
                 <h2 class="custom-text-shadow fs-3">SPECJALIZUJEMY SIĘ W SERWISOWANIU SAMOCHODÓW Z GRUPY VOLKSWAGEN</h2>
                 <p class="custom-text-shadow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -15,10 +15,10 @@
         </div>
     </main>
 
-    <section class="container px-4 py-5 custom-section-image">
+    <section class="container-fluid px-4 py-5 custom-section-image">
         <div class="row">
-            <div class="col-12">
-                <ul class="list-group list-group-flush rounded-2 shadow">
+            <div class="col-12 col-lg-7 ms-lg-auto me-lg-5">
+                <ul class="list-group list-group-flush rounded-2 shadow p-lg-5">
 
                     @foreach ($categories as $category)
                         <li class="list-group-item border-0 custom-text-shadow">
@@ -33,7 +33,7 @@
         </div>
     </section>
 
-    <article class="container py-5 custom-article-bg">
+    <article class="container-fluid py-5 custom-article-bg">
         <div class="row">
             <div class="col-12 text-center fw-bold">
                 <h3 class="fw-bold custom-text-shadow m-0">Dlaczego MY?</h3>

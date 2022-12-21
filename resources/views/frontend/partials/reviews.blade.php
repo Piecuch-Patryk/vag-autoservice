@@ -1,11 +1,11 @@
-<section class="container mb-5">
+<section id="reviews" class="container mb-5">
     <div class="row mb-5">
         <div class="col-12 text-center">
             <h3 class="custom-text-shadow fw-bold mb-0">Opinie Naszych Klientów</h3>
         </div>
     </div>
 
-    @if (count($reviews) > 1)
+    @if (count($reviews) > 0)
         <div class="row">
             @foreach ($reviews as $review)
                 <div class="col-12 custom-text-shadow mb-4">
