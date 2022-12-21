@@ -25,7 +25,7 @@
                 <ul class="list-group list-group-flush">
                     @foreach ($category->products as $product)
                         <li class="list-group-item d-flex justify-content-between">
-                            <p class="d-flex justify-content-between flex-fill pe-5">
+                            <p class="d-flex justify-content-between flex-fill pe-lg-5">
                                 <span>{{ $product->proName }}</span>
                                 <span>{{ number_format($product->price / 100, 2) }} zł</span>
                             </p>

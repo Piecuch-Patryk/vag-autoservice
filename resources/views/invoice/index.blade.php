@@ -60,14 +60,14 @@
                     @include('shared.success')
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 px-0 px-md-4">
 
                             @if($invoices->isEmpty())
                             <p class="text-muted mt-3">Brak rekordów bazie danych. <a href="{{ route('invoice.create') }}" class="btn btn-sm btn-outline-success py-0">Utwórz Nowy</a></p>
                             @else                                
 
                             @foreach ($invoices as $invoice)
-                                <div class="">
+                                <div>
                                     <button class="btn btn-outline-dark mb-3 w-100 border-info" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapse{{ $invoice->id }}" aria-expanded="false"
                                         aria-controls="collapse{{ $invoice->id }}">
@@ -84,7 +84,7 @@
                                     <div class="collapse" id="collapse{{ $invoice->id }}">
                                         <div class="container">
                                             <div class="row">
-                                                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                                <div class="d-flex flex-column flex-md-row justify-content-between mb-5 px-0 px-md-4">
                                                     <div>
                                                         <p class="text-center fw-bold mb-0 mb-md-1">Marka</p>
                                                         <p class="text-center">{{ $invoice->make }}</p>
@@ -102,7 +102,7 @@
                                                         <p class="text-center">{{ $invoice->vin }}</p>
                                                     </div>
                                                 </div>
-                                                <div class="mb-5">
+                                                <div class="mb-5 px-0 px-md-4">
                                                     <h2 class="fs-5">
                                                         Lista czynności serwisowych
                                                     </h2>
@@ -113,7 +113,10 @@
                                                             <p class="flex-fill ps-3 mb-0">
                                                                 {{ $product->desc }}
                                                             </p>
-                                                            <p class="mb-0 text-nowrap">{{ number_format($product->price / 100, 2) }} PLN</p>
+                                                            <p class="mb-0 text-nowrap">
+                                                                <span class="mx-3 d-md-none">Cena:</span>
+                                                                {{ number_format($product->price / 100, 2) }} PLN
+                                                            </p>
                                                         </li>
                                                         @endforeach
 
@@ -125,13 +128,16 @@
                                                                     {{ $product->pivot->qnty != 1 ? 'x'.$product->pivot->qnty : '' }}
                                                                 </span>
                                                             </p>
-                                                            <p class="mb-0 text-nowrap">{{ number_format($product->price / 100 * $product->pivot->qnty, 2) }} PLN</p>
+                                                            <p class="mb-0 text-nowrap">
+                                                                <span class="mx-3 d-md-none">Cena:</span>
+                                                                {{ number_format($product->price / 100 * $product->pivot->qnty, 2) }} PLN
+                                                            </p>
                                                         </li>
                                                         @endforeach
 
                                                     </ol>
                                                 </div>
-                                                <div class="mb-5">
+                                                <div class="mb-5 px-0 px-md-4">
                                                     <h2 class="fs-5">
                                                         Lista części serwisowych
                                                     </h2>
@@ -142,7 +148,10 @@
                                                             <p class="flex-fill ps-3 mb-0">
                                                                 {{ $part->desc }}
                                                             </p>
-                                                            <p class="mb-0 text-nowrap">{{ number_format($part->price / 100, 2) }} PLN</p>
+                                                            <p class="mb-0 text-nowrap">
+                                                                <span class="mx-3 d-md-none">Cena:</span>
+                                                                {{ number_format($part->price / 100, 2) }} PLN
+                                                            </p>
                                                         </li>
                                                         @endforeach
 
@@ -154,7 +163,10 @@
                                                                     {{ $part->pivot->qnty != 1 ? 'x'.$part->pivot->qnty : '' }}
                                                                 </span>
                                                             </p>
-                                                            <p class="mb-0 text-nowrap">{{ number_format($part->price / 100 * $part->pivot->qnty, 2) }} PLN</p>
+                                                            <p class="mb-0 text-nowrap">
+                                                                <span class="mx-3 d-md-none">Cena:</span>
+                                                                {{ number_format($part->price / 100 * $part->pivot->qnty, 2) }} PLN
+                                                            </p>
                                                         </li>
                                                         @endforeach
 
@@ -165,7 +177,10 @@
                                                 <div
                                                     class="border-bottom d-flex justify-content-between mb-3 align-items-center">
                                                     <h2 class="mb-0 fs-5">Suma</h2>
-                                                    <p class="mb-0 fs-5 text-nowrap">{{ number_format($invoice->amount / 100, 2) }} PLN</p>
+                                                    <p class="mb-0 fs-5 text-nowrap">
+                                                        <span class="mx-3 d-md-none">Cena:</span>
+                                                        {{ number_format($invoice->amount / 100, 2) }} PLN
+                                                    </p>
                                                 </div>
                                                 @endif
 

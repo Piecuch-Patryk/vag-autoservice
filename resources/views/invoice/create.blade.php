@@ -73,30 +73,32 @@
                                 </div>
                             </div>
                             <div class="mb-5" id="jobsContainer" data-container="products">
-                                <h3>
-                                    Wykonane Czynności
-                                    <button type="button" data-create="custom" class="btn btn-sm py-0 btn-success ms-3">Nowy Opis</button>
-                                    <button type="button" data-create="select" class="btn btn-sm py-0 btn-success ms-3">Nowa Lista</button>
-                                </h3>
+                                <div class="d-flex flex-column flex-md-row mb-3 text-center text-md-start">
+                                    <h3>Wykonane Czynności</h3>
+                                    <div>
+                                        <button type="button" data-create="custom" class="btn btn-sm py-0 btn-success ms-3">Nowy Opis</button>
+                                        <button type="button" data-create="select" class="btn btn-sm py-0 btn-success ms-3">Nowa Lista</button>
+                                    </div>
+                                </div>
 
 								{{-- Custom --}}
 								<div data-input-group="custom">
 									<div class="row" data-row-wrap>
-                                        <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputCustomDesc" class="input-group-text">Opis</label>
                                                 <input value="" name="custom[product][desc][]" type="text"
                                                     class="form-control" id="InputCustomDesc">
                                             </div>
                                         </div>
-                                        <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                        <div class="col-6 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputCustomPrice" class="input-group-text">Cena</label>
                                                 <input value="" name="custom[product][price][]" type="text"
                                                     class="form-control" id="InputCustomPrice">
                                             </div>
                                         </div>
-                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+                                        <div class="col-6 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center justify-content-center">
                                             <button data-remove type="button"
                                                 class="btn btn-sm py-0 btn-danger">Usuń</button>
                                         </div>
@@ -106,7 +108,7 @@
 								{{-- Select --}}
 								<div data-input-group="select">
 									<div class="row" data-row-wrap>
-                                        <div class="col-5 px-0 ps-1 px-lg-3 col-lg-7 mb-3">
+                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-7 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputSelectDesc" class="input-group-text">Lista Usług</label>
                                                 <select name="select[product][desc][]" id="InputSelectDesc" class="flex-fill" data-select>
@@ -121,21 +123,21 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-3 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                        <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputSelectQnty" class="input-group-text">Ilość</label>
                                                 <input value="" min="0" name="select[product][qnty][]" type="number"
                                                     class="form-control" id="InputSelectQnty" data-input-select-qnty>
                                             </div>
                                         </div>
-                                        <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                        <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputSelectPrice" class="input-group-text">Cena</label>
                                                 <input readonly value="" name="select[product][price][]" type="text"
                                                     class="form-control" id="InputSelectPrice" data-input-select-price>
                                             </div>
                                         </div>
-                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+                                        <div class="col-2 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center justify-content-center">
                                             <button data-remove type="button"
                                                 class="btn btn-sm py-0 btn-danger">Usuń</button>
                                         </div>
@@ -144,30 +146,32 @@
                             </div>
 
                             <div class="mb-5" id="partsContainer" data-container="parts">
-                                <h3>
-                                    Lista Części
-                                    <button type="button" data-create="custom" class="btn btn-sm py-0 btn-success ms-3">Nowy Opis</button>
-                                    <button type="button" data-create="select" class="btn btn-sm py-0 btn-success ms-3">Nowa Lista</button>
-                                </h3>
+                                <div class="d-flex flex-column flex-md-row mb-3 text-center text-md-start">
+                                    <h3>Lista Części</h3>
+                                    <div>
+                                        <button type="button" data-create="custom" class="btn btn-sm py-0 btn-success ms-3">Nowy Opis</button>
+                                        <button type="button" data-create="select" class="btn btn-sm py-0 btn-success ms-3">Nowa Lista</button>
+                                    </div>
+                                </div>
 
 								{{-- Custom --}}
 								<div data-input-group="custom">
 									<div class="row" data-row-wrap>
-                                        <div class="col-8 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
+                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-9 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputCustomDesc" class="input-group-text">Opis</label>
                                                 <input value="" name="custom[part][desc][]" type="text"
                                                     class="form-control" id="InputCustomDesc">
                                             </div>
                                         </div>
-                                        <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                        <div class="col-6 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputCustomPrice" class="input-group-text">Cena</label>
                                                 <input value="" name="custom[part][price][]" type="text"
                                                     class="form-control" id="InputCustomPrice">
                                             </div>
                                         </div>
-                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+                                        <div class="col-6 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center justify-content-center">
                                             <button data-remove type="button"
                                                 class="btn btn-sm py-0 btn-danger">Usuń</button>
                                         </div>
@@ -177,7 +181,7 @@
 								{{-- Select --}}
 								<div data-input-group="select">
 									<div class="row" data-row-wrap>
-                                        <div class="col-5 px-0 ps-1 px-lg-3 col-lg-7 mb-3">
+                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-7 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputSelectDesc" class="input-group-text">Lista Części</label>
                                                 <select name="select[part][desc][]" id="InputSelectDesc" class="flex-fill" data-select>
@@ -192,21 +196,21 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-3 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                        <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputSelectQnty" class="input-group-text">Ilość</label>
                                                 <input value="" min="0" name="select[part][qnty][]" type="number"
                                                     class="form-control" id="InputSelectQnty" data-input-select-qnty>
                                             </div>
                                         </div>
-                                        <div class="col-4 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
+                                        <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                                             <div class="input-group input-group-sm">
                                                 <label for="InputSelectPrice" class="input-group-text">Cena</label>
                                                 <input readonly value="" name="select[part][price][]" type="text"
                                                     class="form-control" id="InputSelectPrice" data-input-select-price>
                                             </div>
                                         </div>
-                                        <div class="col-12 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center">
+                                        <div class="col-2 px-0 ps-1 px-lg-3 col-lg-1 mb-3 d-flex align-items-center justify-content-center">
                                             <button data-remove type="button"
                                                 class="btn btn-sm py-0 btn-danger">Usuń</button>
                                         </div>
