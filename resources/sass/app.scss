@@ -228,6 +228,12 @@ $custom-dark-color: #000000;
       background-position: 50% 25%;
     }
 
+    .custom-modal-about {
+      background-image: url('../../storage/app/public/shared/about.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
   }
 
   @media screen and (min-width: 992px) {

@@ -24,4 +24,5 @@
 
     @include('frontend.partials.contact')
     @include('frontend.partials.header_more')
+    @include('frontend.partials.about')
 </header>
