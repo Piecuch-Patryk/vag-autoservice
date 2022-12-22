@@ -18,9 +18,10 @@
         <div class="col-12 pb-5 col-md-10 col-lg-5 mt-md-5 p-lg-5 pe-lg-0">
             <h1>Pełna historia serwisowa on-line!</h1>
             <p>Dostęp do pełnej histori serwisowej Twojego samochodu. Wpisz numer VIN w wyszukiwarkę i przeglądaj historię napraw.</p>
-            <button class="btn custom-btn-outline-primary py-0 text-white border-1">Więcej</button>
+            <button class="btn custom-btn-outline-primary py-0 text-white border-1" data-bs-toggle="modal" data-bs-target="#headerMore">Więcej</button>
         </div>
     </div>
 
     @include('frontend.partials.contact')
+    @include('frontend.partials.header_more')
 </header>

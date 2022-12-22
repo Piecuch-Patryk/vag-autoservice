@@ -10,7 +10,7 @@
                     laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                     velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
                     in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="tel:{{ $company->phone }}" class="btn btn-sm btn-outline-primary py-0 shadow">Umów Wizytę</a>
+                <button class="btn btn-sm btn-outline-primary py-0" data-bs-target="#contactModal" data-bs-toggle="modal" data-bs-dismiss="modal">Umów Wizytę</button>
             </div>
         </div>
     </main>
@@ -55,7 +55,7 @@
                         Setki zadowolonych klientów
                     </li>
                 </ul>
-                <a href="tel:{{ $company->phone }}" class="btn btn-sm btn-outline-primary py-0 shadow">Umów Wizytę</a>
+                <button class="btn btn-sm btn-outline-primary py-0" data-bs-target="#contactModal" data-bs-toggle="modal" data-bs-dismiss="modal">Umów Wizytę</button>
             </div>
         </div>
     </article>
