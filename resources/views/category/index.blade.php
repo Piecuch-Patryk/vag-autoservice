@@ -29,6 +29,10 @@
 
             </div>
 
+            <div>
+                <a href="{{ route('category.editOrder') }}" class="btn btn-outline-info mb-3">Edytuj Kolejność Kategorii</a>
+            </div>
+
             @include('category.shared.list')
 
         </div>

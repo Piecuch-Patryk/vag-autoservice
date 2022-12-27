@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category.index', ['categories' => Category::latest()->get()]);
+        return view('category.index', ['categories' => Category::orderBy('order', 'asc')->get()]);
     }
 
     /**
@@ -59,6 +59,30 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         return view('category.edit', compact(['category', 'categories']));
+    }
+
+    /**
+     * Show the form for editing the order.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function editOrder()
+    {
+        $categories = Category::orderBy('order', 'asc')->get();
+
+        return view('category.editOrder', compact(['categories', 'categories']));
+    }
+
+    /**
+     * Update resource order.
+     *
+     * @param  \App\Http\Requests\UpdateCategoryRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateOrder(UpdateCategoryRequest $request)
+    {
+
+        return redirect()->route('category.index')->with('success', 'Zaktualizowano kolejność kategorii');
     }
 
     /**
