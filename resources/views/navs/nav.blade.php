@@ -39,7 +39,7 @@
             </li>
             <li>
                 <a class="dropdown-item {{ Route::currentRouteName() == 'part.create' ? 'active' : '' }}"
-                    href="{{ route('part.create') }}">Dodaj Części Zamienne</a>
+                    href="{{ route('part.create') }}">Dodaj Części</a>
             </li>
         </ul>
     </li>
