@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('street');
             $table->integer('number');
             $table->string('phone');
+            $table->string('password_pdf');
             $table->timestamps();
         });
     }

@@ -31,6 +31,7 @@ class UpdateCompanyRequest extends FormRequest
             'street' => 'required',
             'number' => 'required|numeric',
             'phone' => 'required',
+            'pdf_password' => 'required',
         ];
     }
 }

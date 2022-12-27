@@ -77,5 +77,8 @@ return [
         'category_id' => [
             'required' => 'Wybierz kategorię dla tego produktu'
         ],
+        'password_pdf' => [
+            'rewuired' => 'Wpisz hasło dla plików PDF',
+        ],
     ],
 ];

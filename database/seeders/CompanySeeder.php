@@ -23,6 +23,7 @@ class CompanySeeder extends Seeder
             'street' => 'Owocowa',
             'number' => '3',
             'phone' => '+48 344 987 324',
+            'password_pdf' => 'vag-autoserwis',
         ]);
     }
 }

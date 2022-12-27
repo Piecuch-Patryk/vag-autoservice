@@ -96,6 +96,18 @@
                     @include('shared.error', ['name' => 'phone'])
 
                 </div>
+                <div class="row g-3 align-items-center mb-3">
+                    <div class="col-12 col-md-3">
+                        <label for="InputPasswordPdf" class="form-label mb-0">Hasło PDF</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input value="{{ old('password_pdf') ? old('password_pdf') : $company->password_pdf }}" name="password_pdf" type="text"
+                            class="form-control form-control-sm" id="InputPasswordPdf" aria-describedby="nameHelp">
+                    </div>
+
+                    @include('shared.error', ['name' => 'password_pdf'])
+
+                </div>
                 <div class="text-center text-lg-start mt-5">
                     <button type="submit" class="btn btn-outline-info">Zapisz</button>
                 </div>

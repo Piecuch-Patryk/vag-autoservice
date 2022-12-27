@@ -17,5 +17,6 @@ class Company extends Model
         'street',
         'number',
         'phone',
+        'pdf_password',
     ];
 }
