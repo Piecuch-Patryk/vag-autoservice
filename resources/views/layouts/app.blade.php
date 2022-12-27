@@ -71,16 +71,27 @@
         <main class="py-4">
             <div class="container-fluid mt-5">
                 <div class="row">
-                    <div class="col-0 col-lg-2">
-                        <nav class="nav d-none d-lg-flex flex-column sticky-top top-25">
-                            @include('navs.nav')
-                        </nav>
-                    </div>
-                    <div class="col-12 col-lg-10">
-                        
-                        @yield('content')
 
-                    </div>
+                    @auth
+                        <div class="col-0 col-lg-2">
+                            <nav class="nav d-none d-lg-flex flex-column sticky-top top-25">
+                                @include('navs.nav')
+                            </nav>
+                        </div>
+                        <div class="col-12 col-lg-10">
+                            
+                            @yield('content')
+                            
+                        </div>
+
+                    @else
+                        <div class="col-12">
+                            
+                            @yield('content')
+                            
+                        </div>
+                    @endauth
+
                 </div>
             </div>
         </main>

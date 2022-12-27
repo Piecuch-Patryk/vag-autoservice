@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         Category::factory()
                 ->has(Product::factory()->count(10))
                 ->count(10)
+                ->sequence(fn ($sequence) => ['order' => $sequence->index + 1])
                 ->create();
         
         $this->call([
