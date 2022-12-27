@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function() {
   Route::controller(CategoryController::class)->group(function() {
     Route::get('/categories', 'index')->name('category.index');
     Route::get('/categories/order', 'editOrder')->name('category.editOrder');
-    Route::post('/categories', 'updateOrder')->name('category.updateOrder');
+    Route::put('/categories', 'updateOrder')->name('category.updateOrder');
     Route::get('/category/{id}', 'edit')->name('category.edit');
     Route::post('/category', 'store')->name('category.store');
     Route::put('/category/{id}', 'update')->name('category.update');

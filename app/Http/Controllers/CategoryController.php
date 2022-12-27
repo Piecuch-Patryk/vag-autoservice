@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Category;
+use Illuminate\Http\Request;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -27,7 +28,12 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        Category::create($request->all());
+        $lastOrderNumber = Category::orderBy('order', 'desc')->limit(1)->get()->toArray()[0]['order'];
+        Category::create([
+            'catName' => $request->catName,
+            'description' => $request->description ? $request->description : null,
+            'order' => $lastOrderNumber + 1,
+        ]);
 
         return redirect()->route('category.index')->with('success', 'Dodano nową kategorię');
     }
@@ -76,11 +82,16 @@ class CategoryController extends Controller
     /**
      * Update resource order.
      *
-     * @param  \App\Http\Requests\UpdateCategoryRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function updateOrder(UpdateCategoryRequest $request)
+    public function updateOrder(Request $request)
     {
+        foreach ($request->id as $key => $value) {
+            Category::find($value)->update([
+                'order' => $key + 1,
+            ]);
+        }
 
         return redirect()->route('category.index')->with('success', 'Zaktualizowano kolejność kategorii');
     }
@@ -108,6 +119,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::destroy($id);
+
+        $categories = Category::orderBy('order', 'asc')->get();
+
+        foreach ($categories as $key => $category) {
+            $category->update([
+                'order' => $key + 1,
+            ]);
+        }
 
         return back()->with('success', 'Usunięto wybraną kategorię');
     }
