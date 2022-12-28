@@ -178,14 +178,15 @@
                             <td class="text-center width">{{ number_format($product['price'] / 100, 2) }} zł</td>
                         </tr>
 
-                        {{ $index++ }}
-
-                        @if ($index == 8)
+                        
+                        @if ($index == 12)
                         <tr class="page-break">
                             <td></td>
                             <td></td>
                         </tr>
                         @endif
+
+                        {{ $index++ }}
                     @endforeach
 
                     @foreach ($data->selectProducts as $product)
@@ -194,20 +195,21 @@
                             <td class="text-center width">{{ number_format($product->price / 100 * $product->pivot->qnty, 2) }} zł</td>
                         </tr>
 
-                        {{ $index++ }}
-
-                        @if ($index == 8)
+                        
+                        @if ($index == 12)
                         <tr class="page-break">
                             <td></td>
                             <td></td>
                         </tr>
                         @endif
+
+                        {{ $index++ }}
                     @endforeach
 
                 </tbody>
             </table>
         </div>
-        <div class="container">
+        <div class="container {{ count($data->products) + count($data->selectProducts) < 12 ?  '' : 'dont-break' }}">
             <h2>Części Serwisowe</h2>
             <table border="1">
                 <thead>
