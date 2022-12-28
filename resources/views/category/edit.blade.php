@@ -19,15 +19,17 @@
                     <form method="POST" action="{{ route('category.update', $category->id) }}" class="pt-5">
                         @csrf
                         @method('PUT')
-                        <div class="row g-3 align-items-center mb-3">
-                            <div class="col-12 col-md-9 input-group">
-                                <label for="InputCategory" class="input-group-text">Nazwa Kategorii</label>
-                                <input value="{{ old('catName') ? old('catName') : $category->catName }}"
-                                    name="catName" type="text" class="form-control form-control-sm"
-                                    id="InputCategory" aria-describedby="nameHelp">
-                                <button type="submit" class="btn btn-success">Zapisz</button>
-                            </div>
+                        <div class="input-group mb-3">
+                            <label for="InputCategory" class="input-group-text">Nazwa Kategorii</label>
+                            <input value="{{ old('catName') ? old('catName') : $category->catName }}"
+                            name="catName" type="text" class="form-control form-control-sm"
+                            id="InputCategory" aria-describedby="nameHelp">
                         </div>
+                        <div class="input-group mb-3">
+                            <label for="InputDescription" class="input-group-text">Opis</label>
+                            <textarea name="description" style="min-height: 100px;" id="InputDescription" class="form-control form-control-sm">{{ old('description') ? old('description') : $category->description }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Zapisz</button>
                     </form>
 
                     @include('shared.error', ['name' => 'catName'])
