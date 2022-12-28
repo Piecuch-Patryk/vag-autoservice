@@ -30,6 +30,9 @@
                                     </p>
                                     <ul class="list-group">
 
+										@if (count($category->products) > 0)
+											
+										
                                         @foreach ($category->products as $product)
                                             <li class="list-group-item text-center">
                                                 <div class="d-flex justify-content-between">
@@ -42,23 +45,31 @@
                                                     <p class="mb-0">{{ number_format($product->price / 100, 2) }} zł</p>
                                                 </div>
                                                 <div class="d-flex justify-content-between">
-                                                    <div class="d-flex align-items-center">
-                                                        <a class="btn btn-sm btn-outline-info py-0 mx-3"
+													<div class="d-flex align-items-center">
+														<a class="btn btn-sm btn-outline-info py-0 mx-3"
                                                             href="{{ route('product.edit', $product->id) }}">Edytuj</a>
-                                                        <form method="POST"
+															<form method="POST"
                                                             action="{{ route('product.destroy', $product->id) }}"
                                                             class="d-flex align-items-center">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button
-                                                                class="btn btn-sm btn-outline-danger py-0 mx-3">Usuń</button>
+															class="btn btn-sm btn-outline-danger py-0 mx-3">Usuń</button>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </li>
-                                        @endforeach
-
+											@endforeach
+										
                                     </ul>
+
+									@else
+									<div>
+										<small>Brak usług w tej kategorii.</small>
+									</div>
+
+									@endif
+
                                 </div>
                             </div>
                         </div>
