@@ -57,7 +57,7 @@
         </div>
     </main>
 
-    <section class="container-fluid px-4 py-5 custom-section-image">
+    <section id="service" class="container-fluid px-4 py-5 custom-section-image">
         <div class="row">
             <div class="col-12 col-lg-7 ms-lg-auto me-lg-5">
                 <ul class="list-group list-group-flush rounded-2 shadow p-lg-5">
@@ -65,8 +65,7 @@
                     @foreach ($categories as $category)
                         <li class="list-group-item border-0 custom-text-shadow">
                             <p class="fs-5 mb-0">{{ $category->catName }}</p>
-                            <p class="lh-1 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eveniet fugit,
-                                est quam sit sapiente sequi praesentium accusamus.</p>
+                            <p class="lh-1 mb-0">{{ $category->description }}</p>
                         </li>
                     @endforeach
 

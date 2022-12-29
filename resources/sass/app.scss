@@ -17,6 +17,10 @@ $custom-primary-color: #E30613;
 $custom-light-color: #ffffff;
 $custom-dark-color: #000000;
 
+html {
+  scroll-behavior: smooth;
+}
+
 #app {
   .btn-outline-primary {
     color: #333;

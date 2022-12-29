@@ -13,8 +13,7 @@
                 {{ $company->city }} ul. {{ $company->street }} {{ $company->number }}
             </p>
         </div>
-        <button type="button" class="hamburger-menu-open d-lg-none" data-bs-toggle="modal"
-            data-bs-target="#navModal">
+        <button type="button" class="hamburger-menu-open d-lg-none" data-bs-toggle="modal" data-bs-target="#navModal">
             <span></span>
             <span></span>
             <span></span>
@@ -28,10 +27,9 @@
                 </p>
             </div>
             <div>
-                <div class="bg-white p-2 rounded-1 w-75 ms-auto me-4 mb-3">
 
+                <div class="bg-white p-2 rounded-1 w-75 ms-auto me-4 mb-3">
                     @include('frontend.shared.searchForm')
-                
                 </div>
 
                 <div class="d-none d-lg-flex justify-content-end me-4">
@@ -41,36 +39,29 @@
             </div>
             <nav>
                 <ul class="nav justify-content-around">
-                    <li class="nav-item mx-lg-1 mx-xxl-5 dropdown">
-                        <a class="nav-link dropdown-toggle text-light fs-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Serwis</a>
-                        <ul class="dropdown-menu">
-
-                            @foreach ($categories as $category)
-                            <li><a class="dropdown-item" href="#">{{ $category->catName }}</a></li>
-                            @endforeach
-                        </ul>
-                      </li>
                     <li class="nav-item mx-lg-1 mx-xxl-5">
-                        <a class="nav-link text-light fs-5" href="#" tabindex="-1"
-                        aria-disabled="true" data-bs-toggle="modal" data-bs-target="#aboutUs">O Nas</a>
+                        <a class="nav-link text-light fs-5" href="#service" role="button" >Serwis</a>
+                    </li>
+                    <li class="nav-item mx-lg-1 mx-xxl-5">
+                        <a class="nav-link text-light fs-5" href="#" tabindex="-1" aria-disabled="true"
+                            data-bs-toggle="modal" data-bs-target="#aboutUs">O Nas</a>
                     </li>
                     <li class="nav-item mx-lg-1 mx-xxl-5">
                         <a class="nav-link text-light fs-5" href="#reviews">Opinie</a>
                     </li>
                     <li class="nav-item ms-lg-1 ms-xxl-5 me-3">
-                        <a class="nav-link text-light fs-5" href="#" tabindex="-1"
-                            aria-disabled="true" data-bs-toggle="modal" data-bs-target="#contactModal">Kontakt</a>
+                        <a class="nav-link text-light fs-5" href="#" tabindex="-1" aria-disabled="true"
+                            data-bs-toggle="modal" data-bs-target="#contactModal">Kontakt</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </div>
-    <div class="bg-white p-2 my-5 rounded-1 d-lg-none">
-        
-        @include('frontend.shared.searchForm')
 
+    <div class="bg-white p-2 my-5 rounded-1 d-lg-none">
+        @include('frontend.shared.searchForm')
     </div>
-    
+
     <div class="d-lg-none text-center">
         @include('frontend.shared.searchFormFailure')
     </div>
@@ -91,26 +82,22 @@
                 <div class="modal-body">
                     <ul class="nav justify-content-around mt-3 border-bottom">
                         <li class="nav-item">
-                            <a class="nav-link custom-text-shadow" href="#" tabindex="-1"
-                            aria-disabled="true" data-bs-toggle="modal" data-bs-target="#aboutUs">O Nas</a>
+                            <a class="nav-link custom-text-shadow" href="#" tabindex="-1" aria-disabled="true"
+                                data-bs-toggle="modal" data-bs-target="#aboutUs">O Nas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-text-shadow" href="#reviews">Opinie</a>
+                            <a class="nav-link custom-text-shadow" href="" data-custom-scroll="#reviews">Opinie</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-text-shadow" href="#" tabindex="-1"
-                                aria-disabled="true" data-bs-toggle="modal" data-bs-target="#contactModal">Kontakt</a>
+                            <a class="nav-link custom-text-shadow" href="#" tabindex="-1" aria-disabled="true"
+                                data-bs-toggle="modal" data-bs-target="#contactModal">Kontakt</a>
                         </li>
                     </ul>
                     <ul class="nav flex-column mt-3 custom-bg-image">
-
-                        @foreach ($categories as $category)
-                            <li class="nav-item text-center">
-                                <a class="nav-link custom-text-shadow"
-                                    href="{{ route('category.show', $category->id) }}">{{ $category->catName }}</a>
-                            </li>
-                        @endforeach
-
+                        <li class="nav-item text-center">
+                            <a class="nav-link custom-text-shadow"
+                                href="" data-custom-scroll="#service">Usługi Serwisowe</a>
+                        </li>
                     </ul>
                 </div>
             </div>
