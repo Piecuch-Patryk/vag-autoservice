@@ -1,31 +1,10 @@
 import Glide from '@glidejs/glide'
 
-if (document.querySelector('.glide')) {
+document.addEventListener('DOMContentLoaded', function() {
 
-  new Glide('.glide', {
-    type: 'carousel',
-    startAt: 0,
-    perView: 4,
-    autoplay: 3000,
-    breakpoints: {
-      576: {
-        perView: 1,
-      },
-      768: {
-        perView: 2,
-      },
-      1300: {
-        perView: 3,
-      }
-    }
-  }).mount()
+  if (document.querySelector('.glide')) {
 
-}
-
-
-function mountGlideAbout() {
-  setTimeout(function () {
-    new Glide('.glide_about', {
+    new Glide('.glide', {
       type: 'carousel',
       startAt: 0,
       perView: 4,
@@ -42,9 +21,34 @@ function mountGlideAbout() {
         }
       }
     }).mount()
-  }, 200);
 
-  this.removeEventListener('click', mountGlideAbout)
-}
+  }
 
-document.querySelectorAll('[data-bs-target="#aboutUs"]').forEach(el => el.addEventListener('click', mountGlideAbout));
+
+  function mountGlideAbout() {
+    setTimeout(function () {
+      new Glide('.glide_about', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 4,
+        autoplay: 3000,
+        breakpoints: {
+          576: {
+            perView: 1,
+          },
+          768: {
+            perView: 2,
+          },
+          1300: {
+            perView: 3,
+          }
+        }
+      }).mount()
+    }, 200);
+
+    this.removeEventListener('click', mountGlideAbout)
+  }
+
+  document.querySelectorAll('[data-bs-target="#aboutUs"]').forEach(el => el.addEventListener('click', mountGlideAbout));
+
+});
