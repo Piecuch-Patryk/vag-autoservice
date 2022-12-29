@@ -1,5 +1,5 @@
 <nav class="bg-custom-dark p-3">
-    <div class="d-flex justify-content-between align-items-center p-xl-5 mx-xl-5">
+    <div class="d-flex justify-content-between align-items-center p-xl-5 mx-xl-5 fixed-top p-3 bg-black custom-fixed-to-relative">
         <div>
             <a href="/">
                 <img class="d-lg-none" src="{{ Storage::url('logo/white.png') }}" alt="">
@@ -58,8 +58,11 @@
         </div>
     </div>
 
-    <div class="bg-white p-2 my-5 rounded-1 d-lg-none">
-        @include('frontend.shared.searchForm')
+    <div class="d-lg-none">
+        <br/>
+        <div class="bg-white p-2 my-5 rounded-1">
+            @include('frontend.shared.searchForm')
+        </div>
     </div>
 
     <div class="d-lg-none text-center">

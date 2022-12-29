@@ -246,6 +246,10 @@ html {
   }
 
   @media screen and (min-width: 992px) {
+    .fixed-top.custom-fixed-to-relative {
+      position: relative;
+    }
+
     .custom-header-bg {
       background-size: 80%;
       background-position: 100% 80%;
