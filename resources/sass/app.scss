@@ -159,14 +159,17 @@ $custom-dark-color: #000000;
   }
 
   .custom-section {
-    width: calc(100% - 2rem);
-    margin: -40% auto 0;
     background-image: url('../../storage/app/public/shared/custom-section-sm.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
   }
-
+  
+  .custom-negative-margin {
+    width: calc(100% - 2rem);
+    margin: -40% auto 0;
+  }
+  
   .custom-section-image {
     background-image: url('../../storage/app/public/shared/section-sm.png');
     background-position: left;
@@ -220,8 +223,10 @@ $custom-dark-color: #000000;
     }
 
     .custom-section {
-      margin: auto;
       background-image: url('../../storage/app/public/shared/custom-section-lg.png');
+    }
+    .custom-negative-margin {
+      margin: auto;
     }
 
     .custom-article-bg {
