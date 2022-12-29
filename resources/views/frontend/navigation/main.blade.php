@@ -28,16 +28,19 @@
                 </p>
             </div>
             <div>
-                <div class="bg-white p-2 rounded-1 w-75 ms-auto me-4">
-                    <form method="POST" action="" class="d-flex justify-content-between">
-                        @csrf
-                        <input type="text" placeholder="Wpisz numer VIN" class="flex-fill border-0">
-                        <button class="btn btn-outline-primary py-0 shadow-sm">Szukaj</button>
-                    </form>
+                <div class="bg-white p-2 rounded-1 w-75 ms-auto me-4 mb-3">
+
+                    @include('frontend.shared.searchForm')
+                
                 </div>
+
+                <div class="d-none d-lg-flex justify-content-end me-4">
+                    @include('frontend.shared.searchFormFailure')
+                </div>
+
             </div>
             <nav>
-                <ul class="nav justify-content-around mt-3">
+                <ul class="nav justify-content-around">
                     <li class="nav-item mx-lg-1 mx-xxl-5 dropdown">
                         <a class="nav-link dropdown-toggle text-light fs-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Serwis</a>
                         <ul class="dropdown-menu">
@@ -63,12 +66,15 @@
         </div>
     </div>
     <div class="bg-white p-2 my-5 rounded-1 d-lg-none">
-        <form method="POST" action="" class="d-flex justify-content-between">
-            @csrf
-            <input type="text" placeholder="Wpisz numer VIN" class="flex-fill border-0">
-            <button class="btn btn-outline-primary py-0 shadow-sm">Szukaj</button>
-        </form>
+        
+        @include('frontend.shared.searchForm')
+
     </div>
+    
+    <div class="d-lg-none text-center">
+        @include('frontend.shared.searchFormFailure')
+    </div>
+
     <div class="modal fade" id="navModal" tabindex="-1" aria-labelledby="navModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

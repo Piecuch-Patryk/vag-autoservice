@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use App\Models\Company;
+use App\Models\Invoice;
 use App\Models\Category;
+use PDF;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -16,7 +18,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
+        $categories = Category::orderBy('order', 'asc')->get();
         $company = Company::first();
         $reviews = Review::latest()->get();
 
@@ -24,68 +26,44 @@ class FrontendController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Search the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function search(Request $request)
     {
-        //
+        $data = $request->get('search');
+        $invoices = Invoice::where('vin', 'LIKE', '%' . $data . '%')->get();
+
+        if (count($invoices) == 0) return back()->with(['failure' => 'Brak wyników wyszukiwania dla:', 'old_search' => $data]);
+        else {
+            $categories = Category::orderBy('order', 'asc')->get();
+            $company = Company::first();
+            $reviews = Review::latest()->get();
+
+            return view('frontend.search', compact('data', 'invoices', 'categories', 'company', 'reviews'));
+        }
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Download specified resource
+     * 
+     * @param int $id
+     * @return PDF $file
      */
-    public function show($id)
+    public function download($id)
     {
-        //
-    }
+        $company = Company::first();
+        $data = Invoice::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $data['products'] = json_decode($data['products'], true);
+        $data['parts'] = json_decode($data['parts'], true);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $pdf = PDF::loadView('invoice.pdf', compact('company', 'data'));
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $pdf->get_canvas()->get_cpdf()->setEncryption($data->vin, $company->password_pdf);
+
+        return $pdf->download('VAG_Autoserwis_' . $data->registration . '_' . $data->created_at->format('Y-m-d') . '.pdf');
     }
 }

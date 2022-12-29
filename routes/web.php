@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\UpdateUserController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\ReviewController;
+use League\CommonMark\Extension\FrontMatter\FrontMatterParser;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,5 +91,6 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::get('/category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
-
 Route::post('/review', [ReviewController::class, 'store'])->name('review.store');
+Route::post('/search', [FrontendController::class, 'search'])->name('frontend.search');
+Route::get('/download/{id}', [FrontendController::class, 'download'])->name('frontend.download');
