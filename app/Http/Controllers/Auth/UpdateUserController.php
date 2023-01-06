@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UpdateUserRequest;
 
 class UpdateUserController extends Controller
@@ -18,8 +19,13 @@ class UpdateUserController extends Controller
     public function update(UpdateUserRequest $request, $id)
     {
         $user = User::find($id);
-        $user->update($request->all());
-        
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'updated_at' => now(),
+        ]);
+
         return redirect()->route('home')->with('success', 'Dane zostały zaktualizowane');
     }
 }
