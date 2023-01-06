@@ -28,7 +28,9 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        $lastOrderNumber = Category::orderBy('order', 'desc')->limit(1)->get()->toArray()[0]['order'];
+        if (count(Category::orderBy('order', 'desc')->limit(1)->get()) > 0) $lastOrderNumber = Category::orderBy('order', 'desc')->limit(1)->get()->toArray()[0]['order'];
+        else $lastOrderNumber = 0;
+
         Category::create([
             'catName' => $request->catName,
             'description' => $request->description ? $request->description : null,
