@@ -189,17 +189,6 @@ html {
     }
   }
 
-  .custom-article-bg {
-    background-image: url('../../storage/app/public/shared/article-sm.png');
-    background-position: 50% 50%;
-    background-size: 180%;
-    background-repeat: no-repeat;
-
-    li {
-      background: none;
-    }
-  }
-
   .custom-fs-8 {
     font-size: .8rem;
   }
@@ -231,10 +220,6 @@ html {
     }
     .custom-negative-margin {
       margin: auto;
-    }
-
-    .custom-article-bg {
-      background-position: 50% 25%;
     }
 
     .custom-modal-about {

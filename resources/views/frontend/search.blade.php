@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.search')
 
 @section('main')
     <main class="container-fluid mb-5">

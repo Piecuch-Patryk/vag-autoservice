@@ -3,7 +3,7 @@
 @section('main')
     <main class="custom-negative-margin bg-white mb-5 mt-lg-5 rounded-1">
                 
-        <div id="mainCarousel" class="carousel carousel-dark slide shadow" data-bs-ride="carousel">
+        <div id="mainCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -14,16 +14,11 @@
                 <div class="carousel-item mb-5 p-3 active" data-bs-interval="4000">
                     <div class="row">
                         <div class="col-12 col-md-8 col-lg-6 mx-auto custom-section">
-                            <h2 class="custom-text-shadow fs-3">SPECJALIZUJEMY SIĘ W SERWISOWANIU SAMOCHODÓW Z GRUPY VOLKSWAGEN</h2>
-                            <p class="custom-text-shadow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                sunt
-                                in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                <button class="btn btn-sm btn-outline-primary py-0" data-bs-target="#contactModal"
+                            <h2 class="custom-text-shadow fs-3 fw-bold mb-3">SPECJALIZUJEMY SIĘ W SERWISOWANIU SAMOCHODÓW Z GRUPY VOLKSWAGEN</h2>
+                            <p class="custom-text-shadow">Jeśli szukasz specjalisty do serwisowania samochodów z grupy Volkswagen, to dobrze trafiłeś! Nasza firma specjalizuje się właśnie w naprawach tych pojazdów i posiada duże doświadczenie w tej dziedzinie. Dysponujemy wiedzą i sprzętem niezbędnym do wykonania profesjonalnych usług.</p>
+                            <p class="custom-text-shadow"> Oferujemy szeroki zakres usług serwisowych, od wymiany oleju i filtrów po naprawy układów mechanicznych</p>
+                            <p class="custom-text-shadow">Dbamy o zadowolenie naszych klientów i staramy się zapewnić im jak najlepsze usługi. Jeśli posiadasz samochód z grupy Volkswagen i szukasz rzetelnego mechanika, to zapraszamy do skorzystania z naszych usług.</p>
+                            <button class="btn btn-sm btn-outline-primary py-0" data-bs-target="#contactModal"
                                 data-bs-toggle="modal" data-bs-dismiss="modal">Umów Wizytę</button>
                         </div>
                     </div>
@@ -31,14 +26,11 @@
                 <div class="carousel-item mb-5 p-3" data-bs-interval="4000">
                     <div class="row">
                         <div class="col-12 col-md-8 col-lg-6 mx-auto">
-                            <h2 class="custom-text-shadow fs-3">OFERUJEMY USŁUGI W ZAKRESIE TRANSPORTU SAMOCHODÓW NA LAWECIE</h2>
-                            <p class="custom-text-shadow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-                                in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                <button class="btn btn-sm btn-outline-primary py-0" data-bs-target="#contactModal"
+                            <h2 class="custom-text-shadow fs-3 fw-bold mb-3">OFERUJEMY USŁUGI W ZAKRESIE TRANSPORTU SAMOCHODÓW NA LAWECIE</h2>
+                            <p class="custom-text-shadow">Jeśli potrzebujesz transportu samochodu na lawecie, to mamy dla ciebie dobrą wiadomość! Nasza firma dysponuje nowoczesnymi lawetami, które są bezpieczne i wyposażone w specjalne zabezpieczenia.</p>
+                            <p class="custom-text-shadow">Nasz zespół składa się z doświadczonych kierowców, którzy zapewnią bezpieczny transport twojego samochodu w każde miejsce.</p>
+                            <p class="custom-text-shadow">Zadzwoń do nas lub skontaktuj się z nami poprzez formularz na naszej stronie internetowej. Chętnie doradzimy ci najlepsze rozwiązanie i udzielimy szczegółowych informacji na temat naszych usług. Nie zwlekaj, zadbaj o swój samochód już dziś!</p>
+                            <button class="btn btn-sm btn-outline-primary py-0" data-bs-target="#contactModal"
                                 data-bs-toggle="modal" data-bs-dismiss="modal">Umów Wizytę</button>
                         </div>
                     </div>
@@ -74,29 +66,41 @@
         </div>
     </section>
 
-    <article class="container-fluid py-5 custom-article-bg">
+    <article class="container-fluid py-5">
         <div class="row">
-            <div class="col-12 text-center fw-bold">
-                <h3 class="fw-bold custom-text-shadow m-0">Dlaczego MY?</h3>
+            <div class="col-12 col-lg-8 mx-auto text-center">
+                <h3 class="fw-bold custom-text-shadow fs-1 mt-lg-5">Dlaczego MY?</h3>
                 <ul class="list-group list-group-flush rounded-2 py-3">
-                    <li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">
+                    <li class="list-group-item border-0 custom-text-shadow fs-5">
                         <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
-                        Doświadczeni mechanicy
+                        Posiadamy duże doświadczenie w branży motoryzacyjnej i znamy się na naprawach samochodów 
                     </li>
-                    <li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">
+                    <li class="list-group-item border-0 custom-text-shadow fs-5">
                         <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
-                        Profesjonalne narzędzia
+                        Dysponujemy nowoczesnym warsztatem, w którym wykonujemy wszystkie naprawy i przeglądy.
                     </li>
-                    <li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">
+                    <li class="list-group-item border-0 custom-text-shadow fs-5">
                         <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
-                        Specjalizacja w grupie VAG
+                        Oferujemy szeroki zakres usług serwisowych, od wymiany oleju i filtrów po naprawy układów mechanicznych i elektrycznych.
                     </li>
-                    <li class="list-group-item border-0 custom-text-shadow fw-bold lh-1">
+                    <li class="list-group-item border-0 custom-text-shadow fs-5">
                         <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
-                        Setki zadowolonych klientów
+                        Staramy się dobrać najlepsze rozwiązanie dla każdego samochodu i zapewnić naszym klientom fachowe doradztwo.
+                    </li>
+                    <li class="list-group-item border-0 custom-text-shadow fs-5">
+                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        Cenimy sobie zadowolenie naszych klientów i dbamy o ich satysfakcję z świadczonych przez nas usług.
+                    </li>
+                    <li class="list-group-item border-0 custom-text-shadow fs-5">
+                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        Zapewniamy szybkie i sprawne wykonanie napraw, aby nie tracić cennego czasu naszych klientów.
+                    </li>
+                    <li class="list-group-item border-0 custom-text-shadow fs-5">
+                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        Zachęcamy do skorzystania z naszych usług i do zapoznania się z pełną ofertą na naszej stronie internetowej. Gwarantujemy rzetelność i profesjonalizm!
                     </li>
                 </ul>
-                <button class="btn btn-sm btn-outline-primary py-0" data-bs-target="#contactModal" data-bs-toggle="modal"
+                <button class="btn btn-outline-primary mt-3" data-bs-target="#contactModal" data-bs-toggle="modal"
                     data-bs-dismiss="modal">Umów Wizytę</button>
             </div>
         </div>

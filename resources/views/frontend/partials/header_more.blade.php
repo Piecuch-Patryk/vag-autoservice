@@ -6,12 +6,10 @@
             </div>
             <div class="modal-body row align-items-center">
                 <div class="col-12 col-lg-6 col-xl-8">
-                    <h5 class="fw-bold mb-5">Historia serwisowania samochodu na wyciągnięcie ręki!</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur.</p>
+                    <h5 class="fw-bold mb-5">Historia serwisowania na wyciągnięcie ręki!</h5>
+                    <p>Dzięki nowoczesnym rozwiązaniom technologicznym, już nie musisz tracić czasu na szukanie odpowiedniego warsztatu i umawianie wizyt. Teraz wszystkie informacje o serwisowaniu swojego samochodu masz zawsze pod ręką dzięki naszej stronie internetowej.</p>
+                    <p>W łatwy sposób śledź historię serwisowania swojego samochodu. Dzięki temu zawsze będziesz mieć pełen wgląd w stan techniczny swojego samochodu.</p>
+                    <p>Z nami nie musisz się martwić o przechowywanie dokumentów. Wpisz numer VIN w wyszukiwarkę i przeglądaj historię serwisowania.</p>
                     <div class="text-center text-lg-start">
                         <button class="btn btn-sm btn-outline-primary py-0" data-bs-target="#contactModal"
                             data-bs-toggle="modal" data-bs-dismiss="modal">Umów Wizytę</button>

@@ -6,11 +6,9 @@
             </div>
             <div class="modal-body row align-items-center">
                 <h5 class="fw-bold mb-3">Poznajmy się - kilka słów o nas</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.</p>
+                <p>Jeśli szukasz profesjonalnego mechanika samochodowego, to dobrze trafiłeś! Nasza firma zajmuje się naprawami samochodów osobowych i dostawczych wszystkich marek. Dysponujemy nowoczesnym warsztatem, w którym nasz wykwalifikowany personel wykonuje wszystkie naprawy i przeglądy. Oferujemy także wymianę oleju i filtrów oraz inne usługi związane z utrzymaniem samochodu w dobrym stanie technicznym.</p>
+                <p>Nasza kadra składa się z doświadczonych mechaników samochodowych, którzy stale podnoszą swoje kwalifikacje i znają najnowsze technologie stosowane w branży motoryzacyjnej. Dzięki temu jesteśmy w stanie zapewnić naszym klientom najwyższy poziom usług i fachowe doradztwo.</p>
+                <p>Nasza firma ceni sobie zadowolenie klientów, dlatego też do każdego zlecenia podchodzimy indywidualnie i staramy się dobrać najlepsze rozwiązanie dla każdego samochodu. Zachęcamy do skorzystania z naszych usług i do zapoznania się z pełną ofertą na naszej stronie internetowej.</p>
                 <div class="text-center text-lg-start mb-5">
                     <button class="btn btn-sm btn-outline-primary py-0" data-bs-target="#contactModal"
                         data-bs-toggle="modal" data-bs-dismiss="modal">Umów Wizytę</button>
