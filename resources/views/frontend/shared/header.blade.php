@@ -14,7 +14,7 @@
     </div>
     @endif
 
-    @if (!session('success_email_sent'))
+    @if (session('success_email_sent'))
     <div id="alert" class="row visible">
         <div class="col-12 col-lg-6 mx-lg-auto">
             <div class="alert alert-success d-flex align-items-center" role="alert">
