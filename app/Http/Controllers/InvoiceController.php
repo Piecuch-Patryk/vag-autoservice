@@ -207,8 +207,6 @@ class InvoiceController extends Controller
         $data['parts'] = json_decode($data['parts'], true);
 
         $pdf = PDF::loadView('invoice.pdf', compact('company', 'data'));
-
-        $pdf->get_canvas()->get_cpdf()->setEncryption($data->vin, $company->password_pdf);
         
         return $pdf->download('VAG_Autoserwis_'. $data->registration . '_'. $data->created_at->format('Y-m-d') .'.pdf');
     }

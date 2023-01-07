@@ -60,7 +60,7 @@ class FrontendController extends Controller
         $data['products'] = json_decode($data['products'], true);
         $data['parts'] = json_decode($data['parts'], true);
 
-        $pdf = PDF::loadView('invoice.pdf', compact('company', 'data'));
+        $pdf = PDF::loadView('frontend.invoice.pdf', compact('company', 'data'));
 
         $pdf->get_canvas()->get_cpdf()->setEncryption($data->vin, $company->password_pdf);
 
