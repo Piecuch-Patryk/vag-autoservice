@@ -1,0 +1,1 @@
+<meta name="description" content="Mechanik samochodowy Opole, Przywory. Mechanika pojazdowa, specjalizacja - grupa Volkswagen. Dostęp do pełnej historii serwisowej Twojego samochodu">
