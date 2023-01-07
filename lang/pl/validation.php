@@ -80,5 +80,8 @@ return [
         'password_pdf' => [
             'rewuired' => 'Wpisz hasło dla plików PDF',
         ],
+        'content' => [
+            'required' => 'Proszę wpisać wiadomość',
+        ],
     ],
 ];

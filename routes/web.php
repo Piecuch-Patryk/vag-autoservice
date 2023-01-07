@@ -3,14 +3,15 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\Auth\UpdateUserController;
-use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PartController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Auth\UpdateUserController;
 use League\CommonMark\Extension\FrontMatter\FrontMatterParser;
 
 /*
@@ -94,3 +95,4 @@ Route::get('/category/show/{id}', [CategoryController::class, 'show'])->name('ca
 Route::post('/review', [ReviewController::class, 'store'])->name('review.store');
 Route::post('/search', [FrontendController::class, 'search'])->name('frontend.search');
 Route::get('/download/{id}', [FrontendController::class, 'download'])->name('frontend.download');
+Route::post('email', [EmailController::class, 'contact'])->name('email.contact');

@@ -28,26 +28,31 @@
                 </div>
                 <div>
                     <div class="row">
-                        <form action="">
+                        <form action="{{ route('email.contact') }} " method="POST">
+                            @csrf
                             <div class="form-floating mb-3 col-12 col-lg-6 mx-auto">
                                 <input name="name" type="text" class="form-control" required id="floatingInputName"
                                     placeholder="Podaj swoje imię">
                                 <label for="floatingInputName">Imię</label>
                             </div>
+                            @include('shared.error', ['name' => 'name'])
                             <div class="form-floating mb-3 col-12 col-lg-6 mx-auto">
                                 <input name="email" type="email" class="form-control" required id="floatingInputEmail"
                                     placeholder="Podaj swój email">
                                 <label for="floatingInputEmail">Email</label>
                             </div>
+                            @include('shared.error', ['name' => 'email'])
                             <div class="form-floating mb-3 col-12 col-lg-6 mx-auto">
                                 <input name="phone" type="text" class="form-control" required id="floatingInputPhone"
                                     placeholder="Podaj numer telefonu">
                                 <label for="floatingInputPhone">Telefon</label>
                             </div>
+                            @include('shared.error', ['name' => 'phone'])
                             <div class="form-floating mb-3 col-12 col-lg-6 mx-auto">
-                                <textarea class="form-control" style="min-height: 100px;" placeholder="Opisz problem z pojazdem" required id="floatingTextarea"></textarea>
+                                <textarea class="form-control" style="min-height: 100px;" name="content" placeholder="Opisz problem z pojazdem" required id="floatingTextarea"></textarea>
                                 <label for="floatingTextarea">Wiadomość</label>
                             </div>
+                            @include('shared.error', ['name' => 'content'])
                             <div class="col-12 text-center">
                                 <button class="btn btn-sm btn-outline-primary py-0">Wyślij</button>
                             </div>
