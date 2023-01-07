@@ -228,7 +228,7 @@ class InvoiceController extends Controller
         if(!$invoices) return redirect()->back()->with(['failure' => 'Brak wyników wyszukiwania dla:', 'old_search' => $data]);
 
         foreach ($invoices as $key => $invoice) {
-            $invoice->jobs = json_decode($invoice->jobs);
+            $invoice->products = json_decode($invoice->products);
             $invoice->parts = json_decode($invoice->parts);
         }
         
