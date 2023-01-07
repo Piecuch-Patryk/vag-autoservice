@@ -118,7 +118,7 @@
                         <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                             <div class="input-group input-group-sm">
                                 <label for="InputSelectQnty" class="input-group-text">Ilość</label>
-                                <input value="" min="0" name="select[product][qnty][]" type="number"
+                                <input value="" min="1" name="select[product][qnty][]" type="number"
                                     class="form-control" id="InputSelectQnty" data-input-select-qnty>
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                         <div class="col-5 px-0 ps-1 px-lg-3 col-lg-2 mb-3">
                             <div class="input-group input-group-sm">
                                 <label for="InputSelectQnty" class="input-group-text">Ilość</label>
-                                <input value="" min="0" name="select[part][qnty][]" type="number"
+                                <input value="" min="1" name="select[part][qnty][]" type="number"
                                     class="form-control" id="InputSelectQnty" data-input-select-qnty>
                             </div>
                         </div>
@@ -227,7 +227,7 @@
 
 @section('script-invoice')
     <script>
-        function updatePrice() {
+        function updatePrice(e) {
             const selectedOption = this.closest('[data-row-wrap]').querySelector('select').options[this.closest('[data-row-wrap]').querySelector('select').options.selectedIndex];
 
             if(selectedOption.value != 0) {
@@ -236,7 +236,7 @@
                 const qntyBox = this.closest('[data-row-wrap]').querySelector('[data-input-select-qnty');
 				let qnty = qntyBox.value;
 
-				if(qnty == 0) {
+                if(qnty == 0) {
 					qnty = 1;
 					qntyBox.value = qnty;
 				}
@@ -259,7 +259,6 @@
 
 			if(clonedEl.querySelector('[data-input-select-qnty]')) {
 				clonedEl.querySelector('[data-input-select-qnty]').addEventListener('change', updatePrice);
-				clonedEl.querySelector('[data-input-select-qnty]').addEventListener('keydown', updatePrice);
 				clonedEl.querySelector('[data-select]').addEventListener('change', updatePrice);
 			}
 
@@ -280,7 +279,6 @@
             document.querySelectorAll('[data-create]').forEach(el => el.addEventListener('click', addInputGroup));
             document.querySelectorAll('[data-remove]').forEach(el => el.addEventListener('click', removeInputGroup));
             document.querySelectorAll('[data-input-select-qnty]').forEach(el => el.addEventListener('change', updatePrice));
-            document.querySelectorAll('[data-input-select-qnty]').forEach(el => el.addEventListener('keydown', updatePrice));
 			document.querySelectorAll('[data-select]').forEach(el => el.addEventListener('change', updatePrice));
         });
     </script>
