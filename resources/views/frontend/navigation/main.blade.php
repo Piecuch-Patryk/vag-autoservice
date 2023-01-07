@@ -13,7 +13,7 @@
                 {{ $company->city }} ul. {{ $company->street }} {{ $company->number }}
             </p>
         </div>
-        <button type="button" class="hamburger-menu-open d-lg-none" data-bs-toggle="modal" data-bs-target="#navModal">
+        <button type="button" class="hamburger-menu-open d-lg-none" data-bs-toggle="modal" data-bs-target="#navModal" aria-label="toggle navigation">
             <span></span>
             <span></span>
             <span></span>
