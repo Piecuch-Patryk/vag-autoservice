@@ -148,7 +148,7 @@ html {
   }
 
   .custom-header-bg {
-    background-image: url('../../storage/app/public/shared/header-sm.png');
+    background-image: url('../../storage/app/public/shared/header-sm.webp');
     background-position: 0 70%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -163,7 +163,7 @@ html {
   }
 
   .custom-section {
-    background-image: url('../../storage/app/public/shared/custom-section-sm.png');
+    background-image: url('../../storage/app/public/shared/custom-section-sm.webp');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -175,7 +175,7 @@ html {
   }
   
   .custom-section-image {
-    background-image: url('../../storage/app/public/shared/section-sm.png');
+    background-image: url('../../storage/app/public/shared/section-sm.webp');
     background-position: left;
     background-size: cover;
     background-repeat: no-repeat;
@@ -210,20 +210,20 @@ html {
 
   @media screen and (min-width: 768px) {
     .custom-header-bg {
-      background-image: url('../../storage/app/public/shared/header-lg.png');
+      background-image: url('../../storage/app/public/shared/header-lg.webp');
       background-position: 40% 70%;
       background-size: cover;
     }
 
     .custom-section {
-      background-image: url('../../storage/app/public/shared/custom-section-lg.png');
+      background-image: url('../../storage/app/public/shared/custom-section-lg.webp');
     }
     .custom-negative-margin {
       margin: auto;
     }
 
     .custom-modal-about {
-      background-image: url('../../storage/app/public/shared/about.png');
+      background-image: url('../../storage/app/public/shared/about.webp');
       background-size: cover;
       background-repeat: no-repeat;
     }

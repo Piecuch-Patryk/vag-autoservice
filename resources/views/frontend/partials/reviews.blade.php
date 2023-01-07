@@ -1,7 +1,7 @@
 <section id="reviews" class="container-fluid mb-5">
     <div class="row align-items-center">
         <div class="d-none d-md-flex col-0 col-md-3 col-lg-4">
-            <img src="{{ Storage::url('shared/reviews.png') }}" class="w-100" alt="{{ $company->name }} logo">
+            <img src="{{ Storage::url('shared/reviews.webp') }}" class="w-100" alt="{{ $company->name }} logo">
         </div>
         <div class="col-12 col-md-9 col-lg-8">
             <h3 class="custom-text-shadow fw-bold my-5 text-center">Opinie Naszych Klientów</h3>

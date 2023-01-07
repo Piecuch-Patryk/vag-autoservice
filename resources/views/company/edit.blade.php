@@ -114,7 +114,7 @@
             </form>
         </div>
         <div class="col-0 col-lg-4 d-none d-lg-flex align-items-center">
-            <img class="w-75 mx-auto" src="{{ Storage::url('admin/home/main.png') }}">
+            <img class="w-75 mx-auto" src="{{ Storage::url('admin/home/main.webp') }}">
         </div>
     </div>
 </div>

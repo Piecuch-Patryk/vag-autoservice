@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="col-0 col-lg-6 col-xl-4 d-none d-lg-flex">
-                    <img src="{{ Storage::url('shared/header-more.png') }}" alt="">
+                    <img src="{{ Storage::url('shared/header-more.webp') }}" alt="">
                 </div>
             </div>
         </div>

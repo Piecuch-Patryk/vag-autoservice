@@ -72,31 +72,31 @@
                 <h3 class="fw-bold custom-text-shadow fs-1 mt-lg-5">Dlaczego MY?</h3>
                 <ul class="list-group list-group-flush rounded-2 py-3">
                     <li class="list-group-item border-0 custom-text-shadow fs-5">
-                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        <span><img src="{{ Storage::url('shared/check.webp') }}" alt="check mark"></span>
                         Posiadamy duże doświadczenie w branży motoryzacyjnej i znamy się na naprawach samochodów 
                     </li>
                     <li class="list-group-item border-0 custom-text-shadow fs-5">
-                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        <span><img src="{{ Storage::url('shared/check.webp') }}" alt="check mark"></span>
                         Dysponujemy nowoczesnym warsztatem, w którym wykonujemy wszystkie naprawy i przeglądy.
                     </li>
                     <li class="list-group-item border-0 custom-text-shadow fs-5">
-                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        <span><img src="{{ Storage::url('shared/check.webp') }}" alt="check mark"></span>
                         Oferujemy szeroki zakres usług serwisowych, od wymiany oleju i filtrów po naprawy układów mechanicznych i elektrycznych.
                     </li>
                     <li class="list-group-item border-0 custom-text-shadow fs-5">
-                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        <span><img src="{{ Storage::url('shared/check.webp') }}" alt="check mark"></span>
                         Staramy się dobrać najlepsze rozwiązanie dla każdego samochodu i zapewnić naszym klientom fachowe doradztwo.
                     </li>
                     <li class="list-group-item border-0 custom-text-shadow fs-5">
-                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        <span><img src="{{ Storage::url('shared/check.webp') }}" alt="check mark"></span>
                         Cenimy sobie zadowolenie naszych klientów i dbamy o ich satysfakcję z świadczonych przez nas usług.
                     </li>
                     <li class="list-group-item border-0 custom-text-shadow fs-5">
-                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        <span><img src="{{ Storage::url('shared/check.webp') }}" alt="check mark"></span>
                         Zapewniamy szybkie i sprawne wykonanie napraw, aby nie tracić cennego czasu naszych klientów.
                     </li>
                     <li class="list-group-item border-0 custom-text-shadow fs-5">
-                        <span><img src="{{ Storage::url('shared/check.png') }}" alt="check mark"></span>
+                        <span><img src="{{ Storage::url('shared/check.webp') }}" alt="check mark"></span>
                         Zachęcamy do skorzystania z naszych usług i do zapoznania się z pełną ofertą na naszej stronie internetowej. Gwarantujemy rzetelność i profesjonalizm!
                     </li>
                 </ul>
