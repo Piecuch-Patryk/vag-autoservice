@@ -74,6 +74,8 @@
 	@yield('main')
 
     @include('frontend.shared.footer')
+
+    @include('cookie-consent::index')
 </body>
 
 </html>

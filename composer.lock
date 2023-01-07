@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21ba6957472d49ce5397acaf2fdd5df4",
+    "content-hash": "801f8ef27f85c08045f4b052e0f9dc26",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1068,76 +1068,6 @@
                 "wkhtmltopdf"
             ],
             "time": "2018-01-15T06:57:33+00:00"
-        },
-        {
-            "name": "knplabs/knp-snappy",
-            "version": "v1.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KnpLabs/snappy.git",
-                "reference": "5126fb5b335ec929a226314d40cd8dad497c3d67"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/snappy/zipball/5126fb5b335ec929a226314d40cd8dad497c3d67",
-                "reference": "5126fb5b335ec929a226314d40cd8dad497c3d67",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "psr/log": "^1.0||^2.0||^3.0",
-                "symfony/process": "~3.4||~4.3||~5.0||~6.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16||^3.0",
-                "pedrotroller/php-cs-custom-fixer": "^2.19",
-                "phpstan/phpstan": "^0.12.7",
-                "phpstan/phpstan-phpunit": "^0.12.6",
-                "phpunit/phpunit": "~7.4||~8.5"
-            },
-            "suggest": {
-                "h4cc/wkhtmltoimage-amd64": "Provides wkhtmltoimage-amd64 binary for Linux-compatible machines, use version `~0.12` as dependency",
-                "h4cc/wkhtmltoimage-i386": "Provides wkhtmltoimage-i386 binary for Linux-compatible machines, use version `~0.12` as dependency",
-                "h4cc/wkhtmltopdf-amd64": "Provides wkhtmltopdf-amd64 binary for Linux-compatible machines, use version `~0.12` as dependency",
-                "h4cc/wkhtmltopdf-i386": "Provides wkhtmltopdf-i386 binary for Linux-compatible machines, use version `~0.12` as dependency",
-                "wemersonjanuario/wkhtmltopdf-windows": "Provides wkhtmltopdf executable for Windows, use version `~0.12` as dependency"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Knp\\Snappy\\": "src/Knp/Snappy"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "KNP Labs Team",
-                    "homepage": "http://knplabs.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://github.com/KnpLabs/snappy/contributors"
-                }
-            ],
-            "description": "PHP library allowing thumbnail, snapshot or PDF generation from a url or a html page. Wrapper for wkhtmltopdf/wkhtmltoimage.",
-            "homepage": "http://github.com/KnpLabs/snappy",
-            "keywords": [
-                "knp",
-                "knplabs",
-                "pdf",
-                "snapshot",
-                "thumbnail",
-                "wkhtmltopdf"
-            ],
-            "time": "2022-01-07T13:03:38+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3224,6 +3154,136 @@
                 "stylesheet"
             ],
             "time": "2021-12-11T13:40:54+00:00"
+        },
+        {
+            "name": "spatie/laravel-cookie-consent",
+            "version": "3.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-cookie-consent.git",
+                "reference": "c7a9d87397bce8b1834d90fb5124bea036ff7358"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/c7a9d87397bce8b1834d90fb5124bea036ff7358",
+                "reference": "c7a9d87397bce8b1834d90fb5124bea036ff7358",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cookie": "^8.0|^9.0",
+                "illuminate/support": "^8.0|^9.0",
+                "illuminate/view": "^8.0|^9.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.9",
+                "orchestra/testbench": "^6.0|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\CookieConsent\\CookieConsentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CookieConsent\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Willem Van Bockstal",
+                    "email": "willem@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Make your Laravel app comply with the crazy EU cookie law",
+            "homepage": "https://github.com/spatie/cookie-consent",
+            "keywords": [
+                "comply",
+                "cookie",
+                "cookie-consent",
+                "eu",
+                "law",
+                "spatie"
+            ],
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-06-03T08:33:36+00:00"
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.13.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "781a2f637237e69c277eb401063acf15e2b4156b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/781a2f637237e69c277eb401063acf15e2b4156b",
+                "reference": "781a2f637237e69c277eb401063acf15e2b4156b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.28",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^7.7",
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5.24",
+                "spatie/pest-plugin-test-time": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-12-20T14:09:05+00:00"
         },
         {
             "name": "symfony/console",
@@ -5912,6 +5972,76 @@
                 "test"
             ],
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "knplabs/knp-snappy",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/snappy.git",
+                "reference": "5126fb5b335ec929a226314d40cd8dad497c3d67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/snappy/zipball/5126fb5b335ec929a226314d40cd8dad497c3d67",
+                "reference": "5126fb5b335ec929a226314d40cd8dad497c3d67",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "psr/log": "^1.0||^2.0||^3.0",
+                "symfony/process": "~3.4||~4.3||~5.0||~6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16||^3.0",
+                "pedrotroller/php-cs-custom-fixer": "^2.19",
+                "phpstan/phpstan": "^0.12.7",
+                "phpstan/phpstan-phpunit": "^0.12.6",
+                "phpunit/phpunit": "~7.4||~8.5"
+            },
+            "suggest": {
+                "h4cc/wkhtmltoimage-amd64": "Provides wkhtmltoimage-amd64 binary for Linux-compatible machines, use version `~0.12` as dependency",
+                "h4cc/wkhtmltoimage-i386": "Provides wkhtmltoimage-i386 binary for Linux-compatible machines, use version `~0.12` as dependency",
+                "h4cc/wkhtmltopdf-amd64": "Provides wkhtmltopdf-amd64 binary for Linux-compatible machines, use version `~0.12` as dependency",
+                "h4cc/wkhtmltopdf-i386": "Provides wkhtmltopdf-i386 binary for Linux-compatible machines, use version `~0.12` as dependency",
+                "wemersonjanuario/wkhtmltopdf-windows": "Provides wkhtmltopdf executable for Windows, use version `~0.12` as dependency"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Knp\\Snappy\\": "src/Knp/Snappy"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KNP Labs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/snappy/contributors"
+                }
+            ],
+            "description": "PHP library allowing thumbnail, snapshot or PDF generation from a url or a html page. Wrapper for wkhtmltopdf/wkhtmltoimage.",
+            "homepage": "http://github.com/KnpLabs/snappy",
+            "keywords": [
+                "knp",
+                "knplabs",
+                "pdf",
+                "snapshot",
+                "thumbnail",
+                "wkhtmltopdf"
+            ],
+            "time": "2022-01-07T13:03:38+00:00"
         },
         {
             "name": "laravel/pint",
