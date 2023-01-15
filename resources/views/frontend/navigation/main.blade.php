@@ -44,6 +44,10 @@
                     </li>
                     <li class="nav-item mx-lg-1 mx-xxl-5">
                         <a class="nav-link text-light fs-5" href="#" tabindex="-1" aria-disabled="true"
+                            data-bs-toggle="modal" data-bs-target="#rescueModal">Laweta</a>
+                    </li>
+                    <li class="nav-item mx-lg-1 mx-xxl-5">
+                        <a class="nav-link text-light fs-5" href="#" tabindex="-1" aria-disabled="true"
                             data-bs-toggle="modal" data-bs-target="#aboutUs">O Nas</a>
                     </li>
                     <li class="nav-item mx-lg-1 mx-xxl-5">
@@ -84,6 +88,10 @@
                 </div>
                 <div class="modal-body">
                     <ul class="nav justify-content-around mt-3 border-bottom">
+                        <li class="nav-item">
+                            <a class="nav-link custom-text-shadow" href="#" tabindex="-1" aria-disabled="true"
+                            data-bs-toggle="modal" data-bs-target="#rescueModal">Laweta</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link custom-text-shadow" href="#" tabindex="-1" aria-disabled="true"
                                 data-bs-toggle="modal" data-bs-target="#aboutUs">O Nas</a>
