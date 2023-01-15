@@ -11,7 +11,7 @@
                     aria-label="Slide 2"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item mb-5 p-3 active" data-bs-interval="4000">
+                <div class="carousel-item mb-5 p-3 active" data-bs-interval="10000">
                     <div class="row">
                         <div class="col-12 col-md-8 col-lg-6 mx-auto custom-section">
                             <h2 class="custom-text-shadow fs-3 fw-bold mb-3">SPECJALIZUJEMY SIĘ W SERWISOWANIU SAMOCHODÓW Z GRUPY VOLKSWAGEN</h2>
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item mb-5 p-3" data-bs-interval="4000">
+                <div class="carousel-item mb-5 p-3" data-bs-interval="10000">
                     <div class="row">
                         <div class="col-12 col-md-8 col-lg-6 mx-auto">
                             <h2 class="custom-text-shadow fs-3 fw-bold mb-3">OFERUJEMY USŁUGI W ZAKRESIE TRANSPORTU SAMOCHODÓW NA LAWECIE</h2>

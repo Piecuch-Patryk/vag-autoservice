@@ -156,6 +156,10 @@ html {
     height: 80vh;
   }
 
+  .carousel {
+    min-height: 1110px;
+  }
+
   .custom-btn-outline-primary {
     border-color: $custom-primary-color;
     background-color: $custom-light-color;
@@ -171,7 +175,7 @@ html {
   
   .custom-negative-margin {
     width: calc(100% - 2rem);
-    margin: -40% auto 0;
+    margin: -30% auto 0;
   }
   
   .custom-section-image {
@@ -208,11 +212,21 @@ html {
     transform: translateY(0);
   }
 
+  @media screen and (min-width: 450px) {
+    .carousel {
+      min-height: 600px;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     .custom-header-bg {
       background-image: url('../../storage/app/public/shared/header-lg.webp');
       background-position: 40% 70%;
       background-size: cover;
+    }
+
+    .carousel {
+      min-height: 860px;
     }
 
     .custom-section {
@@ -243,6 +257,28 @@ html {
     .custom-fs-8 {
       font-size: 1.2rem;
       line-height: 1.5;
+    }
+
+    .carousel {
+      min-height: auto;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .carousel {
+      min-height: 875px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .carousel {
+      min-height: 725px;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .carousel {
+      min-height: 650px;
     }
   }
 
