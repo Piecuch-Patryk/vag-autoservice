@@ -83,5 +83,8 @@ return [
         'content' => [
             'required' => 'Proszę wpisać wiadomość',
         ],
+        'invoicePassword' => [
+            'required' => 'Proszę wpisać hasło',
+        ]
     ],
 ];

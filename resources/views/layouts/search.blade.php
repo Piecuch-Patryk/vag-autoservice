@@ -40,7 +40,6 @@
             <div class="text-light">
 				<h1>Cieszymy się, że jesteś z nami!</h1>
                 <p>Poniżej znajdziesz listę zleceń zrealizowanych w naszym warsztacie.</p>
-                <p>Oczywiście dbamy o Twoje bezpieczeństwo, każdy plik jest zaszyfrowany hasłem.</p>
 				<p>Skontaktuj się z nami, aby odzyskać zapomniane hasło.</p>
 			</div>
 			<div>
@@ -58,7 +57,6 @@
 	<div class="d-lg-none text-light mt-3">
 		<h1>Cieszymy się, że jesteś z nami!</h1>
 		<p>Poniżej znajdziesz listę zleceń zrealizowanych w naszym warsztacie.</p>
-		<p>Oczywiście dbamy o Twoje bezpieczeństwo, każdy plik jest zaszyfrowany hasłem.</p>
 		<p>Skontaktuj się z nami, aby odzyskać zapomniane hasło.</p>
 	</div>
 

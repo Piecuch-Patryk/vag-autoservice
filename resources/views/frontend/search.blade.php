@@ -3,22 +3,28 @@
 @section('main')
     <main class="container-fluid mb-5">
         <div class="row">
-            <div class="col-12 col-lg-8 mx-lg-auto text-center">
-                <h1 class="custom-text-shadow fs-3 my-5">Wyniki wyszukiwania - {{ count($invoices) }}</h1>
-                <ul class="list-group">
+            <div class="col-12 col-lg-8 mx-lg-auto text-center py-3">
+                <h2 class="custom-text-shadow">Znaleziono: {{ count($invoices) }}</h2>
+                <p class="custom-text-shadow">Wpisz hasło i przeglądaj lub pobierz historię serwisowania online</p>
+                <form action="{{ route('frontend.show') }}" method="POST">
+                    @csrf
+                    <div class="input-group mb-3">
+                        <input type="text" name="invoicePassword" class="form-control" placeholder="Hasło" aria-label="Hasło" aria-describedby="button-invoice-password">
+                        <button class="btn btn-outline-primary" type="submit" id="button-invoice-password">OK</button>
+                    </div>
+                    <input name="search" type="hidden" value="{{ $data }}">
+                </form>
 
-                    @foreach ($invoices as $invoice)
-                        <li class="list-group-item">
-                            <div class="d-flex flex-column flex-md-row justify-content-between">
-                                <p class="mb-0">{{ $loop->index + 1 }}. Utworzono: {{ $invoice->created_at->format('Y/m/d') }}</p>
-                                <a href="{{ route('frontend.download', ['id' => $invoice->id]) }}"
-                                    class="btn py-0 btn-outline-primary mx-3">Pobierz PDF</a>
-                            </div>
-                        </li>
-                    @endforeach
-
-                </ul>
-                <h2 class="my-5 fs-6">Do zobaczenia w warsztacie!</h2>
+                @include('shared.error', ['name' => 'invoicePassword'])
+                
+                @if(session('failure_invoicePassword'))
+                <div>
+                    <p class="text-danger fw-bold m-0 custom-text-shadow">
+                        {{ session('failure_invoicePassword') }}
+                    </p>
+                    <p class="custom-text-shadow">Skontaktuj się z nami w celu przypomnienia hasła</p>
+                    </div>
+                @endif
             </div>
         </div>
     </main>

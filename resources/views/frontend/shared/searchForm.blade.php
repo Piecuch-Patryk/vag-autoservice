@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('frontend.search') }}" class="d-flex justify-content-between">
+<form method="GET" action="{{ route('frontend.search') }}" class="d-flex justify-content-between">
     @csrf
     <input required type="text" placeholder="Wpisz numer VIN" name="search" value="{{ session('old_search') ? session('old_search') : '' }}"
         class="flex-fill border-0">

@@ -92,7 +92,8 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::get('/category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
+Route::post('/dokumenty', [FrontendController::class, 'show'])->name('frontend.show');
 Route::post('/review', [ReviewController::class, 'store'])->name('review.store');
-Route::post('/search', [FrontendController::class, 'search'])->name('frontend.search');
+Route::get('/search', [FrontendController::class, 'search'])->name('frontend.search');
 Route::get('/download/{id}', [FrontendController::class, 'download'])->name('frontend.download');
 Route::post('email', [EmailController::class, 'contact'])->name('email.contact');
